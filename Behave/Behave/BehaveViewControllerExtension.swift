@@ -1,120 +1,14 @@
 //
-//  BDTestsBDD.swift
-//  BDTestsUnitTests
+//  BehaveViewControllerExtension.swift
+//  Freshly
 //
-//  Created by Derek Bronston on 7/31/18.
-//  Copyright © 2018 Derek Bronston. All rights reserved.
+//  Created by Derek Bronston on 9/11/19.
+//  Copyright © 2019 Derek Bronston. All rights reserved.
 //
+
 import UIKit
-import RxSwift
-import RxCocoa
-
-class Behave {
-    var eventPub = PublishSubject<String>()
-    var event:Observable<String>!
-    var logoutPub = PublishSubject<String>()
-    var logout:Observable<String>!
-    var identifier:String?
-    
-    init() {
-        setUp()
-    }
-
-    func setUp() {
-        self.event = eventPub.asObserver()
-                            .observeOn(MainScheduler.instance)
-        _ = eventPub.observeOn(MainScheduler.instance)
-        
-        self.logout = logoutPub
-        _ = logoutPub.observeOn(MainScheduler.instance)
-
-    }
-    
-    func send(identity:String){
-        
-        guard let testIdentifier = identifier else { return }
-        identifier = nil
-        
-        eventPub.on(.next(testIdentifier + identity))
-    }
-}
 
 extension UIViewController {
-    
-    func givenTheUser(doesThis:String,withThis:BDUIElement,weExpect:String, afterAnUpdateToThisContext:BDContext?, letsVerify: @escaping() -> Void, orDoSomethingElse:@escaping() -> Void) -> Bool{
-        
-        switch withThis.type {
-        case .button:
-            if let context = afterAnUpdateToThisContext {
-                waitForContext(context: context, triggered: {
-                    letsVerify()
-                    orDoSomethingElse()
-                })
-               return button(uiElement: withThis.element)
-            } else {
-                let executed = button(uiElement: withThis.element)
-                if executed {
-                    letsVerify()
-                    orDoSomethingElse()
-                    return true
-                }
-            }
-            return false
-            
-        case .table:
-            if let context = afterAnUpdateToThisContext {
-                waitForContext(context: context, triggered: {
-                    letsVerify()
-                    orDoSomethingElse()
-                })
-                return table(uiElement: withThis.element)
-            } else {
-                let executed = table(uiElement: withThis.element)
-                if executed{
-                    letsVerify()
-                    orDoSomethingElse()
-                    return true
-                }
-            }
-            return false
-            
-        case .tabbar:
-            let executed = tabBar(uiElement: withThis.element)
-            if executed{
-                letsVerify()
-                orDoSomethingElse()
-                return true
-            }
-            return false
-            
-        case .collection:
-            let executed = collection(uiElement: withThis.element)
-            if executed{
-                letsVerify()
-                orDoSomethingElse()
-                return true
-            }
-            return false
-            
-        case .uiSwitch:
-            let executed = uiswitch(uiElement: withThis.element)
-            if executed{
-                letsVerify()
-                orDoSomethingElse()
-                return true
-            }
-            return false
-            
-        case .barButton:
-            let executed = barButton(uiElement: withThis.element)
-            if executed{
-                letsVerify()
-                orDoSomethingElse()
-                return true
-            }
-            return false
-        }
-    }
     
     func waitForContext(context:BDContext,triggered:@escaping () -> Void){
         if context.type == .table {
@@ -139,10 +33,31 @@ extension UIViewController {
     }
     
     //MARK: UI ELEMENTS
+    func action(uiElement:Any) {
+        
+        switch uiElement {
+            case is BDTable:
+                guard let tbl = uiElement as? BDTable else { return }
+                _ = tableWithOutlet(table: tbl)
+                break
+            case is BDCollection:
+                break
+            case is BDButton:
+                break
+            case is BDSwitch:
+                break
+            case is BDBarButton:
+                break
+            case is BDTabBar:
+                break
+            default:
+                break
+        }
+    }
+    
     func tabBar(uiElement:Any) -> Bool {
         guard let tb = uiElement as? BDTabBar else { return false }
         return tabBarWithOutlet(tbar:tb)
-        
     }
     
     func table(uiElement:Any) -> Bool {
@@ -187,7 +102,6 @@ extension UIViewController {
                 return
             }
         }
-        
     }
     
     func collection(behaviour:String,uiElement:Any){
@@ -213,7 +127,7 @@ extension UIViewController {
         return true
     }
     
-    private func tableWithOutlet(table:BDTable) -> Bool{
+    private func tableWithOutlet(table:BDTable) -> Bool {
         if table.select {
             DispatchQueue.main.async {
                 table.outlet.selectRow(at: table.indexPath, animated: false, scrollPosition: .none)
@@ -246,6 +160,7 @@ extension UIViewController {
         if let identifier = button.identifier {
             guard let parent = button.parent else { return false }
             if let returnedButton = findView(view: parent, identifier: identifier) as? UIButton {
+                print("SEND ACTIONS")
                 returnedButton.sendActions(for: button.action)
                 return true
             }
