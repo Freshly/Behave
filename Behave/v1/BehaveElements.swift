@@ -33,6 +33,12 @@ struct BDTable {
     let select:Bool
 }
 
+struct BDTableV2 {
+    let indexPath:IndexPath
+    let select:Bool
+    let identifier:String?
+}
+
 struct BDCollection {
     let outlet:UICollectionView
     let indexPath:IndexPath
@@ -58,4 +64,8 @@ struct BDSwitch{
 
 struct BDBarButton{
     let outlet:UIBarButtonItem
+}
+
+struct BDViewDidLoad {
+    
 }
