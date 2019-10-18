@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-MobileTestPR-MobileTestPRUITests/Pods-MobileTestPR-MobileTestPRUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework

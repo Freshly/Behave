@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+def shared_pods
+  use_frameworks!
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  pod 'Alamofire'
+  pod 'OHHTTPStubs/Swift'
+  pod 'SwiftKeychainWrapper'
+end
+
+target 'MobileTestPR' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  shared_pods
+  
+  # Pods for MobileTestPR
+  
+  target 'MobileTestPRTests' do
+    inherit! :search_paths
+    pod 'iOSSnapshotTestCase'
+    # Pods for testing
+  end
+  target 'MobileTestPRUITests' do
+    pod 'Alamofire'
+    inherit! :complete
+    
+    # Pods for testing
+  end
+end
