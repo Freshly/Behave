@@ -15,7 +15,6 @@ import FBSnapshotTestCase
 
 class MobileLoginBDDTests: FBSnapshotTestCase {
     
-    var sut: LoginController!
     override func setUp() {
         Behave.sharedInstance.setUp()
         super.setUp()
@@ -25,8 +24,56 @@ class MobileLoginBDDTests: FBSnapshotTestCase {
         super.tearDown()
     }
     
+    func testTypeIntoTextField() {
+        let expectations = expectation(description: "Fullfill")
+        let api = BehaveV2()
+        api.typeIntoTextField(identifier: "test-textfield", text: "Hello World")
+        if let result = api.viewController.query(identifier: "test-textfield") as? UITextField  {
+            XCTAssertEqual(result.text, "Hello World")
+            expectations.fulfill()
+        }
+        waitForExpectations(timeout: 3)
+    }
+    
+    func testTapRightNavigationItem() {
+        
+        let expectations = expectation(description: "Fullfill")
+        let api = BehaveV2()
+        api.tapRightNavigationItem()
+        if let result = api.viewController.query(identifier: "test-label") as? UILabel {
+            XCTAssertEqual(result.text, "Test Right Button")
+            expectations.fulfill()
+        }
+        waitForExpectations(timeout: 3)
+    }
+    
+    func testTapButton() {
+        let expectations = expectation(description: "Fullfill")
+        let api = BehaveV2()
+        api.tapButton(identifier: "test-button")
+        if let result = api.viewController.query(identifier: "test-label") as? UILabel {
+            XCTAssertEqual(result.text, "Test Button Tapped")
+            expectations.fulfill()
+        }
+        waitForExpectations(timeout: 3)
+    }
+    
+//    func testTapBackButton() {
+//        
+//        let expectations = expectation(description: "Fullfill")
+//        let api = BehaveV2()
+//        api.tapButton(identifier: "test-nav-button")
+//        api.listenFor(event: BDDEvent(event: .home, stub: nil, complete: {
+//            api.tapBackButton()
+//        }))
+//        api.run(finally: { (msg) in
+//           // expectations.fulfill()
+//        })
+//        waitForExpectations(timeout: 20)
+//    }
+    
     //MOB-2161
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenTheEmailAndPasswordShouldBeClearedFromTheFields(){
+    /*func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenTheEmailAndPasswordShouldBeClearedFromTheFields(){
         
         let expectations = expectation(description: "Fullfill")
         
@@ -52,53 +99,28 @@ class MobileLoginBDDTests: FBSnapshotTestCase {
     }
     
     //MOB-2163
-    /*func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheServerSucceedsThenTheUserIsTakenToTheHomeScreen(){
+    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheServerSucceedsThenTheUserIsTakenToTheHomeScreen(){
 
         let expectations = expectation(description: "Fullfill")
 
         let api = BehaveV2()
-        api.stubCall(stub: Stub(httpMethod: .post, httpResponse: 200, jsonReturn: "{\"success\":true}"))
+        api.stubNetworkRequest(stub: Stub(httpMethod: .post, httpResponse: 200, jsonReturn: "{\"success\":true}"))
         api.typeIntoTextField(identifier: "email", text: "email")
         api.typeIntoTextField(identifier: "password", text: "password")
         api.tapButton(identifier: "submit")
-        api.listenFor(event: BDDEvent(event: .loginSuccess, stub: nil, complete: {
-            self.FBSnapshotVerifyView(api.viewController!.view)
-            self.FBSnapshotVerifyLayer(api.viewController!.view.layer)
-            expectations.fulfill()
-        }, fail: {(event) in
-            XCTFail(event.event.rawValue)
-            expectations.fulfill()
+        api.listenFor(event: BDDEvent(event: .home, stub: nil, complete: {
+            //self.FBSnapshotVerifyView(api.viewController!.view)
+            //self.FBSnapshotVerifyLayer(api.viewController!.view.layer)
+
         }))
-        api.run()
+        api.run(finally: { (error) in
+            if let errorString = error {
+                XCTFail(errorString)
+            }
+            expectations.fulfill()
+        })
 
         waitForExpectations(timeout: 10)
     }*/
     
-    //MOB-2161 With Snap Shot
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenTheEmailAndPasswordShouldBeClearedFromTheFields_snap(){
-    }
-    
-    //MOB-2162
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThentheNetworkLoaderShouldBeDismissed(){
-    }
-    
-    
-    
-    //MOB-2166
-    func testGivenTheUserAttemptsToLoginWithBadCredsWhenCancelButtonOnTheErrorDialogIsPressedThenTheLoaderIsDismissed(){
-    }
-    
-    //MOB-2167
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestFailsThenTheUserIsPresentedWithAnErrorIndicatingAFailure(){
-    }
-    
-    //MOB-2168
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestFailsThenTheEmailAndPasswordShouldBeNotBeCleared(){
-    }
-    
-    
-    //MOB-2169
-    func testGivenTheTheUserHasPreviouslyLoggedInWhenTheUserRelaunchesTheAppThenTheUserShouldAutomaticallyByTakenToTheHomeScreen(){
-        
-    }
 }

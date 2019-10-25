@@ -27,6 +27,12 @@ class BehaveV2 {
     var testPassed = false
     var finalCall: (String?) -> Void = { _ in  }
     
+    init() {
+        if let controller = UIApplication.shared.topMostViewController() {
+            self.viewController = controller
+        }
+    }
+    
     @discardableResult func add(event: BDDEvent) -> Self {
         events.append(event)
         return self

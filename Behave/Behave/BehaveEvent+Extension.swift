@@ -13,7 +13,7 @@ extension BehaveEvent {
     static let upcoming = BehaveEvent("upcoming")
     static let login = BehaveEvent("login")
     static let loginSuccess = BehaveEvent("loginSuccess")
-    static let account = BehaveEvent("account")
+    static let home = BehaveEvent("home")
     static let manageSubscription = BehaveEvent("manage-subscription")
     static let weeklyDefaultPlan = BehaveEvent("weekly-default-plan")
     static let planSelected = BehaveEvent("plan-selected")
