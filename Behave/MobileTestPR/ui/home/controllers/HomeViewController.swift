@@ -8,32 +8,43 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tView: UITableView!
+    @IBOutlet weak var resultLabel: UILabel!
     //@IBOutlet weak var tableOne: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       // tableOne.accessibilityIdentifier = "table-one"
-       
-        // Do any additional setup after loading the view.
+        tView.accessibilityIdentifier = "test-table"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("Home ---")
         #if DEBUG
         Behave.sharedInstance.track(eventString: .home)
         #endif
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Table view data source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = "\(indexPath.row)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        resultLabel.text = "\(indexPath.row)"
+    }
 }

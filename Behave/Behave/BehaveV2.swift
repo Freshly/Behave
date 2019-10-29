@@ -65,13 +65,16 @@ class BehaveV2 {
                 self.stubNetworkRequest(stub: stub)
             }
             Behave.sharedInstance.event.subscribe(onNext: {(str) in
+                if self.events.count < 1 { return }
                 if str == eventString {
                     if let controller = UIApplication.shared.topMostViewController() {
                         self.viewController = controller
                     }
                     self.testPassed = true
                     event.complete()
+                    //if !self.events.isEmpty {
                     self.events.removeFirst()
+                    //}
                     self.runTests()
                 }
             }).disposed(by: self.bag )
