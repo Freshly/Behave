@@ -29,7 +29,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         #if DEBUG
-        Behave.sharedInstance.track(eventString: .collection)
+        BehaveV2.sharedInstance.track(eventString: .collection)
         #endif
     }
     // MARK: UICollectionViewDataSource

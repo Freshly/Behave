@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		18F00FE17ADF35CD2C6B2325 /* Pods_MobileTestPR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0BF8CEE8D10537862D05EE /* Pods_MobileTestPR.framework */; };
 		7D95CDB0123F3C9CF5ECAAB1 /* Pods_MobileTestPR_MobileTestPRUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06245475148083941C7CB6E6 /* Pods_MobileTestPR_MobileTestPRUITests.framework */; };
+		87273FBB237B3AE300CDB1A1 /* Behave+ViewQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87273FBA237B3AE300CDB1A1 /* Behave+ViewQueries.swift */; };
+		87273FBD237B3B2700CDB1A1 /* Behave+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87273FBC237B3B2700CDB1A1 /* Behave+Events.swift */; };
 		87AA67F923578E3100505DAB /* Behave+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67ED23578E3100505DAB /* Behave+Stub.swift */; };
 		87AA67FA23578E3100505DAB /* Behave+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67EE23578E3100505DAB /* Behave+UIViewController.swift */; };
 		87AA67FC23578E3100505DAB /* Behave+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F023578E3100505DAB /* Behave+UIApplication.swift */; };
-		87AA67FD23578E3100505DAB /* BehaveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F123578E3100505DAB /* BehaveConstants.swift */; };
+		87AA67FD23578E3100505DAB /* BehaveEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F123578E3100505DAB /* BehaveEvent.swift */; };
 		87AA67FE23578E3100505DAB /* BehaveDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F223578E3100505DAB /* BehaveDataObjects.swift */; };
 		87AA680023578E3100505DAB /* BehaveV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F423578E3100505DAB /* BehaveV2.swift */; };
 		87AA680123578E3100505DAB /* Behave+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA67F523578E3100505DAB /* Behave+Actions.swift */; };
@@ -86,10 +88,12 @@
 		136B9C1A8CA91BF5D00167FF /* Pods-MobileTestPR-MobileTestPRUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileTestPR-MobileTestPRUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileTestPR-MobileTestPRUITests/Pods-MobileTestPR-MobileTestPRUITests.release.xcconfig"; sourceTree = "<group>"; };
 		335A5136806F0BFABEC2D2B0 /* Pods-MobileTestPRTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileTestPRTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileTestPRTests/Pods-MobileTestPRTests.release.xcconfig"; sourceTree = "<group>"; };
 		50AC5487CC12B7CD8E67A22F /* Pods-MobileTestPR-MobileTestPRUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileTestPR-MobileTestPRUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileTestPR-MobileTestPRUITests/Pods-MobileTestPR-MobileTestPRUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		87273FBA237B3AE300CDB1A1 /* Behave+ViewQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+ViewQueries.swift"; sourceTree = "<group>"; };
+		87273FBC237B3B2700CDB1A1 /* Behave+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Events.swift"; sourceTree = "<group>"; };
 		87AA67ED23578E3100505DAB /* Behave+Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Behave+Stub.swift"; sourceTree = "<group>"; };
 		87AA67EE23578E3100505DAB /* Behave+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Behave+UIViewController.swift"; sourceTree = "<group>"; };
 		87AA67F023578E3100505DAB /* Behave+UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Behave+UIApplication.swift"; sourceTree = "<group>"; };
-		87AA67F123578E3100505DAB /* BehaveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaveConstants.swift; sourceTree = "<group>"; };
+		87AA67F123578E3100505DAB /* BehaveEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaveEvent.swift; sourceTree = "<group>"; };
 		87AA67F223578E3100505DAB /* BehaveDataObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaveDataObjects.swift; sourceTree = "<group>"; };
 		87AA67F423578E3100505DAB /* BehaveV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaveV2.swift; sourceTree = "<group>"; };
 		87AA67F523578E3100505DAB /* Behave+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Behave+Actions.swift"; sourceTree = "<group>"; };
@@ -196,12 +200,14 @@
 				87AA67ED23578E3100505DAB /* Behave+Stub.swift */,
 				87AA67EE23578E3100505DAB /* Behave+UIViewController.swift */,
 				87AA67F023578E3100505DAB /* Behave+UIApplication.swift */,
-				87AA67F123578E3100505DAB /* BehaveConstants.swift */,
+				87AA67F123578E3100505DAB /* BehaveEvent.swift */,
 				87AA67F223578E3100505DAB /* BehaveDataObjects.swift */,
 				87AA67F423578E3100505DAB /* BehaveV2.swift */,
 				87AA67F523578E3100505DAB /* Behave+Actions.swift */,
 				87AA67F723578E3100505DAB /* BehaveEvent+Extension.swift */,
 				87AA67F823578E3100505DAB /* BehaveExtension.swift */,
+				87273FBA237B3AE300CDB1A1 /* Behave+ViewQueries.swift */,
+				87273FBC237B3B2700CDB1A1 /* Behave+Events.swift */,
 			);
 			path = Behave;
 			sourceTree = SOURCE_ROOT;
@@ -660,6 +666,7 @@
 				87AA67FA23578E3100505DAB /* Behave+UIViewController.swift in Sources */,
 				87AA680B235E06CE00505DAB /* BehaveViewControllerExtension.swift in Sources */,
 				87CC92E321C99D6F00BAE0D6 /* ViewControllerProtocol.swift in Sources */,
+				87273FBB237B3AE300CDB1A1 /* Behave+ViewQueries.swift in Sources */,
 				87AA680C235E06CE00505DAB /* Behave.swift in Sources */,
 				87AA680123578E3100505DAB /* Behave+Actions.swift in Sources */,
 				87BAA2AA21C929AB00764DD9 /* AppDelegate.swift in Sources */,
@@ -669,7 +676,7 @@
 				87AD368323638CC30038529C /* ViewControllerOne.swift in Sources */,
 				87AA6811235E0CA800505DAB /* HomeViewController.swift in Sources */,
 				87AA680023578E3100505DAB /* BehaveV2.swift in Sources */,
-				87AA67FD23578E3100505DAB /* BehaveConstants.swift in Sources */,
+				87AA67FD23578E3100505DAB /* BehaveEvent.swift in Sources */,
 				87AD36852364C5A60038529C /* TableViewController.swift in Sources */,
 				87AA67FC23578E3100505DAB /* Behave+UIApplication.swift in Sources */,
 				87AA680323578E3100505DAB /* BehaveEvent+Extension.swift in Sources */,
@@ -678,6 +685,7 @@
 				87AA680423578E3100505DAB /* BehaveExtension.swift in Sources */,
 				87AA680D235E06CE00505DAB /* BehaveElements.swift in Sources */,
 				87C88D89234E611E009DB6CC /* LoginViewModel.swift in Sources */,
+				87273FBD237B3B2700CDB1A1 /* Behave+Events.swift in Sources */,
 				87C88D8A234E611E009DB6CC /* LoginController.swift in Sources */,
 				87C88D8B234E611E009DB6CC /* LoginController+UserActions.swift in Sources */,
 				87C88D8D234E6149009DB6CC /* LoginRepository.swift in Sources */,

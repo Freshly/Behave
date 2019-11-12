@@ -5,7 +5,6 @@
 //  Created by Derek Bronston on 10/21/19.
 //  Copyright © 2019 Freshly. All rights reserved.
 //
-
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -20,9 +19,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("Home ---")
+       
         #if DEBUG
-        Behave.sharedInstance.track(eventString: .home)
+        BehaveV2.sharedInstance.track(eventString: .home)
         #endif
     }
     
@@ -32,7 +31,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 200
     }
     

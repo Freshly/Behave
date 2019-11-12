@@ -24,7 +24,7 @@ class LoginController: UIViewController,ViewControllerProtocol{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Behave.sharedInstance.track(eventString: .login)
+        BehaveV2.sharedInstance.track(eventString: .login)
     }
 
     private func bindings(){

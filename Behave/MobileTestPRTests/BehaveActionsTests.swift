@@ -5,7 +5,6 @@
 //  Created by Derek Bronston on 10/9/19.
 //  Copyright © 2019 Freshly. All rights reserved.
 //
-
 import XCTest
 import RxSwift
 import RxCocoa

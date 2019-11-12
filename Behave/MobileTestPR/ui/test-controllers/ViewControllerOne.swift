@@ -21,7 +21,7 @@ class ViewControllerOne: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         #if DEBUG
-        Behave.sharedInstance.track(eventString: .login)
+        BehaveV2.sharedInstance.track(eventString: .login)
         #endif
     }
     
@@ -61,7 +61,7 @@ class ViewControllerOne: UIViewController {
         alertController.addAction(action2)
         self.present(alertController, animated: true, completion: {
             #if DEBUG
-            Behave.sharedInstance.track(eventString: .actionSheet)
+            BehaveV2.sharedInstance.track(eventString: .actionSheet)
             #endif
         })
     }
