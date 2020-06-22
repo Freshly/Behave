@@ -2,11 +2,11 @@
 //  Behave.h
 //  Behave
 //
-//  Created by Vadim Komisarchik on 8/9/19.
-//  Copyright © 2019 Freshly. All rights reserved.
+//  Created by Denis Efimov on 6/22/20.
+//  Copyright © 2020 Freshly. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Behave.
 FOUNDATION_EXPORT double BehaveVersionNumber;
