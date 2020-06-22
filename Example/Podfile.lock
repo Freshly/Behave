@@ -1,0 +1,16 @@
+PODS:
+  - Behave (1.0.0)
+
+DEPENDENCIES:
+  - Behave (from `..`)
+
+EXTERNAL SOURCES:
+  Behave:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  Behave: 512e1fb1f03f5b0dcbba1abd3b37576a338be2bb
+
+PODFILE CHECKSUM: cf3491429095685867634b0b794e40ef98d60ebf
+
+COCOAPODS: 1.9.0
