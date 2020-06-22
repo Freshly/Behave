@@ -11,6 +11,7 @@ public class Behaviour {
     public var events: [BDEvent]
     public var eventIndex: Int
     public var finalCall: (String?) -> Void
+    public var testTimeInSeconds = 10.0
     
     public init() {
         events = []
