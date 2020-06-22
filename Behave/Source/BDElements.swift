@@ -7,7 +7,7 @@
 //
 import UIKit
 
-enum BDElementType {
+public enum BDElementType {
     case button
     case tabbar
     case table
@@ -16,53 +16,53 @@ enum BDElementType {
     case barButton
 }
 
-struct BDContext {
-    let type: BDElementType
-    let element: Any
+public struct BDContext {
+    public let type: BDElementType
+    public let element: Any
 }
 
-struct BDUIElement {
-    let type: BDElementType
-    let element: Any
+public struct BDUIElement {
+    public let type: BDElementType
+    public let element: Any
 }
 
-struct BDTable {
-    let outlet: UITableView
-    let indexPath: IndexPath
-    let select: Bool
+public struct BDTable {
+    public let outlet: UITableView
+    public let indexPath: IndexPath
+    public let select: Bool
 }
 
-struct BDTableV2 {
-    let indexPath: IndexPath
-    let select: Bool
-    let identifier: String?
+public struct BDTableV2 {
+    public let indexPath: IndexPath
+    public let select: Bool
+    public let identifier: String?
 }
 
-struct BDCollection {
-    let outlet: UICollectionView
-    let indexPath: IndexPath
-    let select: Bool
+public struct BDCollection {
+    public let outlet: UICollectionView
+    public let indexPath: IndexPath
+    public let select: Bool
 }
 
-struct BDButton {
-    let outlet: UIButton?
-    let identifier: String?
-    let action: UIControl.Event
-    let parent: UIView?
+public struct BDButton {
+    public let outlet: UIButton?
+    public let identifier: String?
+    public let action: UIControl.Event
+    public let parent: UIView?
 }
 
-struct BDTabBar {
-    let index: Int
-    let outlet: UITabBarController
+public struct BDTabBar {
+    public let index: Int
+    public let outlet: UITabBarController
 }
 
-struct BDSwitch {
-    let outlet: UISwitch
-    let action: UIControl.Event
+public struct BDSwitch {
+    public let outlet: UISwitch
+    public let action: UIControl.Event
 }
 
-struct BDBarButton {
-    let outlet: UIBarButtonItem
+public struct BDBarButton {
+    public let outlet: UIBarButtonItem
 }
 
-struct BDViewDidLoad {}
+public struct BDViewDidLoad {}

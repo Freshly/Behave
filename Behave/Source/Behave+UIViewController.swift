@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     func topMostViewController() -> UIViewController {
         if let presented = presentedViewController {
             return presented.topMostViewController()

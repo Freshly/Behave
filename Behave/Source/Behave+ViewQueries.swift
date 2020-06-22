@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension Behave {
+public extension Behaviour {
     func findTable() -> UITableView? {
         guard let view = UIApplication.shared.topMostViewController()?.view else { return nil }
         if view is UITableView {

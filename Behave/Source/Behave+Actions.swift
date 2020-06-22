@@ -7,7 +7,7 @@
 //
 import UIKit
 
-extension Behave {
+public extension Behaviour {
     func typeIntoTextField(identifier: String, text: String) {
         if let textField = query(identifier: identifier) as? UITextField {
             textField.insertText(text)

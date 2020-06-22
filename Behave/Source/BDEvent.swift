@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct BDEvent {
-    let identifier: String
-    var complete = { () in
-    }
+public struct BDEvent {
+    public let identifier: String
+    public var complete = { () in }
 }

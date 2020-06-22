@@ -7,19 +7,24 @@
 import Foundation
 import UIKit
 
-class Behave {
-    var events = [BDEvent]()
-    var eventIndex = 0
-    var viewController: UIViewController!
-    var finalCall: (String?) -> Void = { _ in }
+public class Behaviour {
+    public var events: [BDEvent]
+    public var eventIndex: Int
+    public var finalCall: (String?) -> Void
+    
+    public init() {
+        events = []
+        eventIndex = 0
+        finalCall = { _ in }
+    }
 
-    @discardableResult func listenFor(_ identifier: String, completion: @escaping () -> Void) -> Self {
+    @discardableResult public func listenFor(_ identifier: String, completion: @escaping () -> Void) -> Self {
         let event = BDEvent(identifier: identifier, complete: completion)
         events.append(event)
         return self
     }
 
-    func run(finally: @escaping (_ errorString: String?) -> Void) {
+    public func run(finally: @escaping (_ errorString: String?) -> Void) {
         finalCall = finally
         runTests()
     }
