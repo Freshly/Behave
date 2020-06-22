@@ -60,7 +60,16 @@
 		BE473FB924A0929D0079DEEF /* Behave */ = {
 			isa = PBXGroup;
 			children = (
+				BE473FD524A0B0A40079DEEF /* Source */,
 				BE473FBA24A0929D0079DEEF /* Behave.h */,
+				BE473FBB24A0929D0079DEEF /* Info.plist */,
+			);
+			path = Behave;
+			sourceTree = "<group>";
+		};
+		BE473FD524A0B0A40079DEEF /* Source */ = {
+			isa = PBXGroup;
+			children = (
 				BE473FC324A094010079DEEF /* Behave.swift */,
 				BE473FC524A0942A0079DEEF /* Behave+Actions.swift */,
 				BE473FD024A098320079DEEF /* BDEvent.swift */,
@@ -68,9 +77,8 @@
 				BE473FC724A094480079DEEF /* Behave+ViewQueries.swift */,
 				BE473FC924A094610079DEEF /* Behave+UIApplication.swift */,
 				BE473FCB24A094760079DEEF /* Behave+UIViewController.swift */,
-				BE473FBB24A0929D0079DEEF /* Info.plist */,
 			);
-			path = Behave;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
