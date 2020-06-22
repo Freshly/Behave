@@ -149,7 +149,7 @@ public extension Behaviour {
                 }
             }
             runCount += 1
-            if runCount == 10 {
+            if runCount == (testTimeInSeconds + 5.0) {
                 timer.invalidate()
                 fail(identifier)
             }
