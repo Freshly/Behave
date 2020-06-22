@@ -142,7 +142,7 @@ public extension Behaviour {
                 return
             }
             if let parent = viewController.view {
-                if self.findView(view: parent, identifier: identifier) != nil {
+                if parent.accessibilityIdentifier == identifier || self.findView(view: parent, identifier: identifier) != nil {
                     complete()
                     timer.invalidate()
                     return
