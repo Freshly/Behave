@@ -14,7 +14,7 @@
 		BE4740A224A1343A0079DEEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A024A1343A0079DEEF /* Main.storyboard */; };
 		BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A324A1343C0079DEEF /* Assets.xcassets */; };
 		BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A524A1343C0079DEEF /* LaunchScreen.storyboard */; };
-		BE4740B224A1343C0079DEEF /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740B124A1343C0079DEEF /* ExampleAppTests.swift */; };
+		BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */; };
 		BE4740BD24A1343C0079DEEF /* ExampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740BC24A1343C0079DEEF /* ExampleAppUITests.swift */; };
 		F20BFBF3B93571BDAA2E313F /* Pods_ExampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CA0A77195535786E98FCED /* Pods_ExampleAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		BE4740A624A1343C0079DEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4740A824A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4740AD24A1343C0079DEEF /* ExampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE4740B124A1343C0079DEEF /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
+		BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerBDDTests.swift; sourceTree = "<group>"; };
 		BE4740B324A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4740B824A1343C0079DEEF /* ExampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4740BC24A1343C0079DEEF /* ExampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppUITests.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		BE4740B024A1343C0079DEEF /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE4740B124A1343C0079DEEF /* ExampleAppTests.swift */,
+				BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */,
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 			);
 			path = ExampleAppTests;
@@ -368,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE4740B224A1343C0079DEEF /* ExampleAppTests.swift in Sources */,
+				BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
 				INFOPLIST_FILE = ExampleAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,7 +601,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
 				INFOPLIST_FILE = ExampleAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
