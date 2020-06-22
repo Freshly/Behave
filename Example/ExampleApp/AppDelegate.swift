@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SampleApp
+//  ExampleApp
 //
 //  Created by Denis Efimov on 6/22/20.
 //  Copyright © 2020 Freshly. All rights reserved.
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SampleApp")
+        let container = NSPersistentContainer(name: "ExampleApp")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

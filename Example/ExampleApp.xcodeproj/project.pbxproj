@@ -16,8 +16,8 @@
 		BE47402224A0FB820079DEEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE47402024A0FB820079DEEF /* Main.storyboard */; };
 		BE47402424A0FB860079DEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE47402324A0FB860079DEEF /* Assets.xcassets */; };
 		BE47402724A0FB860079DEEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE47402524A0FB860079DEEF /* LaunchScreen.storyboard */; };
-		BE47403224A0FB860079DEEF /* SampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47403124A0FB860079DEEF /* SampleAppTests.swift */; };
-		BE47403D24A0FB860079DEEF /* SampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47403C24A0FB860079DEEF /* SampleAppUITests.swift */; };
+		BE47403224A0FB860079DEEF /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47403124A0FB860079DEEF /* ExampleAppTests.swift */; };
+		BE47403D24A0FB860079DEEF /* ExampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47403C24A0FB860079DEEF /* ExampleAppUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +54,10 @@
 		BE47402624A0FB860079DEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE47402824A0FB860079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE47402D24A0FB860079DEEF /* ExampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE47403124A0FB860079DEEF /* SampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppTests.swift; sourceTree = "<group>"; };
+		BE47403124A0FB860079DEEF /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
 		BE47403324A0FB860079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE47403824A0FB860079DEEF /* ExampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE47403C24A0FB860079DEEF /* SampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppUITests.swift; sourceTree = "<group>"; };
+		BE47403C24A0FB860079DEEF /* ExampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppUITests.swift; sourceTree = "<group>"; };
 		BE47403E24A0FB860079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 		BE47403024A0FB860079DEEF /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE47403124A0FB860079DEEF /* SampleAppTests.swift */,
+				BE47403124A0FB860079DEEF /* ExampleAppTests.swift */,
 				BE47403324A0FB860079DEEF /* Info.plist */,
 			);
 			path = ExampleAppTests;
@@ -157,7 +157,7 @@
 		BE47403B24A0FB860079DEEF /* ExampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BE47403C24A0FB860079DEEF /* SampleAppUITests.swift */,
+				BE47403C24A0FB860079DEEF /* ExampleAppUITests.swift */,
 				BE47403E24A0FB860079DEEF /* Info.plist */,
 			);
 			path = ExampleAppUITests;
@@ -372,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE47403224A0FB860079DEEF /* SampleAppTests.swift in Sources */,
+				BE47403224A0FB860079DEEF /* ExampleAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE47403D24A0FB860079DEEF /* SampleAppUITests.swift in Sources */,
+				BE47403D24A0FB860079DEEF /* ExampleAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,14 +583,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
-				INFOPLIST_FILE = SampleAppTests/Info.plist;
+				INFOPLIST_FILE = ExampleAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.SampleAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,14 +606,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
-				INFOPLIST_FILE = SampleAppTests/Info.plist;
+				INFOPLIST_FILE = ExampleAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.SampleAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,17 +627,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
-				INFOPLIST_FILE = SampleAppUITests/Info.plist;
+				INFOPLIST_FILE = ExampleAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.SampleAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SampleApp;
+				TEST_TARGET_NAME = ExampleApp;
 			};
 			name = Debug;
 		};
@@ -647,17 +647,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
-				INFOPLIST_FILE = SampleAppUITests/Info.plist;
+				INFOPLIST_FILE = ExampleAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.SampleAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SampleApp;
+				TEST_TARGET_NAME = ExampleApp;
 			};
 			name = Release;
 		};
