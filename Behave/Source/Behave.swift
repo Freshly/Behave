@@ -9,7 +9,7 @@ import UIKit
 
 public class Behaviour {
     /// Waiting time for each event
-    public var testTimeInterval: TimeInterval = 10.0
+    public var testTimeInterval: TimeInterval = 20.0
     
     private var events: [BDEvent]
 
