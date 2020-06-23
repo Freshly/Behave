@@ -29,4 +29,26 @@ class LoginControllerBDDTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
+    
+    func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestFailureThenDisplayAlert() {
+        let expectations = expectation(description: "\(#function)")
+        let api = Behaviour()
+        api.listen(for: "login-view") {
+            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post,
+                                              httpResponse: 401,
+                                              jsonReturn: "{\"error\":\"bad login creds\", \"message\":\"bad login creds\", \"status\":\"error\"}"))
+            api.typeIntoTextField(identifier: "email", text: "email")
+            api.typeIntoTextField(identifier: "password", text: "password")
+            api.tapButton(identifier: "submit")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                XCTAssertTrue(api.alert())
+                expectations.fulfill()
+            }
+        }
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
+    }
+    
 }
