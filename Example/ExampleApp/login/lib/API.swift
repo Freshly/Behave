@@ -31,9 +31,8 @@ struct API: APIProtocol {
 
     func login(email:String,password:String,success: @escaping()->Void,fail: @escaping(String)->Void){
         let params = ["email":email,"password":password]
-        Alamofire.request(URLS.login.rawValue,method:.post,parameters:params).responseJSON { response in
-            if let d = response.result.value as? [String:AnyObject]{
-               
+        AF.request(URLS.login.rawValue,method:.post,parameters:params).responseJSON { response in
+            if let d = response.value as? [String:AnyObject]{
                 if response.response!.statusCode > 200 {
                     if let error = d["error"] as? String {
                         fail(error)
@@ -54,5 +53,6 @@ struct API: APIProtocol {
                 }
             }
         }
+        
     }
 }

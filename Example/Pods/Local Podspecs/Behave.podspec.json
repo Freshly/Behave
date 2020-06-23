@@ -17,5 +17,10 @@
     "tag": "v1.0.0"
   },
   "source_files": "Behave/**/*.swift",
+  "dependencies": {
+    "OHHTTPStubs/Swift": [
+
+    ]
+  },
   "swift_version": "5.0"
 }

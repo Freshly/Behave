@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		6807AD6243E3E1ADF5FC1D93 /* Pods_ExampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF7CE113A3830E0782EBDDF /* Pods_ExampleApp.framework */; };
+		87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CF924A17710003E6940 /* LoginViewModel.swift */; };
+		87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFA24A17710003E6940 /* TestViewModel.swift */; };
+		87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFC24A17710003E6940 /* LoginRepository.swift */; };
+		87732D0C24A17710003E6940 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFE24A17710003E6940 /* LoginController.swift */; };
+		87732D0D24A17710003E6940 /* LoginController+UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFF24A17710003E6940 /* LoginController+UserActions.swift */; };
+		87732D0E24A17710003E6940 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0124A17710003E6940 /* Config.swift */; };
+		87732D0F24A17710003E6940 /* UIViewController+sharedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0324A17710003E6940 /* UIViewController+sharedMethods.swift */; };
+		87732D1024A17710003E6940 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0524A17710003E6940 /* Keychain.swift */; };
+		87732D1124A17710003E6940 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0624A17710003E6940 /* API.swift */; };
+		87732D1224A17710003E6940 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0824A17710003E6940 /* ViewControllerProtocol.swift */; };
+		87732D1424A17CC2003E6940 /* LoginControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */; };
+		87732D1824A17E5C003E6940 /* MobileLoginBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */; };
+		87732D1A24A1847B003E6940 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1924A1847B003E6940 /* HomeViewController.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
 		BE47409D24A1343A0079DEEF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409C24A1343A0079DEEF /* MasterViewController.swift */; };
 		BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409E24A1343A0079DEEF /* DetailViewController.swift */; };
@@ -15,7 +28,6 @@
 		BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A324A1343C0079DEEF /* Assets.xcassets */; };
 		BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A524A1343C0079DEEF /* LaunchScreen.storyboard */; };
 		BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */; };
-		BE4740BD24A1343C0079DEEF /* ExampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740BC24A1343C0079DEEF /* ExampleAppUITests.swift */; };
 		F20BFBF3B93571BDAA2E313F /* Pods_ExampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CA0A77195535786E98FCED /* Pods_ExampleAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +53,19 @@
 		631BD3EDF6448FD8E8412618 /* Pods-ExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		714AE86D8CE54CA92330A3DF /* Pods-ExampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.release.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		82CA0A77195535786E98FCED /* Pods_ExampleAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87732CF924A17710003E6940 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		87732CFA24A17710003E6940 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		87732CFC24A17710003E6940 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		87732CFE24A17710003E6940 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		87732CFF24A17710003E6940 /* LoginController+UserActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+UserActions.swift"; sourceTree = "<group>"; };
+		87732D0124A17710003E6940 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		87732D0324A17710003E6940 /* UIViewController+sharedMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+sharedMethods.swift"; sourceTree = "<group>"; };
+		87732D0524A17710003E6940 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		87732D0624A17710003E6940 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		87732D0824A17710003E6940 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
+		87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerUITests.swift; sourceTree = "<group>"; };
+		87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileLoginBDDTests.swift; sourceTree = "<group>"; };
+		87732D1924A1847B003E6940 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8FF7CE113A3830E0782EBDDF /* Pods_ExampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED1742828C71977C08FCFE5 /* Pods-ExampleAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleAppTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleAppTests/Pods-ExampleAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE47409524A1343A0079DEEF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +80,6 @@
 		BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerBDDTests.swift; sourceTree = "<group>"; };
 		BE4740B324A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4740B824A1343C0079DEEF /* ExampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE4740BC24A1343C0079DEEF /* ExampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppUITests.swift; sourceTree = "<group>"; };
 		BE4740BE24A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +130,96 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		87732CF524A17710003E6940 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				87732CF624A17710003E6940 /* ui */,
+				87732D0024A17710003E6940 /* config */,
+				87732D0224A17710003E6940 /* extensions */,
+				87732D0424A17710003E6940 /* lib */,
+				87732D0724A17710003E6940 /* protocols */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		87732CF624A17710003E6940 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				87732CF724A17710003E6940 /* login */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		87732CF724A17710003E6940 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				87732CF824A17710003E6940 /* viewModels */,
+				87732CFB24A17710003E6940 /* repository */,
+				87732CFD24A17710003E6940 /* controllers */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		87732CF824A17710003E6940 /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				87732CF924A17710003E6940 /* LoginViewModel.swift */,
+				87732CFA24A17710003E6940 /* TestViewModel.swift */,
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
+		87732CFB24A17710003E6940 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				87732CFC24A17710003E6940 /* LoginRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		87732CFD24A17710003E6940 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				87732CFE24A17710003E6940 /* LoginController.swift */,
+				87732CFF24A17710003E6940 /* LoginController+UserActions.swift */,
+				87732D1924A1847B003E6940 /* HomeViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		87732D0024A17710003E6940 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				87732D0124A17710003E6940 /* Config.swift */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		87732D0224A17710003E6940 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87732D0324A17710003E6940 /* UIViewController+sharedMethods.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		87732D0424A17710003E6940 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				87732D0524A17710003E6940 /* Keychain.swift */,
+				87732D0624A17710003E6940 /* API.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		87732D0724A17710003E6940 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				87732D0824A17710003E6940 /* ViewControllerProtocol.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
 		BE47408C24A1343A0079DEEF = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +245,7 @@
 		BE47409724A1343A0079DEEF /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				87732CF524A17710003E6940 /* login */,
 				BE47409824A1343A0079DEEF /* AppDelegate.swift */,
 				BE47409C24A1343A0079DEEF /* MasterViewController.swift */,
 				BE47409E24A1343A0079DEEF /* DetailViewController.swift */,
@@ -145,6 +260,7 @@
 		BE4740B024A1343C0079DEEF /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */,
 				BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */,
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 			);
@@ -154,7 +270,7 @@
 		BE4740BB24A1343C0079DEEF /* ExampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BE4740BC24A1343C0079DEEF /* ExampleAppUITests.swift */,
+				87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */,
 				BE4740BE24A1343C0079DEEF /* Info.plist */,
 			);
 			path = ExampleAppUITests;
@@ -171,6 +287,7 @@
 				BE47409124A1343A0079DEEF /* Sources */,
 				BE47409224A1343A0079DEEF /* Frameworks */,
 				BE47409324A1343A0079DEEF /* Resources */,
+				57BFEA9820EB1B78B96E4FE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +407,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		57BFEA9820EB1B78B96E4FE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		60E8412CC57CAF1ECD2527A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,9 +492,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87732D1224A17710003E6940 /* ViewControllerProtocol.swift in Sources */,
+				87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */,
 				BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */,
+				87732D0F24A17710003E6940 /* UIViewController+sharedMethods.swift in Sources */,
+				87732D0E24A17710003E6940 /* Config.swift in Sources */,
+				87732D1A24A1847B003E6940 /* HomeViewController.swift in Sources */,
+				87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */,
+				87732D1024A17710003E6940 /* Keychain.swift in Sources */,
 				BE47409D24A1343A0079DEEF /* MasterViewController.swift in Sources */,
+				87732D0D24A17710003E6940 /* LoginController+UserActions.swift in Sources */,
 				BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */,
+				87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */,
+				87732D1124A17710003E6940 /* API.swift in Sources */,
+				87732D0C24A17710003E6940 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87732D1824A17E5C003E6940 /* MobileLoginBDDTests.swift in Sources */,
 				BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE4740BD24A1343C0079DEEF /* ExampleAppUITests.swift in Sources */,
+				87732D1424A17CC2003E6940 /* LoginControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

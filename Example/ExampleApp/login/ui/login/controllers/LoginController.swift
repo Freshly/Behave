@@ -9,12 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MyURLProtocol: URLProtocol {
-    override class func canInit(with request: URLRequest) -> Bool {
-        print(request.url?.absoluteString)
-        return false
-    }
-}
 
 class LoginController: UIViewController,ViewControllerProtocol{
 
@@ -26,12 +20,12 @@ class LoginController: UIViewController,ViewControllerProtocol{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "login-view"
         bindings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Behave.sharedInstance.track(eventString: .login)
     }
 
     private func bindings(){
@@ -44,9 +38,6 @@ class LoginController: UIViewController,ViewControllerProtocol{
             self?.clearFields()
             self?.loader(show: false)
             self?.navigateToHome()
-            #if DEBUG
-            Behave.sharedInstance.track(eventString: .loginSuccess)
-            #endif
         }).disposed(by: bag)
     }
     
