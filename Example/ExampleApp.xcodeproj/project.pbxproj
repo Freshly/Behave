@@ -134,10 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				87732CF624A17710003E6940 /* ui */,
-				87732D0024A17710003E6940 /* config */,
-				87732D0224A17710003E6940 /* extensions */,
-				87732D0424A17710003E6940 /* lib */,
-				87732D0724A17710003E6940 /* protocols */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -153,6 +149,10 @@
 		87732CF724A17710003E6940 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				87732D0724A17710003E6940 /* protocols */,
+				87732D0424A17710003E6940 /* lib */,
+				87732D0224A17710003E6940 /* extensions */,
+				87732D0024A17710003E6940 /* config */,
 				87732CF824A17710003E6940 /* viewModels */,
 				87732CFB24A17710003E6940 /* repository */,
 				87732CFD24A17710003E6940 /* controllers */,
