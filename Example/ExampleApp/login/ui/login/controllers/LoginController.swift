@@ -13,7 +13,7 @@ class LoginController: UIViewController, ViewControllerProtocol {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var submitButton: UIButton!
-    let viewModel = LoginViewModel()
+    var viewModel = LoginViewModel()
     let bag = DisposeBag()
 
     override func viewDidLoad() {
