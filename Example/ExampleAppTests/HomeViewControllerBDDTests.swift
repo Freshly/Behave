@@ -21,7 +21,11 @@ class HomeViewControllerBDDTests: XCTestCase {
             api.tapButton(identifier: "submit")
         }
         api.listen(for: "home-view") {
-            api.tapRightNavigationItem()
+            guard let addButton = api.queryBarButtonItem(identifier: "add-button") else {
+                XCTFail("Can't find item")
+                return
+            }
+            api.tapRightNavigationItem(with: addButton)
             api.selectTableRow(identfier: "home-view", indexPath: IndexPath(row: 0, section: 0))
 
         }

@@ -18,7 +18,8 @@ class HomeViewController: UITableViewController {
 
         navigationItem.leftBarButtonItem = editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        addButton.accessibilityIdentifier = "add-button"
         navigationItem.rightBarButtonItem = addButton
     }
 
@@ -26,7 +27,7 @@ class HomeViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc func insertNewObject() {
+    @objc func insertNewObject(_: Any) {
         objects.insert(NSDate(), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)

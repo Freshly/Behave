@@ -20,9 +20,18 @@ public extension Behaviour {
         }
     }
 
-    func tapRightNavigationItem() {
-        if let SEL = UIApplication.shared.topMostViewController()?.navigationItem.rightBarButtonItem?.action {
-            UIApplication.shared.topMostViewController()?.perform(SEL)
+    func tapRightNavigationItem(with object: Any? = nil, with additionalObject: Any? = nil) {
+        guard let controller = UIApplication.shared.topMostViewController() else { return }
+        guard let selector = controller.navigationItem.rightBarButtonItem?.action else { return }
+
+        if let object = object {
+            if let additionalObject = additionalObject {
+                controller.perform(selector, with: object, with: additionalObject)
+            } else {
+                controller.perform(selector, with: object)
+            }
+        } else {
+            controller.perform(selector)
         }
     }
 
