@@ -16,18 +16,17 @@ class LoginTests: XCTestCase {
 
     override func tearDown() {}
 
-    // MOB-2161
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
+    func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let app = XCUIApplication()
         app.launchArguments = ["ui-tests", "login-success", "{\"success\":true}"]
         app.launch()
         app.textFields["email"].tap()
         app.textFields["email"].typeText("email@test.com")
-        app.textFields["password"].tap()
-        app.textFields["password"].typeText("password")
+        app.textFields["Password"].tap()
+        app.textFields["Password"].typeText("password")
         app.buttons["submit"].tap()
 
         // BACK BUTTON
-        XCTAssert(app.navigationBars.buttons.element(boundBy: 0).exists)
+        XCTAssert(app.navigationBars.staticTexts["Home"].exists)
     }
 }

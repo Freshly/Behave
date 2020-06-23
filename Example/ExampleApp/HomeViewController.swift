@@ -14,6 +14,7 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Home"
         view.accessibilityIdentifier = "home-view"
 
         navigationItem.leftBarButtonItem = editButtonItem
