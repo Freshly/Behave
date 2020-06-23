@@ -35,6 +35,7 @@ public class Behaviour {
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+        resetUI()
         runTests(success: success, fail: fail)
     }
 
@@ -45,7 +46,6 @@ public class Behaviour {
             runHelper(event: event, success: success, fail: fail)
         } else {
             success?()
-            resetUI()
         }
     }
 
@@ -54,9 +54,8 @@ public class Behaviour {
             event.complete()
             self?.events.removeFirst()
             self?.runTests(success: success, fail: fail)
-        }, fail: { [weak self] error in
+        }, fail: { error in
             fail?(error)
-            self?.resetUI()
         })
     }
 
