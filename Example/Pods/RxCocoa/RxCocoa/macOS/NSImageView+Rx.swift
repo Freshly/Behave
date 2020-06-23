@@ -8,16 +8,17 @@
 
 #if os(macOS)
 
-    import Cocoa
-    import RxSwift
+import RxSwift
+import Cocoa
 
-    extension Reactive where Base: NSImageView {
-        /// Bindable sink for `image` property.
-        public var image: Binder<NSImage?> {
-            return Binder(base) { imageView, image in
-                imageView.image = image
-            }
+extension Reactive where Base: NSImageView {
+   
+    /// Bindable sink for `image` property.
+    public var image: Binder<NSImage?> {
+        return Binder(self.base) { imageView, image in
+            imageView.image = image
         }
     }
+}
 
 #endif

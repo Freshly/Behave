@@ -10,6 +10,7 @@ import struct Foundation.Date
 import class Foundation.DateFormatter
 
 extension ObservableType {
+
     /**
      Prints received events for all observers on standard output.
 
@@ -21,23 +22,23 @@ extension ObservableType {
      */
     public func debug(_ identifier: String? = nil, trimOutput: Bool = false, file: String = #file, line: UInt = #line, function: String = #function)
         -> Observable<E> {
-        return Debug(source: self, identifier: identifier, trimOutput: trimOutput, file: file, line: line, function: function)
+            return Debug(source: self, identifier: identifier, trimOutput: trimOutput, file: file, line: line, function: function)
     }
 }
 
-private let dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+fileprivate let dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
 
-private func logEvent(_ identifier: String, dateFormat: DateFormatter, content: String) {
+fileprivate func logEvent(_ identifier: String, dateFormat: DateFormatter, content: String) {
     print("\(dateFormat.string(from: Date())): \(identifier) -> \(content)")
 }
 
-private final class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>, ObserverType where O.E == Source.E {
+final private class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>, ObserverType where O.E == Source.E {
     typealias Element = O.E
     typealias Parent = Debug<Source>
-
+    
     private let _parent: Parent
     private let _timestampFormatter = DateFormatter()
-
+    
     init(parent: Parent, observer: O, cancel: Cancelable) {
         self._parent = parent
         self._timestampFormatter.dateFormat = dateFormat
@@ -46,7 +47,7 @@ private final class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>,
 
         super.init(observer: observer, cancel: cancel)
     }
-
+    
     func on(_ event: Event<Element>) {
         let maxEventTextLength = 40
         let eventText = "\(event)"
@@ -62,7 +63,7 @@ private final class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>,
             self.dispose()
         }
     }
-
+    
     override func dispose() {
         if !self.disposed {
             logEvent(self._parent._identifier, dateFormat: self._timestampFormatter, content: "isDisposed")
@@ -71,7 +72,7 @@ private final class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>,
     }
 }
 
-private final class Debug<Source: ObservableType>: Producer<Source.E> {
+final private class Debug<Source: ObservableType>: Producer<Source.E> {
     fileprivate let _identifier: String
     fileprivate let _trimOutput: Bool
     fileprivate let _source: Source
@@ -80,18 +81,20 @@ private final class Debug<Source: ObservableType>: Producer<Source.E> {
         self._trimOutput = trimOutput
         if let identifier = identifier {
             self._identifier = identifier
-        } else {
+        }
+        else {
             let trimmedFile: String
             if let lastIndex = file.lastIndexOf("/") {
                 trimmedFile = String(file[file.index(after: lastIndex) ..< file.endIndex])
-            } else {
+            }
+            else {
                 trimmedFile = file
             }
             self._identifier = "\(trimmedFile):\(line) (\(function))"
         }
         self._source = source
     }
-
+    
     override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Source.E {
         let sink = DebugSink(parent: self, observer: observer, cancel: cancel)
         let subscription = self._source.subscribe(sink)

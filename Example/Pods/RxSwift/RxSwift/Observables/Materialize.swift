@@ -13,30 +13,31 @@ extension ObservableType {
      - returns: An observable sequence that wraps events in an Event<E>. The returned Observable never errors, but it does complete after observing all of the events of the underlying Observable.
      */
     public func materialize() -> Observable<Event<E>> {
-        return Materialize(source: asObservable())
+        return Materialize(source: self.asObservable())
     }
 }
 
-private final class MaterializeSink<Element, O: ObserverType>: Sink<O>, ObserverType where O.E == Event<Element> {
+fileprivate final class MaterializeSink<Element, O: ObserverType>: Sink<O>, ObserverType where O.E == Event<Element> {
+    
     func on(_ event: Event<Element>) {
-        forwardOn(.next(event))
+        self.forwardOn(.next(event))
         if event.isStopEvent {
-            forwardOn(.completed)
-            dispose()
+            self.forwardOn(.completed)
+            self.dispose()
         }
     }
 }
 
-private final class Materialize<Element>: Producer<Event<Element>> {
+final private class Materialize<Element>: Producer<Event<Element>> {
     private let _source: Observable<Element>
-
+    
     init(source: Observable<Element>) {
-        _source = source
+        self._source = source
     }
 
     override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == E {
         let sink = MaterializeSink(observer: observer, cancel: cancel)
-        let subscription = _source.subscribe(sink)
+        let subscription = self._source.subscribe(sink)
 
         return (sink: sink, subscription: subscription)
     }

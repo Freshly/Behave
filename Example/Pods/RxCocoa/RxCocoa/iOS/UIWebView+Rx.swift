@@ -8,10 +8,11 @@
 
 #if os(iOS)
 
-    import RxSwift
     import UIKit
+    import RxSwift
 
     extension Reactive where Base: UIWebView {
+
         /// Reactive wrapper for `delegate`.
         /// For more information take a look at `DelegateProxyType` protocol documentation.
         public var delegate: DelegateProxy<UIWebView, UIWebViewDelegate> {
@@ -31,13 +32,13 @@
                 .methodInvoked(#selector(UIWebViewDelegate.webViewDidFinishLoad(_:)))
                 .map { _ in }
         }
-
+        
         /// Reactive wrapper for `delegate` message.
         public var didFailLoad: Observable<Error> {
             return delegate
                 .methodInvoked(#selector(UIWebViewDelegate.webView(_:didFailLoadWithError:)))
                 .map { a in
-                    try castOrThrow(Error.self, a[1])
+                    return try castOrThrow(Error.self, a[1])
                 }
         }
     }

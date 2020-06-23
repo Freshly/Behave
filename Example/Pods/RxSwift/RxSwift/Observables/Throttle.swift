@@ -9,6 +9,7 @@
 import struct Foundation.Date
 
 extension ObservableType {
+
     /**
      Returns an Observable that emits the first and the latest item emitted by the source Observable during sequential time windows of a specified duration.
 
@@ -27,34 +28,34 @@ extension ObservableType {
     }
 }
 
-private final class ThrottleSink<O: ObserverType>:
-    Sink<O>,
-    ObserverType,
-    LockOwnerType,
-    SynchronizedOnType {
+final private class ThrottleSink<O: ObserverType>
+    : Sink<O>
+    , ObserverType
+    , LockOwnerType
+    , SynchronizedOnType {
     typealias Element = O.E
     typealias ParentType = Throttle<Element>
-
+    
     private let _parent: ParentType
-
+    
     let _lock = RecursiveLock()
-
+    
     // state
     private var _lastUnsentElement: Element?
     private var _lastSentTime: Date?
     private var _completed: Bool = false
 
     let cancellable = SerialDisposable()
-
+    
     init(parent: ParentType, observer: O, cancel: Cancelable) {
         self._parent = parent
-
+        
         super.init(observer: observer, cancel: cancel)
     }
-
+    
     func run() -> Disposable {
         let subscription = self._parent._source.subscribe(self)
-
+        
         return Disposables.create(subscription, cancellable)
     }
 
@@ -64,14 +65,15 @@ private final class ThrottleSink<O: ObserverType>:
 
     func _synchronized_on(_ event: Event<Element>) {
         switch event {
-        case let .next(element):
+        case .next(let element):
             let now = self._parent._scheduler.now
 
             let timeIntervalSinceLast: RxTimeInterval
 
             if let lastSendingTime = self._lastSentTime {
                 timeIntervalSinceLast = now.timeIntervalSince(lastSendingTime)
-            } else {
+            }
+            else {
                 timeIntervalSinceLast = self._parent._dueTime
             }
 
@@ -87,7 +89,7 @@ private final class ThrottleSink<O: ObserverType>:
             }
 
             let isThereAlreadyInFlightRequest = self._lastUnsentElement != nil
-
+            
             self._lastUnsentElement = element
 
             if isThereAlreadyInFlightRequest {
@@ -108,7 +110,8 @@ private final class ThrottleSink<O: ObserverType>:
         case .completed:
             if self._lastUnsentElement != nil {
                 self._completed = true
-            } else {
+            }
+            else {
                 self.forwardOn(.completed)
                 self.dispose()
             }
@@ -121,23 +124,23 @@ private final class ThrottleSink<O: ObserverType>:
         // in case element processing takes a while, this should give some more room
         self._lastSentTime = self._parent._scheduler.now
     }
-
+    
     func propagate(_: Int) -> Disposable {
         self._lock.lock(); defer { self._lock.unlock() } // {
-        if let lastUnsentElement = self._lastUnsentElement {
-            self.sendNow(element: lastUnsentElement)
-        }
+            if let lastUnsentElement = self._lastUnsentElement {
+                self.sendNow(element: lastUnsentElement)
+            }
 
-        if self._completed {
-            self.forwardOn(.completed)
-            self.dispose()
-        }
+            if self._completed {
+                self.forwardOn(.completed)
+                self.dispose()
+            }
         // }
         return Disposables.create()
     }
 }
 
-private final class Throttle<Element>: Producer<Element> {
+final private class Throttle<Element>: Producer<Element> {
     fileprivate let _source: Observable<Element>
     fileprivate let _dueTime: RxTimeInterval
     fileprivate let _latest: Bool
@@ -149,10 +152,11 @@ private final class Throttle<Element>: Producer<Element> {
         self._latest = latest
         self._scheduler = scheduler
     }
-
+    
     override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
         let sink = ThrottleSink(parent: self, observer: observer, cancel: cancel)
         let subscription = sink.run()
         return (sink: sink, subscription: subscription)
     }
+    
 }

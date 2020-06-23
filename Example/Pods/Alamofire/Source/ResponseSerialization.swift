@@ -766,7 +766,7 @@ extension DataRequest {
     ///
     /// - Returns:             The request.
     @discardableResult
-    public func responseDecodable<T: Decodable>(of _: T.Type = T.self,
+    public func responseDecodable<T: Decodable>(of type: T.Type = T.self,
                                                 queue: DispatchQueue = .main,
                                                 decoder: DataDecoder = JSONDecoder(),
                                                 completionHandler: @escaping (AFDataResponse<T>) -> Void) -> Self {
@@ -787,7 +787,7 @@ extension DownloadRequest {
     ///
     /// - Returns:             The request.
     @discardableResult
-    public func responseDecodable<T: Decodable>(of _: T.Type = T.self,
+    public func responseDecodable<T: Decodable>(of type: T.Type = T.self,
                                                 queue: DispatchQueue = .main,
                                                 decoder: DataDecoder = JSONDecoder(),
                                                 completionHandler: @escaping (AFDownloadResponse<T>) -> Void) -> Self {
@@ -937,8 +937,8 @@ extension DataStreamRequest {
     ///
     /// - Returns: The `DataStreamRequest`.
     @discardableResult
-    public func responseStreamDecodable<T: Decodable>(of _: T.Type = T.self,
-                                                      on _: DispatchQueue = .main,
+    public func responseStreamDecodable<T: Decodable>(of type: T.Type = T.self,
+                                                      on queue: DispatchQueue = .main,
                                                       using decoder: DataDecoder = JSONDecoder(),
                                                       preprocessor: DataPreprocessor = PassthroughPreprocessor(),
                                                       stream: @escaping Handler<T, AFError>) -> Self {

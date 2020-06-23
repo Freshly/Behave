@@ -13,7 +13,7 @@ extension PublishRelay {
     ///
     /// - returns: Observable sequence.
     public func asSignal() -> Signal<Element> {
-        let source = asObservable()
+        let source = self.asObservable()
             .observeOn(SignalSharingStrategy.scheduler)
         return SharedSequence(source)
     }

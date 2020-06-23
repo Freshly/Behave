@@ -8,15 +8,17 @@
 
 #if os(iOS) || os(tvOS)
 
-    import RxSwift
     import UIKit
+    import RxSwift
 
     extension Reactive where Base: UIViewController {
+
         /// Bindable sink for `title`.
         public var title: Binder<String> {
-            return Binder(base) { viewController, title in
+            return Binder(self.base) { viewController, title in
                 viewController.title = title
             }
         }
+    
     }
 #endif

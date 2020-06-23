@@ -8,16 +8,18 @@
 
 #if os(iOS) || os(tvOS)
 
-    import RxSwift
-    import UIKit
+import UIKit
+import RxSwift
 
-    extension Reactive where Base: UIAlertAction {
-        /// Bindable sink for `enabled` property.
-        public var isEnabled: Binder<Bool> {
-            return Binder(base) { alertAction, value in
-                alertAction.isEnabled = value
-            }
+extension Reactive where Base: UIAlertAction {
+
+    /// Bindable sink for `enabled` property.
+    public var isEnabled: Binder<Bool> {
+        return Binder(self.base) { alertAction, value in
+            alertAction.isEnabled = value
         }
     }
-
+    
+}
+    
 #endif

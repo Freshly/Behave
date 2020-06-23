@@ -97,19 +97,19 @@ public final class AlamofireNotifications: EventMonitor {
         NotificationCenter.default.postNotification(named: Request.didFinishNotification, with: request)
     }
 
-    public func request(_ request: Request, didResumeTask _: URLSessionTask) {
+    public func request(_ request: Request, didResumeTask task: URLSessionTask) {
         NotificationCenter.default.postNotification(named: Request.didResumeTaskNotification, with: request)
     }
 
-    public func request(_ request: Request, didSuspendTask _: URLSessionTask) {
+    public func request(_ request: Request, didSuspendTask task: URLSessionTask) {
         NotificationCenter.default.postNotification(named: Request.didSuspendTaskNotification, with: request)
     }
 
-    public func request(_ request: Request, didCancelTask _: URLSessionTask) {
+    public func request(_ request: Request, didCancelTask task: URLSessionTask) {
         NotificationCenter.default.postNotification(named: Request.didCancelTaskNotification, with: request)
     }
 
-    public func request(_ request: Request, didCompleteTask _: URLSessionTask, with _: AFError?) {
+    public func request(_ request: Request, didCompleteTask task: URLSessionTask, with error: AFError?) {
         NotificationCenter.default.postNotification(named: Request.didCompleteTaskNotification, with: request)
     }
 }

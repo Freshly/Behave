@@ -29,7 +29,6 @@ import class Foundation.NSRecursiveLock
             _ = Resources.decrementTotal()
         }
     }
-
 #else
     typealias RecursiveLock = NSRecursiveLock
 #endif

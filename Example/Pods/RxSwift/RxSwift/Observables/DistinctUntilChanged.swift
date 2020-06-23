@@ -7,6 +7,7 @@
 //
 
 extension ObservableType where E: Equatable {
+
     /**
      Returns an observable sequence that contains only distinct contiguous elements according to equality operator.
 
@@ -16,7 +17,7 @@ extension ObservableType where E: Equatable {
      */
     public func distinctUntilChanged()
         -> Observable<E> {
-        return distinctUntilChanged({ $0 }, comparer: { ($0 == $1) })
+            return self.distinctUntilChanged({ $0 }, comparer: { ($0 == $1) })
     }
 }
 
@@ -31,7 +32,7 @@ extension ObservableType {
      */
     public func distinctUntilChanged<K: Equatable>(_ keySelector: @escaping (E) throws -> K)
         -> Observable<E> {
-        return distinctUntilChanged(keySelector, comparer: { $0 == $1 })
+            return self.distinctUntilChanged(keySelector, comparer: { $0 == $1 })
     }
 
     /**
@@ -44,7 +45,7 @@ extension ObservableType {
      */
     public func distinctUntilChanged(_ comparer: @escaping (E, E) throws -> Bool)
         -> Observable<E> {
-        return distinctUntilChanged({ $0 }, comparer: comparer)
+            return self.distinctUntilChanged({ $0 }, comparer: comparer)
     }
 
     /**
@@ -58,66 +59,67 @@ extension ObservableType {
      */
     public func distinctUntilChanged<K>(_ keySelector: @escaping (E) throws -> K, comparer: @escaping (K, K) throws -> Bool)
         -> Observable<E> {
-        return DistinctUntilChanged(source: asObservable(), selector: keySelector, comparer: comparer)
+            return DistinctUntilChanged(source: self.asObservable(), selector: keySelector, comparer: comparer)
     }
 }
 
-private final class DistinctUntilChangedSink<O: ObserverType, Key>: Sink<O>, ObserverType {
+final private class DistinctUntilChangedSink<O: ObserverType, Key>: Sink<O>, ObserverType {
     typealias E = O.E
-
+    
     private let _parent: DistinctUntilChanged<E, Key>
     private var _currentKey: Key?
-
+    
     init(parent: DistinctUntilChanged<E, Key>, observer: O, cancel: Cancelable) {
-        _parent = parent
+        self._parent = parent
         super.init(observer: observer, cancel: cancel)
     }
-
+    
     func on(_ event: Event<E>) {
         switch event {
-        case let .next(value):
+        case .next(let value):
             do {
-                let key = try _parent._selector(value)
+                let key = try self._parent._selector(value)
                 var areEqual = false
-                if let currentKey = _currentKey {
-                    areEqual = try _parent._comparer(currentKey, key)
+                if let currentKey = self._currentKey {
+                    areEqual = try self._parent._comparer(currentKey, key)
                 }
-
+                
                 if areEqual {
                     return
                 }
-
-                _currentKey = key
-
-                forwardOn(event)
-            } catch {
-                forwardOn(.error(error))
-                dispose()
+                
+                self._currentKey = key
+                
+                self.forwardOn(event)
+            }
+            catch let error {
+                self.forwardOn(.error(error))
+                self.dispose()
             }
         case .error, .completed:
-            forwardOn(event)
-            dispose()
+            self.forwardOn(event)
+            self.dispose()
         }
     }
 }
 
-private final class DistinctUntilChanged<Element, Key>: Producer<Element> {
+final private class DistinctUntilChanged<Element, Key>: Producer<Element> {
     typealias KeySelector = (Element) throws -> Key
     typealias EqualityComparer = (Key, Key) throws -> Bool
-
+    
     fileprivate let _source: Observable<Element>
     fileprivate let _selector: KeySelector
     fileprivate let _comparer: EqualityComparer
-
+    
     init(source: Observable<Element>, selector: @escaping KeySelector, comparer: @escaping EqualityComparer) {
-        _source = source
-        _selector = selector
-        _comparer = comparer
+        self._source = source
+        self._selector = selector
+        self._comparer = comparer
     }
-
+    
     override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
         let sink = DistinctUntilChangedSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = _source.subscribe(sink)
+        let subscription = self._source.subscribe(sink)
         return (sink: sink, subscription: subscription)
     }
 }

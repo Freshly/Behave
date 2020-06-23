@@ -8,88 +8,87 @@
 
 #if os(iOS) || os(tvOS) || os(macOS)
 
-    import RxSwift
+import RxSwift
 
-    #if os(iOS) || os(tvOS)
-        import UIKit
+#if os(iOS) || os(tvOS)
+    import UIKit
 
-        typealias Control = UIKit.UIControl
+    typealias Control = UIKit.UIControl
 
-        #if swift(>=4.2)
-            public typealias ControlEvents = UIKit.UIControl.Event
-        #else
-            public typealias ControlEvents = UIKit.UIControlEvents
-        #endif
-    #elseif os(macOS)
-        import Cocoa
-
-        typealias Control = Cocoa.NSControl
+    #if swift(>=4.2)
+        public typealias ControlEvents = UIKit.UIControl.Event
+    #else
+        public typealias ControlEvents = UIKit.UIControlEvents
     #endif
+#elseif os(macOS)
+    import Cocoa
 
-    // This should be only used from `MainScheduler`
-    final class ControlTarget: RxTarget {
-        typealias Callback = (Control) -> Void
+    typealias Control = Cocoa.NSControl
+#endif
 
-        let selector: Selector = #selector(ControlTarget.eventHandler(_:))
+// This should be only used from `MainScheduler`
+final class ControlTarget: RxTarget {
+    typealias Callback = (Control) -> Void
 
-        weak var control: Control?
-        #if os(iOS) || os(tvOS)
-            let controlEvents: UIControlEvents
-        #endif
-        var callback: Callback?
-        #if os(iOS) || os(tvOS)
-            init(control: Control, controlEvents: UIControlEvents, callback: @escaping Callback) {
-                MainScheduler.ensureRunningOnMainThread()
+    let selector: Selector = #selector(ControlTarget.eventHandler(_:))
 
-                self.control = control
-                self.controlEvents = controlEvents
-                self.callback = callback
+    weak var control: Control?
+#if os(iOS) || os(tvOS)
+    let controlEvents: UIControlEvents
+#endif
+    var callback: Callback?
+    #if os(iOS) || os(tvOS)
+    init(control: Control, controlEvents: UIControlEvents, callback: @escaping Callback) {
+        MainScheduler.ensureRunningOnMainThread()
 
-                super.init()
+        self.control = control
+        self.controlEvents = controlEvents
+        self.callback = callback
 
-                control.addTarget(self, action: selector, for: controlEvents)
+        super.init()
 
-                let method = self.method(for: selector)
-                if method == nil {
-                    rxFatalError("Can't find method")
-                }
-            }
+        control.addTarget(self, action: selector, for: controlEvents)
 
-        #elseif os(macOS)
-            init(control: Control, callback: @escaping Callback) {
-                MainScheduler.ensureRunningOnMainThread()
-
-                self.control = control
-                self.callback = callback
-
-                super.init()
-
-                control.target = self
-                control.action = selector
-
-                let method = self.method(for: selector)
-                if method == nil {
-                    rxFatalError("Can't find method")
-                }
-            }
-        #endif
-
-        @objc func eventHandler(_: Control!) {
-            if let callback = self.callback, let control = self.control {
-                callback(control)
-            }
-        }
-
-        override func dispose() {
-            super.dispose()
-            #if os(iOS) || os(tvOS)
-                control?.removeTarget(self, action: selector, for: controlEvents)
-            #elseif os(macOS)
-                control?.target = nil
-                control?.action = nil
-            #endif
-            callback = nil
+        let method = self.method(for: selector)
+        if method == nil {
+            rxFatalError("Can't find method")
         }
     }
+#elseif os(macOS)
+    init(control: Control, callback: @escaping Callback) {
+        MainScheduler.ensureRunningOnMainThread()
+
+        self.control = control
+        self.callback = callback
+
+        super.init()
+
+        control.target = self
+        control.action = self.selector
+
+        let method = self.method(for: self.selector)
+        if method == nil {
+            rxFatalError("Can't find method")
+        }
+    }
+#endif
+
+    @objc func eventHandler(_ sender: Control!) {
+        if let callback = self.callback, let control = self.control {
+            callback(control)
+        }
+    }
+
+    override func dispose() {
+        super.dispose()
+#if os(iOS) || os(tvOS)
+        self.control?.removeTarget(self, action: self.selector, for: self.controlEvents)
+#elseif os(macOS)
+        self.control?.target = nil
+        self.control?.action = nil
+#endif
+        self.callback = nil
+    }
+}
 
 #endif

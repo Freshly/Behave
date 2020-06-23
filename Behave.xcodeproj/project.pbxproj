@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AAFC37B8EE20AAE71AD8350F /* Pods_Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38196E3D994B41B35BD7E054 /* Pods_Behave.framework */; };
 		BE473FBC24A0929D0079DEEF /* Behave.h in Headers */ = {isa = PBXBuildFile; fileRef = BE473FBA24A0929D0079DEEF /* Behave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE473FC424A094010079DEEF /* Behave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC324A094010079DEEF /* Behave.swift */; };
 		BE473FC624A0942A0079DEEF /* Behave+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC524A0942A0079DEEF /* Behave+Actions.swift */; };
@@ -18,12 +17,13 @@
 		BE473FD124A098320079DEEF /* BDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FD024A098320079DEEF /* BDEvent.swift */; };
 		BE4740CF24A1E1770079DEEF /* Behave+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */; };
 		BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */; };
+		D1BAFA6A335874D6549B41EB /* Pods_Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.debug.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.debug.xcconfig"; sourceTree = "<group>"; };
-		38196E3D994B41B35BD7E054 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
+		41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
+		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.debug.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.debug.xcconfig"; sourceTree = "<group>"; };
 		BE473FB724A0929D0079DEEF /* Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE473FBA24A0929D0079DEEF /* Behave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behave.h; sourceTree = "<group>"; };
 		BE473FBB24A0929D0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,19 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAFC37B8EE20AAE71AD8350F /* Pods_Behave.framework in Frameworks */,
+				D1BAFA6A335874D6549B41EB /* Pods_Behave.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88DEA02B98999FA1CE3DD75F /* Frameworks */ = {
+		30946179AA6ADF0BDF83AA62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38196E3D994B41B35BD7E054 /* Pods_Behave.framework */,
+				688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		462A43BB10324A3F06B9AC88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */,
+				41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		BE473FAD24A0929D0079DEEF = {
@@ -63,8 +73,8 @@
 			children = (
 				BE473FB924A0929D0079DEEF /* Behave */,
 				BE473FB824A0929D0079DEEF /* Products */,
-				CCEC113E4400E30DFF88EF18 /* Pods */,
-				88DEA02B98999FA1CE3DD75F /* Frameworks */,
+				462A43BB10324A3F06B9AC88 /* Pods */,
+				30946179AA6ADF0BDF83AA62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,16 +112,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		CCEC113E4400E30DFF88EF18 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */,
-				A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -130,7 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE473FBF24A0929D0079DEEF /* Build configuration list for PBXNativeTarget "Behave" */;
 			buildPhases = (
-				81F7D6961CDEA7ED3C0D3E82 /* [CP] Check Pods Manifest.lock */,
+				23A8AE351ECB342EEC43DFFE /* [CP] Check Pods Manifest.lock */,
 				BE473FB224A0929D0079DEEF /* Headers */,
 				BE473FB324A0929D0079DEEF /* Sources */,
 				BE473FB424A0929D0079DEEF /* Frameworks */,
@@ -189,7 +189,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		81F7D6961CDEA7ED3C0D3E82 /* [CP] Check Pods Manifest.lock */ = {
+		23A8AE351ECB342EEC43DFFE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -355,7 +355,7 @@
 		};
 		BE473FC024A0929D0079DEEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */;
+			baseConfigurationReference = 9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -383,7 +383,7 @@
 		};
 		BE473FC124A0929D0079DEEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */;
+			baseConfigurationReference = 41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

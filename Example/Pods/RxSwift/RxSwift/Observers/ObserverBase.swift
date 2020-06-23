@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-class ObserverBase<ElementType>: Disposable, ObserverType {
+class ObserverBase<ElementType> : Disposable, ObserverType {
     typealias E = ElementType
 
     private let _isStopped = AtomicInt(0)
@@ -14,21 +14,21 @@ class ObserverBase<ElementType>: Disposable, ObserverType {
     func on(_ event: Event<E>) {
         switch event {
         case .next:
-            if load(_isStopped) == 0 {
-                onCore(event)
+            if load(self._isStopped) == 0 {
+                self.onCore(event)
             }
         case .error, .completed:
-            if fetchOr(_isStopped, 1) == 0 {
-                onCore(event)
+            if fetchOr(self._isStopped, 1) == 0 {
+                self.onCore(event)
             }
         }
     }
 
-    func onCore(_: Event<E>) {
+    func onCore(_ event: Event<E>) {
         rxAbstractMethod()
     }
 
     func dispose() {
-        fetchOr(_isStopped, 1)
+        fetchOr(self._isStopped, 1)
     }
 }

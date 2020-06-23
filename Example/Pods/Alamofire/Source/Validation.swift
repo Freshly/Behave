@@ -66,7 +66,7 @@ extension Request {
 
     // MARK: Properties
 
-    fileprivate var acceptableStatusCodes: Range<Int> { 200 ..< 300 }
+    fileprivate var acceptableStatusCodes: Range<Int> { 200..<300 }
 
     fileprivate var acceptableContentTypes: [String] {
         if let accept = request?.value(forHTTPHeaderField: "Accept") {
@@ -232,7 +232,7 @@ extension DataStreamRequest {
     /// - Returns: The instance.
     @discardableResult
     public func validate() -> Self {
-        validate(statusCode: acceptableStatusCodes).validate(contentType: acceptableContentTypes)
+        validate(statusCode: acceptableStatusCodes).validate(contentType: self.acceptableContentTypes)
     }
 }
 

@@ -8,20 +8,21 @@
 
 #if os(iOS)
 
-    import RxSwift
-    import UIKit
+import UIKit
+import RxSwift
 
-    extension Reactive where Base: UIRefreshControl {
-        /// Bindable sink for `beginRefreshing()`, `endRefreshing()` methods.
-        public var isRefreshing: Binder<Bool> {
-            return Binder(base) { refreshControl, refresh in
-                if refresh {
-                    refreshControl.beginRefreshing()
-                } else {
-                    refreshControl.endRefreshing()
-                }
+extension Reactive where Base: UIRefreshControl {
+    /// Bindable sink for `beginRefreshing()`, `endRefreshing()` methods.
+    public var isRefreshing: Binder<Bool> {
+        return Binder(self.base) { refreshControl, refresh in
+            if refresh {
+                refreshControl.beginRefreshing()
+            } else {
+                refreshControl.endRefreshing()
             }
         }
     }
+
+}
 
 #endif

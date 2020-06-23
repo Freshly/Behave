@@ -8,20 +8,21 @@
 
 #if os(iOS) || os(tvOS)
 
-    import RxSwift
     import UIKit
+    import RxSwift
 
     extension UINavigationController: HasDelegate {
         public typealias Delegate = UINavigationControllerDelegate
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    open class RxNavigationControllerDelegateProxy:
-        DelegateProxy<UINavigationController, UINavigationControllerDelegate>,
-        DelegateProxyType,
-        UINavigationControllerDelegate {
+    open class RxNavigationControllerDelegateProxy
+        : DelegateProxy<UINavigationController, UINavigationControllerDelegate>
+        , DelegateProxyType 
+        , UINavigationControllerDelegate {
+
         /// Typed parent object.
-        public private(set) weak var navigationController: UINavigationController?
+        public weak private(set) var navigationController: UINavigationController?
 
         /// - parameter navigationController: Parent object for delegate proxy.
         public init(navigationController: ParentObject) {
@@ -31,7 +32,7 @@
 
         // Register known implementations
         public static func registerKnownImplementations() {
-            register { RxNavigationControllerDelegateProxy(navigationController: $0) }
+            self.register { RxNavigationControllerDelegateProxy(navigationController: $0) }
         }
     }
 #endif

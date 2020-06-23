@@ -13,7 +13,7 @@ extension BehaviorRelay {
     ///
     /// - returns: Observable sequence.
     public func asDriver() -> Driver<Element> {
-        let source = asObservable()
+        let source = self.asObservable()
             .observeOn(DriverSharingStrategy.scheduler)
         return SharedSequence(source)
     }

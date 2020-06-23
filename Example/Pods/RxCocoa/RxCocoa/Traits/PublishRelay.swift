@@ -15,24 +15,24 @@ public final class PublishRelay<Element>: ObservableType {
     public typealias E = Element
 
     private let _subject: PublishSubject<Element>
-
+    
     // Accepts `event` and emits it to subscribers
     public func accept(_ event: Element) {
-        _subject.onNext(event)
+        self._subject.onNext(event)
     }
-
+    
     /// Initializes with internal empty subject.
     public init() {
-        _subject = PublishSubject()
+        self._subject = PublishSubject()
     }
 
     /// Subscribes observer
     public func subscribe<O: ObserverType>(_ observer: O) -> Disposable where O.E == E {
-        return _subject.subscribe(observer)
+        return self._subject.subscribe(observer)
     }
-
+    
     /// - returns: Canonical interface for push style sequence
     public func asObservable() -> Observable<Element> {
-        return _subject.asObservable()
+        return self._subject.asObservable()
     }
 }

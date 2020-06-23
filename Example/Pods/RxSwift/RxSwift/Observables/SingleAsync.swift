@@ -7,6 +7,7 @@
 //
 
 extension ObservableType {
+
     /**
      The single operator is similar to first, but throws a `RxError.noElements` or `RxError.moreThanOneElement`
      if the source Observable does not emit exactly one element before successfully completing.
@@ -17,7 +18,7 @@ extension ObservableType {
      */
     public func single()
         -> Observable<E> {
-        return SingleAsync(source: asObservable())
+        return SingleAsync(source: self.asObservable())
     }
 
     /**
@@ -31,73 +32,74 @@ extension ObservableType {
      */
     public func single(_ predicate: @escaping (E) throws -> Bool)
         -> Observable<E> {
-        return SingleAsync(source: asObservable(), predicate: predicate)
+        return SingleAsync(source: self.asObservable(), predicate: predicate)
     }
 }
 
-private final class SingleAsyncSink<O: ObserverType>: Sink<O>, ObserverType {
+fileprivate final class SingleAsyncSink<O: ObserverType> : Sink<O>, ObserverType {
     typealias ElementType = O.E
     typealias Parent = SingleAsync<ElementType>
     typealias E = ElementType
-
+    
     private let _parent: Parent
     private var _seenValue: Bool = false
-
+    
     init(parent: Parent, observer: O, cancel: Cancelable) {
-        _parent = parent
+        self._parent = parent
         super.init(observer: observer, cancel: cancel)
     }
-
+    
     func on(_ event: Event<E>) {
         switch event {
-        case let .next(value):
+        case .next(let value):
             do {
-                let forward = try _parent._predicate?(value) ?? true
+                let forward = try self._parent._predicate?(value) ?? true
                 if !forward {
                     return
                 }
-            } catch {
-                forwardOn(.error(error as Swift.Error))
-                dispose()
+            }
+            catch let error {
+                self.forwardOn(.error(error as Swift.Error))
+                self.dispose()
                 return
             }
 
-            if _seenValue {
-                forwardOn(.error(RxError.moreThanOneElement))
-                dispose()
+            if self._seenValue {
+                self.forwardOn(.error(RxError.moreThanOneElement))
+                self.dispose()
                 return
             }
 
-            _seenValue = true
-            forwardOn(.next(value))
+            self._seenValue = true
+            self.forwardOn(.next(value))
         case .error:
-            forwardOn(event)
-            dispose()
+            self.forwardOn(event)
+            self.dispose()
         case .completed:
-            if _seenValue {
-                forwardOn(.completed)
+            if self._seenValue {
+                self.forwardOn(.completed)
             } else {
-                forwardOn(.error(RxError.noElements))
+                self.forwardOn(.error(RxError.noElements))
             }
-            dispose()
+            self.dispose()
         }
     }
 }
 
 final class SingleAsync<Element>: Producer<Element> {
     typealias Predicate = (Element) throws -> Bool
-
+    
     fileprivate let _source: Observable<Element>
     fileprivate let _predicate: Predicate?
-
+    
     init(source: Observable<Element>, predicate: Predicate? = nil) {
-        _source = source
-        _predicate = predicate
+        self._source = source
+        self._predicate = predicate
     }
-
-    override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
+    
+    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
         let sink = SingleAsyncSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = _source.subscribe(sink)
+        let subscription = self._source.subscribe(sink)
         return (sink: sink, subscription: subscription)
     }
 }
