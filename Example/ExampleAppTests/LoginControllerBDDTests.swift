@@ -26,11 +26,9 @@ class LoginControllerBDDTests: XCTestCase {
         api.listen(for: "home-view") {
             expectations.fulfill()
         }
-        api.run { error in
-            if let errorString = error {
-                XCTFail(errorString)
-            }
-        }
-        waitForExpectations(timeout: api.testTimeInSeconds)
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
     }
 }

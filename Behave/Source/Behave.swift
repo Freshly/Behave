@@ -10,13 +10,11 @@ import UIKit
 public class Behaviour {
     public var events: [BDEvent]
     public var eventIndex: Int
-    public var finalCall: (_ error: String?) -> Void
-    public var testTimeInSeconds = 10.0
+    public var testTimeInterval: TimeInterval = 10.0
 
     public init() {
         events = []
         eventIndex = 0
-        finalCall = { _ in }
     }
 
     @discardableResult public func listen(for identifier: String, completion: @escaping () -> Void) -> Self {
@@ -25,26 +23,25 @@ public class Behaviour {
         return self
     }
 
-    public func run(finally: @escaping (_ error: String?) -> Void) {
-        finalCall = finally
-        runTests()
+    public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+        runTests(success: success, fail: fail)
     }
 
-    private func runTests() {
+    private func runTests(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
         if let event = events.first {
-            runHelper(event: event)
+            runHelper(event: event, success: success, fail: fail)
         } else {
-            _ = finalCall(nil)
+            success?()
         }
     }
 
-    private func runHelper(event: BDEvent) {
-        wait(for: event.identifier, complete: {
+    private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+        wait(for: event.identifier, complete: { [weak self] in
             event.complete()
-            self.events.removeFirst()
-            self.runTests()
+            self?.events.removeFirst()
+            self?.runTests(success: success, fail: fail)
         }, fail: { error in
-            self.finalCall(error)
+            fail?(error)
         })
     }
 }

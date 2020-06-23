@@ -32,11 +32,9 @@ class HomeViewControllerBDDTests: XCTestCase {
         api.listen(for: "detail-view") {
             expectations.fulfill()
         }
-        api.run { error in
-            if let error = error {
-                XCTFail(error)
-            }
-        }
-        waitForExpectations(timeout: api.testTimeInSeconds)
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
     }
 }
