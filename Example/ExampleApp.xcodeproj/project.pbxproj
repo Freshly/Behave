@@ -18,15 +18,14 @@
 		87732D1124A17710003E6940 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0624A17710003E6940 /* API.swift */; };
 		87732D1224A17710003E6940 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0824A17710003E6940 /* ViewControllerProtocol.swift */; };
 		87732D1424A17CC2003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1324A17CC2003E6940 /* LoginTests.swift */; };
-		87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* LoginTests.swift */; };
-		87732D1A24A1847B003E6940 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1924A1847B003E6940 /* HomeViewController.swift */; };
+		87732D1824A17E5C003E6940 /* LoginControllerBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* LoginControllerBDDTests.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
-		BE47409D24A1343A0079DEEF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409C24A1343A0079DEEF /* MasterViewController.swift */; };
 		BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409E24A1343A0079DEEF /* DetailViewController.swift */; };
 		BE4740A224A1343A0079DEEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A024A1343A0079DEEF /* Main.storyboard */; };
 		BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A324A1343C0079DEEF /* Assets.xcassets */; };
 		BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4740A524A1343C0079DEEF /* LaunchScreen.storyboard */; };
-		BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */; };
+		BE4740B224A1343C0079DEEF /* HomeViewControllerBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740B124A1343C0079DEEF /* HomeViewControllerBDDTests.swift */; };
+		BE4740D224A1FD410079DEEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409C24A1343A0079DEEF /* HomeViewController.swift */; };
 		C28A9ED4C0BB9A1AC870201B /* Pods_ExampleAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146C58A639CA85A85CC80935 /* Pods_ExampleAppTests.framework */; };
 		CAB1699191CABD62C6717E39 /* Pods_ExampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4770452ED16A65D9C8C7BA5F /* Pods_ExampleApp.framework */; };
 /* End PBXBuildFile section */
@@ -66,18 +65,17 @@
 		87732D0624A17710003E6940 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		87732D0824A17710003E6940 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		87732D1324A17CC2003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		87732D1724A17E5C003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		87732D1924A1847B003E6940 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		87732D1724A17E5C003E6940 /* LoginControllerBDDTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerBDDTests.swift; sourceTree = "<group>"; };
 		BE47409524A1343A0079DEEF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE47409824A1343A0079DEEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE47409C24A1343A0079DEEF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		BE47409C24A1343A0079DEEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BE47409E24A1343A0079DEEF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BE4740A124A1343A0079DEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE4740A324A1343C0079DEEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4740A624A1343C0079DEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4740A824A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4740AD24A1343C0079DEEF /* ExampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerBDDTests.swift; sourceTree = "<group>"; };
+		BE4740B124A1343C0079DEEF /* HomeViewControllerBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerBDDTests.swift; sourceTree = "<group>"; };
 		BE4740B324A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4740B824A1343C0079DEEF /* ExampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4740BE24A1343C0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			children = (
 				87732CFE24A17710003E6940 /* LoginController.swift */,
 				87732CFF24A17710003E6940 /* LoginController+UserActions.swift */,
-				87732D1924A1847B003E6940 /* HomeViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -247,7 +244,7 @@
 			children = (
 				87732CF524A17710003E6940 /* login */,
 				BE47409824A1343A0079DEEF /* AppDelegate.swift */,
-				BE47409C24A1343A0079DEEF /* MasterViewController.swift */,
+				BE47409C24A1343A0079DEEF /* HomeViewController.swift */,
 				BE47409E24A1343A0079DEEF /* DetailViewController.swift */,
 				BE4740A024A1343A0079DEEF /* Main.storyboard */,
 				BE4740A324A1343C0079DEEF /* Assets.xcassets */,
@@ -260,8 +257,8 @@
 		BE4740B024A1343C0079DEEF /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				87732D1724A17E5C003E6940 /* LoginTests.swift */,
-				BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */,
+				87732D1724A17E5C003E6940 /* LoginControllerBDDTests.swift */,
+				BE4740B124A1343C0079DEEF /* HomeViewControllerBDDTests.swift */,
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 			);
 			path = ExampleAppTests;
@@ -492,15 +489,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4740D224A1FD410079DEEF /* HomeViewController.swift in Sources */,
 				87732D1224A17710003E6940 /* ViewControllerProtocol.swift in Sources */,
 				87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */,
 				BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */,
 				87732D0F24A17710003E6940 /* UIViewController+sharedMethods.swift in Sources */,
 				87732D0E24A17710003E6940 /* Config.swift in Sources */,
-				87732D1A24A1847B003E6940 /* HomeViewController.swift in Sources */,
 				87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */,
 				87732D1024A17710003E6940 /* Keychain.swift in Sources */,
-				BE47409D24A1343A0079DEEF /* MasterViewController.swift in Sources */,
 				87732D0D24A17710003E6940 /* LoginController+UserActions.swift in Sources */,
 				BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */,
 				87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */,
@@ -513,8 +509,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */,
-				BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */,
+				87732D1824A17E5C003E6940 /* LoginControllerBDDTests.swift in Sources */,
+				BE4740B224A1343C0079DEEF /* HomeViewControllerBDDTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

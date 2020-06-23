@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  HomeViewController.swift
 //  ExampleApp
 //
 //  Created by Denis Efimov on 6/22/20.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class HomeViewController: UITableViewController {
     var detailViewController: DetailViewController?
     var objects = [Any]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.accessibilityIdentifier = "master-view"
+        view.accessibilityIdentifier = "home-view"
 
         navigationItem.leftBarButtonItem = editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject))
         navigationItem.rightBarButtonItem = addButton
     }
 
@@ -26,7 +26,7 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc func insertNewObject(_: Any) {
+    @objc func insertNewObject() {
         objects.insert(NSDate(), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)

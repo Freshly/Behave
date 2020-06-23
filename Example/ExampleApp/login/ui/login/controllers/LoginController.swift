@@ -1,12 +1,12 @@
 //
-import RxCocoa
-import RxSwift
 //  LoginController.swift
 //  MobileTestPR
 //
 //  Created by Derek Bronston on 12/18/18.
 //  Copyright © 2018 Freshly. All rights reserved.
 //
+import RxCocoa
+import RxSwift
 import UIKit
 
 class LoginController: UIViewController, ViewControllerProtocol {
