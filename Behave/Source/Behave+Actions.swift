@@ -74,9 +74,11 @@ public extension Behaviour {
         collection.delegate?.collectionView?(collection, didDeselectItemAt: indexPath)
     }
 
-    func alert() -> Bool {
-        guard let alert = topMostViewController as? UIAlertController else { return false }
-        alert.dismiss(animated: true)
-        return true
+    func alert(complete: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            guard let alert = self.topMostViewController as? UIAlertController else { return }
+            alert.dismiss(animated: true)
+            complete()
+        }
     }
 }
