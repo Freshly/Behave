@@ -18,8 +18,8 @@
 		87732D1024A17710003E6940 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0524A17710003E6940 /* Keychain.swift */; };
 		87732D1124A17710003E6940 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0624A17710003E6940 /* API.swift */; };
 		87732D1224A17710003E6940 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D0824A17710003E6940 /* ViewControllerProtocol.swift */; };
-		87732D1424A17CC2003E6940 /* LoginControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */; };
-		87732D1824A17E5C003E6940 /* MobileLoginBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */; };
+		87732D1424A17CC2003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1324A17CC2003E6940 /* LoginTests.swift */; };
+		87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* LoginTests.swift */; };
 		87732D1A24A1847B003E6940 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1924A1847B003E6940 /* HomeViewController.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
 		BE47409D24A1343A0079DEEF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409C24A1343A0079DEEF /* MasterViewController.swift */; };
@@ -63,8 +63,8 @@
 		87732D0524A17710003E6940 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		87732D0624A17710003E6940 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		87732D0824A17710003E6940 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
-		87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerUITests.swift; sourceTree = "<group>"; };
-		87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileLoginBDDTests.swift; sourceTree = "<group>"; };
+		87732D1324A17CC2003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		87732D1724A17E5C003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		87732D1924A1847B003E6940 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8FF7CE113A3830E0782EBDDF /* Pods_ExampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED1742828C71977C08FCFE5 /* Pods-ExampleAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleAppTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleAppTests/Pods-ExampleAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		BE4740B024A1343C0079DEEF /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				87732D1724A17E5C003E6940 /* MobileLoginBDDTests.swift */,
+				87732D1724A17E5C003E6940 /* LoginTests.swift */,
 				BE4740B124A1343C0079DEEF /* MasterViewControllerBDDTests.swift */,
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 			);
@@ -270,7 +270,7 @@
 		BE4740BB24A1343C0079DEEF /* ExampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				87732D1324A17CC2003E6940 /* LoginControllerUITests.swift */,
+				87732D1324A17CC2003E6940 /* LoginTests.swift */,
 				BE4740BE24A1343C0079DEEF /* Info.plist */,
 			);
 			path = ExampleAppUITests;
@@ -513,7 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87732D1824A17E5C003E6940 /* MobileLoginBDDTests.swift in Sources */,
+				87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */,
 				BE4740B224A1343C0079DEEF /* MasterViewControllerBDDTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87732D1424A17CC2003E6940 /* LoginControllerUITests.swift in Sources */,
+				87732D1424A17CC2003E6940 /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

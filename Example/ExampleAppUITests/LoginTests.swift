@@ -9,7 +9,7 @@
 import XCTest
 //import OHHTTPStubs
 
-class MobileTestPRUITests: XCTestCase {
+class LoginTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

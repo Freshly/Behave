@@ -13,7 +13,7 @@ import Behave
 
 @testable import ExampleApp
 
-class MobileLoginBDDTests:XCTestCase {
+class LoginTests:XCTestCase {
     
     var sut: LoginController!
     override func setUp() {
