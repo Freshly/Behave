@@ -12,7 +12,7 @@ import XCTest
 @testable import ExampleApp
 
 class LoginControllerBDDTests: XCTestCase {
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
+    func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.listen(for: "login-view") {
