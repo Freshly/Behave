@@ -24,3 +24,9 @@ public extension UIViewController {
         return self
     }
 }
+
+extension Behaviour {
+    var topMostViewController: UIViewController? {
+        return UIApplication.shared.topMostViewController()
+    }
+}

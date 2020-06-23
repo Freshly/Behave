@@ -21,7 +21,7 @@ public extension Behaviour {
     }
 
     func tapRightNavigationItem(with object: Any? = nil, with additionalObject: Any? = nil) {
-        guard let controller = UIApplication.shared.topMostViewController() else { return }
+        guard let controller = topMostViewController else { return }
         guard let selector = controller.navigationItem.rightBarButtonItem?.action else { return }
 
         if let object = object {
@@ -36,7 +36,7 @@ public extension Behaviour {
     }
 
     func tapBackButton() {
-        UIApplication.shared.topMostViewController()?.navigationController?.popViewController(animated: true)
+        topMostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func tapButton(identifier: String) {
@@ -46,7 +46,7 @@ public extension Behaviour {
     }
 
     func selectTabOnTabBar(index: Int) {
-        if let tabBar = UIApplication.shared.topMostViewController()?.tabBarController {
+        if let tabBar = topMostViewController?.tabBarController {
             tabBar.selectedIndex = index
         }
     }
@@ -75,8 +75,8 @@ public extension Behaviour {
     }
 
     func alert() -> Bool {
-        guard let alert = UIApplication.shared.topMostViewController() as? UIAlertController else { return false }
-        alert.dismiss(animated: true, completion: {})
+        guard let alert = topMostViewController as? UIAlertController else { return false }
+        alert.dismiss(animated: true)
         return true
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 public extension Behaviour {
     func findTable() -> UITableView? {
-        guard let view = UIApplication.shared.topMostViewController()?.view else { return nil }
+        guard let view = topMostViewController?.view else { return nil }
         if view is UITableView {
             return view as? UITableView
         }
@@ -23,7 +23,7 @@ public extension Behaviour {
     }
 
     func findCollection() -> UICollectionView? {
-        guard let view = UIApplication.shared.topMostViewController()?.view else { return nil }
+        guard let view = topMostViewController?.view else { return nil }
         if view is UICollectionView {
             return view as? UICollectionView
         }
@@ -40,15 +40,15 @@ public extension Behaviour {
             return button
         }
 
-        if let button = UIApplication.shared.topMostViewController()?.navigationItem.titleView?.subviews.filter({ $0.accessibilityIdentifier == identifier }).first as? UIButton {
+        if let button = topMostViewController?.navigationItem.titleView?.subviews.filter({ $0.accessibilityIdentifier == identifier }).first as? UIButton {
             return button
         }
 
-        if let button = UIApplication.shared.topMostViewController()?.view.subviews.filter({ $0.accessibilityIdentifier == identifier }).first as? UIButton {
+        if let button = topMostViewController?.view.subviews.filter({ $0.accessibilityIdentifier == identifier }).first as? UIButton {
             return button
         }
 
-        if let table = UIApplication.shared.topMostViewController()?.view.subviews.filter({ $0 is UITableView }).first as? UITableView {
+        if let table = topMostViewController?.view.subviews.filter({ $0 is UITableView }).first as? UITableView {
             let rows = table.numberOfRows(inSection: 0)
             for i in 0 ... rows {
                 if let cell = table.cellForRow(at: IndexPath(row: i, section: 0)) {
@@ -67,12 +67,12 @@ public extension Behaviour {
     }
 
     func queryBarButtonItem(identifier: String) -> UIBarButtonItem? {
-        if let rightBarButton = UIApplication.shared.topMostViewController()?.navigationItem.rightBarButtonItem {
+        if let rightBarButton = topMostViewController?.navigationItem.rightBarButtonItem {
             if rightBarButton.accessibilityIdentifier == identifier {
                 return rightBarButton
             }
         }
-        if let leftBarButton = UIApplication.shared.topMostViewController()?.navigationItem.leftBarButtonItem {
+        if let leftBarButton = topMostViewController?.navigationItem.leftBarButtonItem {
             if leftBarButton.accessibilityIdentifier == identifier {
                 return leftBarButton
             }
@@ -136,13 +136,13 @@ public extension Behaviour {
 
     func wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void) {
         var runCount = 0
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            guard let viewController = UIApplication.shared.topMostViewController() else { fail(identifier)
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let viewController = self?.topMostViewController else { fail(identifier)
                 timer.invalidate()
                 return
             }
             if let parent = viewController.view {
-                if parent.accessibilityIdentifier == identifier || self.findView(view: parent, identifier: identifier) != nil {
+                if parent.accessibilityIdentifier == identifier || self?.findView(view: parent, identifier: identifier) != nil {
                     complete()
                     timer.invalidate()
                     return
