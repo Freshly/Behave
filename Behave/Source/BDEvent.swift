@@ -10,5 +10,5 @@ import Foundation
 
 public struct BDEvent {
     public let identifier: String
-    public var complete = { () in }
+    public let complete: () -> Void
 }

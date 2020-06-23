@@ -10,7 +10,7 @@ import UIKit
 public class Behaviour {
     public var events: [BDEvent]
     public var eventIndex: Int
-    public var finalCall: (String?) -> Void
+    public var finalCall: (_ error: String?) -> Void
     public var testTimeInSeconds = 10.0
 
     public init() {
@@ -19,13 +19,13 @@ public class Behaviour {
         finalCall = { _ in }
     }
 
-    @discardableResult public func listenFor(_ identifier: String, completion: @escaping () -> Void) -> Self {
+    @discardableResult public func listen(for identifier: String, completion: @escaping () -> Void) -> Self {
         let event = BDEvent(identifier: identifier, complete: completion)
         events.append(event)
         return self
     }
 
-    public func run(finally: @escaping (_ errorString: String?) -> Void) {
+    public func run(finally: @escaping (_ error: String?) -> Void) {
         finalCall = finally
         runTests()
     }
@@ -39,12 +39,12 @@ public class Behaviour {
     }
 
     private func runHelper(event: BDEvent) {
-        waitFor(identifier: event.identifier, complete: {
+        wait(for: event.identifier, complete: {
             event.complete()
             self.events.removeFirst()
             self.runTests()
-        }, fail: { msg in
-            self.finalCall(msg)
+        }, fail: { error in
+            self.finalCall(error)
         })
     }
 }

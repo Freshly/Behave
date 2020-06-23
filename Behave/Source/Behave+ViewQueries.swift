@@ -119,7 +119,7 @@ public extension Behaviour {
         return nil
     }
 
-    func waitFor(identifier: String, parent: UIView, complete: @escaping () -> Void) {
+    func wait(for identifier: String, parent: UIView, complete: @escaping () -> Void) {
         var runCount = 0
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
 
@@ -134,7 +134,7 @@ public extension Behaviour {
         }
     }
 
-    func waitFor(identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void) {
+    func wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void) {
         var runCount = 0
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             guard let viewController = UIApplication.shared.topMostViewController() else { fail(identifier)
