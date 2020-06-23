@@ -7,8 +7,6 @@
 //
 
 import Behave
-import RxCocoa
-import RxSwift
 import XCTest
 
 @testable import ExampleApp
