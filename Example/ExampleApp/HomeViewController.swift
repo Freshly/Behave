@@ -32,19 +32,16 @@ class HomeViewController: UITableViewController {
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                detailViewController = controller
-            }
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let story = UIStoryboard(name: "Main", bundle: nil)
+        guard let object = objects[indexPath.row] as? NSDate else { return }
+        guard let controller = story.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        
+        controller.detailItem = object
+        controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        controller.navigationItem.leftItemsSupplementBackButton = true
+        detailViewController = controller
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - Table View

@@ -45,7 +45,7 @@ public extension Behaviour {
     func selectTableRow(identfier: String, indexPath: IndexPath) {
         guard let table = query(identifier: identfier) as? UITableView else { return }
         table.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        table.delegate?.tableView!(table, didSelectRowAt: indexPath)
+        table.delegate?.tableView?(table, didSelectRowAt: indexPath)
     }
 
     func scrollTableTo(indexPath: IndexPath, identfier: String) {
