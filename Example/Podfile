@@ -1,0 +1,15 @@
+platform :ios, '10.0'
+
+target 'ExampleApp' do
+  use_frameworks!
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  pod 'Alamofire'
+  pod 'SwiftKeychainWrapper'
+  pod 'OHHTTPStubs/Swift'
+
+  target 'ExampleAppTests' do
+    pod 'Behave', :path => '..'
+    inherit! :search_paths
+  end
+end

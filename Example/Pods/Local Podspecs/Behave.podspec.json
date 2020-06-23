@@ -1,0 +1,26 @@
+{
+  "name": "Behave",
+  "version": "1.0.0",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "summary": "A library for Behaviour Development",
+  "homepage": "https://github.com/Freshly/Behave",
+  "license": "MIT (Behave license)",
+  "authors": {
+    "Derek Bronston": "derek.bronston@freshly.com"
+  },
+  "source": {
+    "git": "git@github.com:Freshly/Behave.git",
+    "tag": "v1.0.0"
+  },
+  "source_files": "Behave/**/*.swift",
+  "dependencies": {
+    "OHHTTPStubs/Swift": [
+      "9.0.0"
+    ]
+  },
+  "swift_version": "5.0"
+}

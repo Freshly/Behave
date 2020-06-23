@@ -1,0 +1,6 @@
+framework module Pods_Behave {
+  umbrella header "Pods-Behave-umbrella.h"
+
+  export *
+  module * { export * }
+}
