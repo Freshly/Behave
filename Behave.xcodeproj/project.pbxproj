@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAFC37B8EE20AAE71AD8350F /* Pods_Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38196E3D994B41B35BD7E054 /* Pods_Behave.framework */; };
 		BE473FBC24A0929D0079DEEF /* Behave.h in Headers */ = {isa = PBXBuildFile; fileRef = BE473FBA24A0929D0079DEEF /* Behave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE473FC424A094010079DEEF /* Behave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC324A094010079DEEF /* Behave.swift */; };
 		BE473FC624A0942A0079DEEF /* Behave+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC524A0942A0079DEEF /* Behave+Actions.swift */; };
@@ -15,9 +16,14 @@
 		BE473FCC24A094760079DEEF /* Behave+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FCB24A094760079DEEF /* Behave+UIViewController.swift */; };
 		BE473FCE24A095310079DEEF /* BDElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FCD24A095310079DEEF /* BDElements.swift */; };
 		BE473FD124A098320079DEEF /* BDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FD024A098320079DEEF /* BDEvent.swift */; };
+		BE4740CF24A1E1770079DEEF /* Behave+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */; };
+		BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.debug.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.debug.xcconfig"; sourceTree = "<group>"; };
+		38196E3D994B41B35BD7E054 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
 		BE473FB724A0929D0079DEEF /* Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE473FBA24A0929D0079DEEF /* Behave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behave.h; sourceTree = "<group>"; };
 		BE473FBB24A0929D0079DEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +34,8 @@
 		BE473FCB24A094760079DEEF /* Behave+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+UIViewController.swift"; sourceTree = "<group>"; };
 		BE473FCD24A095310079DEEF /* BDElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDElements.swift; sourceTree = "<group>"; };
 		BE473FD024A098320079DEEF /* BDEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDEvent.swift; sourceTree = "<group>"; };
+		BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Behave+Stub.swift"; sourceTree = "<group>"; };
+		BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaveDataObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFC37B8EE20AAE71AD8350F /* Pods_Behave.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88DEA02B98999FA1CE3DD75F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38196E3D994B41B35BD7E054 /* Pods_Behave.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE473FAD24A0929D0079DEEF = {
 			isa = PBXGroup;
 			children = (
 				BE473FB924A0929D0079DEEF /* Behave */,
 				BE473FB824A0929D0079DEEF /* Products */,
+				CCEC113E4400E30DFF88EF18 /* Pods */,
+				88DEA02B98999FA1CE3DD75F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +96,20 @@
 				BE473FC724A094480079DEEF /* Behave+ViewQueries.swift */,
 				BE473FC924A094610079DEEF /* Behave+UIApplication.swift */,
 				BE473FCB24A094760079DEEF /* Behave+UIViewController.swift */,
+				BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */,
+				BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		CCEC113E4400E30DFF88EF18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */,
+				A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE473FBF24A0929D0079DEEF /* Build configuration list for PBXNativeTarget "Behave" */;
 			buildPhases = (
+				81F7D6961CDEA7ED3C0D3E82 /* [CP] Check Pods Manifest.lock */,
 				BE473FB224A0929D0079DEEF /* Headers */,
 				BE473FB324A0929D0079DEEF /* Sources */,
 				BE473FB424A0929D0079DEEF /* Frameworks */,
@@ -156,17 +188,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		81F7D6961CDEA7ED3C0D3E82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Behave-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE473FB324A0929D0079DEEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4740CF24A1E1770079DEEF /* Behave+Stub.swift in Sources */,
 				BE473FCC24A094760079DEEF /* Behave+UIViewController.swift in Sources */,
 				BE473FC624A0942A0079DEEF /* Behave+Actions.swift in Sources */,
 				BE473FCA24A094610079DEEF /* Behave+UIApplication.swift in Sources */,
 				BE473FC824A094480079DEEF /* Behave+ViewQueries.swift in Sources */,
 				BE473FCE24A095310079DEEF /* BDElements.swift in Sources */,
 				BE473FC424A094010079DEEF /* Behave.swift in Sources */,
+				BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */,
 				BE473FD124A098320079DEEF /* BDEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +355,7 @@
 		};
 		BE473FC024A0929D0079DEEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A9E65712A0E9DC5F1BC442 /* Pods-Behave.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -323,6 +383,7 @@
 		};
 		BE473FC124A0929D0079DEEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A128C60EFD0616EC60DBE2B1 /* Pods-Behave.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

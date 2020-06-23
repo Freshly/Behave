@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.author       = { 'Derek Bronston' => 'derek.bronston@freshly.com' }
   s.source       = { :git => 'git@github.com:Freshly/Behave.git', :tag => 'v1.0.0' }
   s.source_files = 'Behave/**/*.swift'
+  s.dependency 'OHHTTPStubs/Swift', '9.0.0'
 end
