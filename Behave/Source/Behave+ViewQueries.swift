@@ -119,6 +119,22 @@ public extension Behaviour {
         return nil
     }
 
+    func waitForAlert(complete: @escaping () -> Void) {
+        var runCount = 0
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            if let _ = self?.topMostViewController as? UIAlertController {
+                complete()
+                timer.invalidate()
+                return
+            }
+            
+            runCount += 1
+            if runCount == 10 {
+                timer.invalidate()
+            }
+        }
+    }
+    
     func wait(for identifier: String, parent: UIView, complete: @escaping () -> Void) {
         var runCount = 0
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in

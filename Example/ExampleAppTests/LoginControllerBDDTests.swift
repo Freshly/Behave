@@ -40,8 +40,7 @@ class LoginControllerBDDTests: XCTestCase {
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
             api.tapButton(identifier: "submit")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                XCTAssertTrue(api.alert())
+            api.waitForAlert {
                 expectations.fulfill()
             }
         }
