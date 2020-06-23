@@ -27,48 +27,48 @@
  */
 import Foundation
 #if SWIFT_PACKAGE
-import OHHTTPStubs
+    import OHHTTPStubs
 #endif
 
 #if !swift(>=3.0)
-  extension HTTPStubs {
-    private class func stubRequests(passingTest: HTTPStubsTestBlock, withStubResponse: HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
-      return stubRequestsPassingTest(passingTest, withStubResponse: withStubResponse)
+    extension HTTPStubs {
+        private class func stubRequests(passingTest: HTTPStubsTestBlock, withStubResponse: HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
+            return stubRequestsPassingTest(passingTest, withStubResponse: withStubResponse)
+        }
     }
-  }
 
-  extension NSURLRequest {
-    var httpMethod: String? { return HTTPMethod }
-    var url: NSURL? { return URL }
-  }
-
-  extension NSURLComponents {
-    private convenience init?(url: NSURL, resolvingAgainstBaseURL: Bool) {
-      self.init(URL: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL)
+    extension NSURLRequest {
+        var httpMethod: String? { return HTTPMethod }
+        var url: NSURL? { return URL }
     }
-  }
 
-  private typealias URLRequest = NSURLRequest
-
-  extension URLRequest {
-    private func value(forHTTPHeaderField key: String) -> String? {
-      return valueForHTTPHeaderField(key)
+    extension NSURLComponents {
+        private convenience init?(url: NSURL, resolvingAgainstBaseURL: Bool) {
+            self.init(URL: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL)
+        }
     }
-  }
 
-  extension String {
-    private func contains(string: String) -> Bool {
-      return rangeOfString(string) != nil
+    private typealias URLRequest = NSURLRequest
+
+    extension URLRequest {
+        private func value(forHTTPHeaderField key: String) -> String? {
+            return valueForHTTPHeaderField(key)
+        }
     }
-  }
+
+    extension String {
+        private func contains(string: String) -> Bool {
+            return rangeOfString(string) != nil
+        }
+    }
+
 #else
-  extension URLRequest {
-    public var ohhttpStubs_httpBody: Data? {
-      return (self as NSURLRequest).ohhttpStubs_HTTPBody()
+    extension URLRequest {
+        public var ohhttpStubs_httpBody: Data? {
+            return (self as NSURLRequest).ohhttpStubs_HTTPBody()
+        }
     }
-  }
 #endif
-
 
 // MARK: Syntaxic Sugar for OHHTTPStubs
 
@@ -83,13 +83,14 @@ import OHHTTPStubs
  *            & headers, and use the file content as the response body.
  */
 #if swift(>=3.0)
-  public func fixture(filePath: String, status: Int32 = 200, headers: [AnyHashable: Any]?) -> HTTPStubsResponse {
-    return HTTPStubsResponse(fileAtPath: filePath, statusCode: status, headers: headers)
-  }
+    public func fixture(filePath: String, status: Int32 = 200, headers: [AnyHashable: Any]?) -> HTTPStubsResponse {
+        return HTTPStubsResponse(fileAtPath: filePath, statusCode: status, headers: headers)
+    }
+
 #else
-  public func fixture(filePath: String, status: Int32 = 200, headers: [NSObject: AnyObject]?) -> HTTPStubsResponse {
-  return HTTPStubsResponse(fileAtPath: filePath, statusCode: status, headers: headers)
-  }
+    public func fixture(filePath: String, status: Int32 = 200, headers: [NSObject: AnyObject]?) -> HTTPStubsResponse {
+        return HTTPStubsResponse(fileAtPath: filePath, statusCode: status, headers: headers)
+    }
 #endif
 
 /**
@@ -102,17 +103,16 @@ import OHHTTPStubs
  *            and can be later used to remove it with `removeStub:`
  */
 #if swift(>=3.0)
-  @discardableResult
-  public func stub(condition: @escaping HTTPStubsTestBlock, response: @escaping HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
-    return HTTPStubs.stubRequests(passingTest: condition, withStubResponse: response)
-  }
+    @discardableResult
+    public func stub(condition: @escaping HTTPStubsTestBlock, response: @escaping HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
+        return HTTPStubs.stubRequests(passingTest: condition, withStubResponse: response)
+    }
+
 #else
-  public func stub(condition: HTTPStubsTestBlock, response: HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
-  return HTTPStubs.stubRequests(passingTest: condition, withStubResponse: response)
-  }
+    public func stub(condition: HTTPStubsTestBlock, response: HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
+        return HTTPStubs.stubRequests(passingTest: condition, withStubResponse: response)
+    }
 #endif
-
-
 
 // MARK: Create HTTPStubsTestBlock matchers
 
@@ -123,7 +123,7 @@ import OHHTTPStubs
  *            is using the GET method
  */
 public func isMethodGET() -> HTTPStubsTestBlock {
-  return { $0.httpMethod == "GET" }
+    return { $0.httpMethod == "GET" }
 }
 
 /**
@@ -133,7 +133,7 @@ public func isMethodGET() -> HTTPStubsTestBlock {
  *            is using the POST method
  */
 public func isMethodPOST() -> HTTPStubsTestBlock {
-  return { $0.httpMethod == "POST" }
+    return { $0.httpMethod == "POST" }
 }
 
 /**
@@ -143,7 +143,7 @@ public func isMethodPOST() -> HTTPStubsTestBlock {
  *            is using the PUT method
  */
 public func isMethodPUT() -> HTTPStubsTestBlock {
-  return { $0.httpMethod == "PUT" }
+    return { $0.httpMethod == "PUT" }
 }
 
 /**
@@ -153,7 +153,7 @@ public func isMethodPUT() -> HTTPStubsTestBlock {
  *            is using the PATCH method
  */
 public func isMethodPATCH() -> HTTPStubsTestBlock {
-  return { $0.httpMethod == "PATCH" }
+    return { $0.httpMethod == "PATCH" }
 }
 
 /**
@@ -163,7 +163,7 @@ public func isMethodPATCH() -> HTTPStubsTestBlock {
  *            is using the DELETE method
  */
 public func isMethodDELETE() -> HTTPStubsTestBlock {
-  return { $0.httpMethod == "DELETE" }
+    return { $0.httpMethod == "DELETE" }
 }
 
 /**
@@ -179,7 +179,7 @@ public func isMethodHEAD() -> HTTPStubsTestBlock {
 /**
  * Matcher for testing an `NSURLRequest`'s **absolute url string**.
  *
-* e.g. the absolute url string is `https://api.example.com/signin?user=foo&password=123#anchor` in `https://api.example.com/signin?user=foo&password=123#anchor`
+ * e.g. the absolute url string is `https://api.example.com/signin?user=foo&password=123#anchor` in `https://api.example.com/signin?user=foo&password=123#anchor`
  *
  * - Parameter url: The absolute url string to match
  *
@@ -187,7 +187,7 @@ public func isMethodHEAD() -> HTTPStubsTestBlock {
  *            has the given absolute url
  */
 public func isAbsoluteURLString(_ url: String) -> HTTPStubsTestBlock {
-  return { req in req.url?.absoluteString == url }
+    return { req in req.url?.absoluteString == url }
 }
 
 /**
@@ -201,9 +201,9 @@ public func isAbsoluteURLString(_ url: String) -> HTTPStubsTestBlock {
  *            has the given scheme
  */
 public func isScheme(_ scheme: String) -> HTTPStubsTestBlock {
-  precondition(!scheme.contains("://"), "The scheme part of an URL never contains '://'. Only use strings like 'https' for this value, and not things like 'https://'")
-  precondition(!scheme.contains("/"), "The scheme part of an URL never contains any slash. Only use strings like 'https' for this value, and not things like 'https://api.example.com/'")
-  return { req in req.url?.scheme == scheme }
+    precondition(!scheme.contains("://"), "The scheme part of an URL never contains '://'. Only use strings like 'https' for this value, and not things like 'https://'")
+    precondition(!scheme.contains("/"), "The scheme part of an URL never contains any slash. Only use strings like 'https' for this value, and not things like 'https://api.example.com/'")
+    return { req in req.url?.scheme == scheme }
 }
 
 /**
@@ -217,8 +217,8 @@ public func isScheme(_ scheme: String) -> HTTPStubsTestBlock {
  *            has the given host
  */
 public func isHost(_ host: String) -> HTTPStubsTestBlock {
-  precondition(!host.contains("/"), "The host part of an URL never contains any slash. Only use strings like 'api.example.com' for this value, and not things like 'https://api.example.com/'")
-  return { req in req.url?.host == host }
+    precondition(!host.contains("/"), "The host part of an URL never contains any slash. Only use strings like 'api.example.com' for this value, and not things like 'https://api.example.com/'")
+    return { req in req.url?.host == host }
 }
 
 /**
@@ -235,16 +235,17 @@ public func isHost(_ host: String) -> HTTPStubsTestBlock {
  *         should include in the `path` parameter unless you're testing relative URLs)
  */
 public func isPath(_ path: String) -> HTTPStubsTestBlock {
-  return { req in req.url?.path == path }
+    return { req in req.url?.path == path }
 }
 
 private func getPath(_ req: URLRequest) -> String? {
-  #if swift(>=3.0)
-    return req.url?.path // In Swift 3, path is non-optional
-  #else
-    return req.url?.path
-  #endif
+    #if swift(>=3.0)
+        return req.url?.path // In Swift 3, path is non-optional
+    #else
+        return req.url?.path
+    #endif
 }
+
 /**
  * Matcher for testing the start of an `NSURLRequest`'s **path**.
  *
@@ -257,7 +258,7 @@ private func getPath(_ req: URLRequest) -> String? {
  *         should include in the `path` parameter unless you're testing relative URLs)
  */
 public func pathStartsWith(_ path: String) -> HTTPStubsTestBlock {
-  return { req in getPath(req)?.hasPrefix(path) ?? false }
+    return { req in getPath(req)?.hasPrefix(path) ?? false }
 }
 
 /**
@@ -269,7 +270,7 @@ public func pathStartsWith(_ path: String) -> HTTPStubsTestBlock {
  *            path ends with the given string
  */
 public func pathEndsWith(_ path: String) -> HTTPStubsTestBlock {
-  return { req in getPath(req)?.hasSuffix(path) ?? false }
+    return { req in getPath(req)?.hasSuffix(path) ?? false }
 }
 
 /**
@@ -283,15 +284,15 @@ public func pathEndsWith(_ path: String) -> HTTPStubsTestBlock {
  * - Note: URL paths are usually absolute and thus starts with a '/'
  */
 public func pathMatches(_ regex: NSRegularExpression) -> HTTPStubsTestBlock {
-  return { req in
-    guard let path = getPath(req) else { return false }
-    let range = NSRange(location: 0, length: path.utf16.count)
-    #if swift(>=3.0)
-      return regex.firstMatch(in: path, options: [], range: range) != nil
-    #else
-      return regex.firstMatchInString(path, options: [], range: range) != nil
-    #endif
-  }
+    return { req in
+        guard let path = getPath(req) else { return false }
+        let range = NSRange(location: 0, length: path.utf16.count)
+        #if swift(>=3.0)
+            return regex.firstMatch(in: path, options: [], range: range) != nil
+        #else
+            return regex.firstMatchInString(path, options: [], range: range) != nil
+        #endif
+    }
 }
 
 /**
@@ -308,19 +309,20 @@ public func pathMatches(_ regex: NSRegularExpression) -> HTTPStubsTestBlock {
  *         and calling pathMatches(…) with it
  */
 #if swift(>=3.0)
-public func pathMatches(_ regexString: String, options: NSRegularExpression.Options = []) -> HTTPStubsTestBlock {
-  guard let regex = try? NSRegularExpression(pattern: regexString, options: options) else {
-    return { _ in false }
-  }
-  return pathMatches(regex)
-}
-#else
-  public func pathMatches(_ regexString: String, options: NSRegularExpressionOptions = []) -> HTTPStubsTestBlock {
-    guard let regex = try? NSRegularExpression(pattern: regexString, options: options) else {
-      return { _ in false }
+    public func pathMatches(_ regexString: String, options: NSRegularExpression.Options = []) -> HTTPStubsTestBlock {
+        guard let regex = try? NSRegularExpression(pattern: regexString, options: options) else {
+            return { _ in false }
+        }
+        return pathMatches(regex)
     }
-    return pathMatches(regex)
-  }
+
+#else
+    public func pathMatches(_ regexString: String, options: NSRegularExpressionOptions = []) -> HTTPStubsTestBlock {
+        guard let regex = try? NSRegularExpression(pattern: regexString, options: options) else {
+            return { _ in false }
+        }
+        return pathMatches(regex)
+    }
 #endif
 
 /**
@@ -332,7 +334,7 @@ public func pathMatches(_ regexString: String, options: NSRegularExpression.Opti
  *            ends with the given extension
  */
 public func isExtension(_ ext: String) -> HTTPStubsTestBlock {
-  return { req in req.url?.pathExtension == ext }
+    return { req in req.url?.pathExtension == ext }
 }
 
 /**
@@ -348,19 +350,19 @@ public func isExtension(_ ext: String) -> HTTPStubsTestBlock {
  *          (2) using `[q:nil]`, which matches a query parameter "?q" without a value at all
  */
 @available(iOS 8.0, OSX 10.10, *)
-public func containsQueryParams(_ params: [String:String?]) -> HTTPStubsTestBlock {
-  return { req in
-    if let url = req.url {
-      let comps = NSURLComponents(url: url, resolvingAgainstBaseURL: true)
-      if let queryItems = comps?.queryItems {
-        for (k,v) in params {
-          if queryItems.filter({ qi in qi.name == k && qi.value == v }).count == 0 { return false }
+public func containsQueryParams(_ params: [String: String?]) -> HTTPStubsTestBlock {
+    return { req in
+        if let url = req.url {
+            let comps = NSURLComponents(url: url, resolvingAgainstBaseURL: true)
+            if let queryItems = comps?.queryItems {
+                for (k, v) in params {
+                    if queryItems.filter({ qi in qi.name == k && qi.value == v }).count == 0 { return false }
+                }
+                return true
+            }
         }
-        return true
-      }
+        return false
     }
-    return false
-  }
 }
 
 /**
@@ -370,9 +372,9 @@ public func containsQueryParams(_ params: [String:String?]) -> HTTPStubsTestBloc
  * - Returns: a matcher that returns true if the `NSURLRequest`'s headers contain a value for the key name
  */
 public func hasHeaderNamed(_ name: String) -> HTTPStubsTestBlock {
-  return { (req: URLRequest) -> Bool in
-    return req.value(forHTTPHeaderField: name) != nil
-  }
+    return { (req: URLRequest) -> Bool in
+        req.value(forHTTPHeaderField: name) != nil
+    }
 }
 
 /**
@@ -384,9 +386,9 @@ public func hasHeaderNamed(_ name: String) -> HTTPStubsTestBlock {
  *            is equal to the parameter value
  */
 public func hasHeaderNamed(_ name: String, value: String) -> HTTPStubsTestBlock {
-  return { (req: URLRequest) -> Bool in
-    return req.value(forHTTPHeaderField: name) == value
-  }
+    return { (req: URLRequest) -> Bool in
+        req.value(forHTTPHeaderField: name) == value
+    }
 }
 
 /**
@@ -396,13 +398,14 @@ public func hasHeaderNamed(_ name: String, value: String) -> HTTPStubsTestBlock 
  * - Returns: a matcher that returns true if the `NSURLRequest`'s body is exactly the same as the parameter value
  */
 #if swift(>=3.0)
-  public func hasBody(_ body: Data) -> HTTPStubsTestBlock {
-    return { req in (req as NSURLRequest).ohhttpStubs_HTTPBody() == body }
-  }
+    public func hasBody(_ body: Data) -> HTTPStubsTestBlock {
+        return { req in (req as NSURLRequest).ohhttpStubs_HTTPBody() == body }
+    }
+
 #else
-  public func hasBody(_ body: NSData) -> HTTPStubsTestBlock {
-    return { req in req.OHOHHTTPStubs_HTTPBody() == body }
-  }
+    public func hasBody(_ body: NSData) -> HTTPStubsTestBlock {
+        return { req in req.OHOHHTTPStubs_HTTPBody() == body }
+    }
 #endif
 
 /**
@@ -412,17 +415,17 @@ public func hasHeaderNamed(_ name: String, value: String) -> HTTPStubsTestBlock 
  * - Returns: a matcher that returns true if the `NSURLRequest`'s body contains a JSON object with the same keys and values as the parameter value
  */
 #if swift(>=3.0)
-public func hasJsonBody(_ jsonObject: [AnyHashable : Any]) -> HTTPStubsTestBlock {
-  return { req in
-    guard
-      let httpBody = req.ohhttpStubs_httpBody,
-      let jsonBody = (try? JSONSerialization.jsonObject(with: httpBody, options: [])) as? [AnyHashable : Any]
-    else {
-      return false
+    public func hasJsonBody(_ jsonObject: [AnyHashable: Any]) -> HTTPStubsTestBlock {
+        return { req in
+            guard
+                let httpBody = req.ohhttpStubs_httpBody,
+                let jsonBody = (try? JSONSerialization.jsonObject(with: httpBody, options: [])) as? [AnyHashable: Any]
+            else {
+                return false
+            }
+            return NSDictionary(dictionary: jsonBody).isEqual(to: jsonObject)
+        }
     }
-    return NSDictionary(dictionary: jsonBody).isEqual(to: jsonObject)
-  }
-}
 #endif
 
 // MARK: Operators on HTTPStubsTestBlock
@@ -436,13 +439,14 @@ public func hasJsonBody(_ jsonObject: [AnyHashable : Any]) -> HTTPStubsTestBlock
  * - Returns: a matcher (`HTTPStubsTestBlock`) that succeeds if either of the given matchers succeeds
  */
 #if swift(>=3.0)
-  public func || (lhs: @escaping HTTPStubsTestBlock, rhs: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in lhs(req) || rhs(req) }
-  }
+    public func || (lhs: @escaping HTTPStubsTestBlock, rhs: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in lhs(req) || rhs(req) }
+    }
+
 #else
-  public func || (lhs: HTTPStubsTestBlock, rhs: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in lhs(req) || rhs(req) }
-  }
+    public func || (lhs: HTTPStubsTestBlock, rhs: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in lhs(req) || rhs(req) }
+    }
 #endif
 
 /**
@@ -454,13 +458,14 @@ public func hasJsonBody(_ jsonObject: [AnyHashable : Any]) -> HTTPStubsTestBlock
  * - Returns: a matcher (`HTTPStubsTestBlock`) that only succeeds if both of the given matchers succeeds
  */
 #if swift(>=3.0)
-  public func && (lhs: @escaping HTTPStubsTestBlock, rhs: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in lhs(req) && rhs(req) }
-  }
+    public func && (lhs: @escaping HTTPStubsTestBlock, rhs: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in lhs(req) && rhs(req) }
+    }
+
 #else
-  public func && (lhs: HTTPStubsTestBlock, rhs: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in lhs(req) && rhs(req) }
-  }
+    public func && (lhs: HTTPStubsTestBlock, rhs: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in lhs(req) && rhs(req) }
+    }
 #endif
 
 /**
@@ -471,11 +476,12 @@ public func hasJsonBody(_ jsonObject: [AnyHashable : Any]) -> HTTPStubsTestBlock
  * - Returns: a matcher (HTTPStubsTestBlock) that only succeeds if the expr matcher fails
  */
 #if swift(>=3.0)
-  public prefix func ! (expr: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in !expr(req) }
-  }
+    public prefix func ! (expr: @escaping HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in !expr(req) }
+    }
+
 #else
-  public prefix func ! (expr: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
-    return { req in !expr(req) }
-  }
+    public prefix func ! (expr: HTTPStubsTestBlock) -> HTTPStubsTestBlock {
+        return { req in !expr(req) }
+    }
 #endif

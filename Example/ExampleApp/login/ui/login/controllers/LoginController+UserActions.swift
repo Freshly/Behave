@@ -6,10 +6,9 @@
 //  Copyright © 2018 Freshly. All rights reserved.
 //
 import UIKit
-extension LoginController{
-    
-    @IBAction func login(){
+extension LoginController {
+    @IBAction func login() {
         loader(show: true)
-        _ =  viewModel.login(email: emailField.text!, password: passwordField.text!)
+        _ = viewModel.login(email: emailField.text!, password: passwordField.text!)
     }
 }

@@ -7,7 +7,7 @@
 //
 import Foundation
 
-enum Strings:String{
+enum Strings: String {
     case error = "Sorry, something went wrong."
 }
 
@@ -15,6 +15,6 @@ enum Tags: Int {
     case loadingTag = 2
 }
 
-enum URLS:String {
+enum URLS: String {
     case login = "https://bytedissident.com/login_test.php"
 }

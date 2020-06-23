@@ -6,9 +6,9 @@
 //  Copyright © 2020 Freshly. All rights reserved.
 //
 
-import XCTest
 import Behave
 @testable import ExampleApp
+import XCTest
 
 class MasterViewControllerBDDTests: XCTestCase {
     func testLaunchApp_StartScreen_isMasterViewController() {
@@ -29,7 +29,7 @@ class MasterViewControllerBDDTests: XCTestCase {
         }
         waitForExpectations(timeout: 10)
     }
-    
+
 //    func testMasterViewController_whenAddNewItemAndTap_thenNavigateToDetailController() {
 //        // Test set up
 //        let expectation = self.expectation(description: "\(#function)")

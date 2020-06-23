@@ -20,7 +20,7 @@ public struct Stub {
     public let httpMethod: HTTPMethods
     public let httpResponse: Int32
     public let jsonReturn: String
-    
+
     public init(httpMethod: HTTPMethods, httpResponse: Int32, jsonReturn: String) {
         self.httpMethod = httpMethod
         self.httpResponse = httpResponse
@@ -29,8 +29,7 @@ public struct Stub {
 }
 
 public struct BDDEvent {
-    public let identifier:String
+    public let identifier: String
     public var complete = { () in
-        return
     }
 }

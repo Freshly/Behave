@@ -10,40 +10,40 @@ import RxCocoa
 import RxSwift
 
 struct LoginViewModel {
-    
-    //UI
+    // UI
     let emailFieldLabel = "Email"
     let passwordFieldLabel = "Password"
     let submitButtonLabel = "Submit"
-    
-    //OUTPUTS
+
+    // OUTPUTS
     let error = PublishRelay<String>()
     let loginSuccess = PublishRelay<Bool>()
     var repo: LoginRepositoryProtocol
-    
+
     init(repo: LoginRepositoryProtocol = LoginRepository()) {
         self.repo = repo
     }
-    
+
     // MARK: METHODS
-    func login(email: String, password: String){
+
+    func login(email: String, password: String) {
         repo.login(email: email, password: password, complete: {
             self.processloginSucceess()
-        }, fail: { (msg) in
+        }, fail: { msg in
             self.displayError(errorString: msg)
         })
     }
-    
-    func processloginSucceess(){
+
+    func processloginSucceess() {
         loginSuccess.accept(true)
     }
-    
-    func displayError(errorString:String){
+
+    func displayError(errorString: String) {
         error.accept(errorString)
     }
-    
+
     func isUserLoggedIn() -> Bool {
-        guard let _ =  repo.retriveUserEmail() else { return false }
+        guard let _ = repo.retriveUserEmail() else { return false }
         return true
     }
 }

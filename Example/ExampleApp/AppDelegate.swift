@@ -6,28 +6,25 @@
 //  Copyright © 2020 Freshly. All rights reserved.
 //
 
-import UIKit
 import OHHTTPStubs
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let infoArguments = ProcessInfo.processInfo.arguments
         if infoArguments.contains("ui-tests") {
             if infoArguments.contains("login-success") {
                 guard let json = ProcessInfo.processInfo.arguments.last else { return true }
-                let stubData = json.data(using: String.Encoding.utf8)
-                stub(condition: isMethodPOST()) { request -> HTTPStubsResponse in
+                stub(condition: isMethodPOST()) { _ -> HTTPStubsResponse in
                     let stubData = json.data(using: String.Encoding.utf8)
-                    return HTTPStubsResponse(data:stubData!, statusCode:200, headers:nil)
+                    return HTTPStubsResponse(data: stubData!, statusCode: 200, headers: nil)
                 }
             }
         }
-        
+
         return true
     }
 }
-

@@ -6,30 +6,20 @@
 //  Copyright © 2019 Freshly. All rights reserved.
 //
 
-import XCTest
-import RxSwift
-import RxCocoa
 import Behave
+import RxCocoa
+import RxSwift
+import XCTest
 
 @testable import ExampleApp
 
-class LoginTests:XCTestCase {
-    
+class LoginTests: XCTestCase {
     var sut: LoginController!
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    //MOB-2161
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome(){
-        
+
+    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let expectations = expectation(description: "Fullfill")
         let api = Behaviour()
-        api.listenFor("login-view" , completion: {
+        api.listenFor("login-view", completion: {
             api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 200, jsonReturn: "{\"success\":\"true\"}"))
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
@@ -38,7 +28,7 @@ class LoginTests:XCTestCase {
         api.listenFor("home-view", completion: {
             expectations.fulfill()
         })
-        api.run(finally: { (error) in
+        api.run(finally: { error in
             if let errorString = error {
                 XCTFail(errorString)
             }

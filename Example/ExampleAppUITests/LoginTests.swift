@@ -7,29 +7,26 @@
 //
 
 import XCTest
-//import OHHTTPStubs
+// import OHHTTPStubs
 
 class LoginTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
     }
 
-    override func tearDown() {
-    }
-    
-    //MOB-2161
-    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome(){
-    
+    override func tearDown() {}
+
+    // MOB-2161
+    func testGivenTheUsersEmailAndPasswordAreEnteredIntoTheLoginFieldsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let app = XCUIApplication()
-        app.launchArguments = ["ui-tests","login-success","{\"success\":true}"]
+        app.launchArguments = ["ui-tests", "login-success", "{\"success\":true}"]
         app.launch()
         app.textFields["email"].tap()
         app.textFields["email"].typeText("email@test.com")
         app.textFields["password"].tap()
         app.textFields["password"].typeText("password")
         app.buttons["submit"].tap()
-        
+
         // BACK BUTTON
         XCTAssert(app.navigationBars.buttons.element(boundBy: 0).exists)
     }

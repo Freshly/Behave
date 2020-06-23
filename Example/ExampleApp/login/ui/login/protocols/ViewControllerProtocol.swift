@@ -9,7 +9,6 @@
 import UIKit
 
 protocol ViewControllerProtocol {
-    
     func binding_error()
     func binding_success()
 }

@@ -6,13 +6,13 @@
 //  Copyright © 2018 Freshly. All rights reserved.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
-struct TestViewModel{
-    
-    //MARK: Methods
-    func myMethod(){
-       assert(false)
+struct TestViewModel {
+    // MARK: Methods
+
+    func myMethod() {
+        assert(false)
     }
 }

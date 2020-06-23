@@ -12,7 +12,7 @@ public class Behaviour {
     public var eventIndex: Int
     public var finalCall: (String?) -> Void
     public var testTimeInSeconds = 10.0
-    
+
     public init() {
         events = []
         eventIndex = 0

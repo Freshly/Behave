@@ -635,7 +635,7 @@ public class Request {
     ///   - session: `URLSession` which creates the `URLSessionTask`.
     ///
     /// - Returns:   The `URLSessionTask` created.
-    func task(for request: URLRequest, using session: URLSession) -> URLSessionTask {
+    func task(for _: URLRequest, using _: URLSession) -> URLSessionTask {
         fatalError("Subclasses must override.")
     }
 
@@ -844,7 +844,7 @@ public class Request {
 // MARK: - Protocol Conformances
 
 extension Request: Equatable {
-    public static func ==(lhs: Request, rhs: Request) -> Bool {
+    public static func == (lhs: Request, rhs: Request) -> Bool {
         lhs.id == rhs.id
     }
 }
