@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Behave/Source/*.swift'
 
-  s.dependency 'OHHTTPStubs/Swift', '9.0.0'
+  s.dependency 'OHHTTPStubs/Swift', '8.0.0'
 end

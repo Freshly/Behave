@@ -19,7 +19,7 @@
   "source_files": "Behave/Source/*.swift",
   "dependencies": {
     "OHHTTPStubs/Swift": [
-      "9.0.0"
+      "8.0.0"
     ]
   },
   "swift_version": "5.0"
