@@ -10,7 +10,11 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     var detailViewController: DetailViewController?
-    var objects = [Any]()
+    var objects = [Any]() {
+        didSet {
+            setupLeftBarButtonItem()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,8 @@ class HomeViewController: UITableViewController {
         view.accessibilityIdentifier = "home-view"
 
         navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = "edit-button"
+        setupLeftBarButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         addButton.accessibilityIdentifier = "add-button"
@@ -40,10 +46,13 @@ class HomeViewController: UITableViewController {
         guard let controller = story.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         
         controller.detailItem = object
-        controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
         detailViewController = controller
         navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func setupLeftBarButtonItem() {
+        navigationItem.leftBarButtonItem?.isEnabled = objects.count > 0
     }
 
     // MARK: - Table View
@@ -58,8 +67,8 @@ class HomeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row] as? NSDate
+        cell.textLabel?.text = object?.description ?? ""
         return cell
     }
 
