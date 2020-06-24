@@ -16,7 +16,7 @@
     "git": "git@github.com:Freshly/Behave.git",
     "tag": "v1.0.0"
   },
-  "source_files": "Behave/**/*.swift",
+  "source_files": "Behave/Source/*.swift",
   "dependencies": {
     "OHHTTPStubs/Swift": [
       "9.0.0"
