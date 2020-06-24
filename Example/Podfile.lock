@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.1.0)
-  - Behave (1.0.0):
+  - Behave (1.0.1):
     - OHHTTPStubs/Swift (= 9.0.0)
   - OHHTTPStubs/Core (9.0.0)
   - OHHTTPStubs/Default (9.0.0):
@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  Behave: 7623c6570d5af458c96c3a52aae1b776881549ec
+  Behave: fde91f90b1e0e331ec7e10656eabd14228643266
   OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575

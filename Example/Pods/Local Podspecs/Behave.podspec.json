@@ -1,6 +1,6 @@
 {
   "name": "Behave",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "platforms": {
     "ios": "10.0"
   },
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "git@github.com:Freshly/Behave.git",
-    "tag": "v1.0.0"
+    "tag": "v1.0.1"
   },
   "source_files": "Behave/Source/*.swift",
   "dependencies": {
