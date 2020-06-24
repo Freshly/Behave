@@ -13,7 +13,7 @@
 **Declare** an instance of **Behavior** in your **XCTestCase** file
 ```
 let api = Behavior()
-```
+``` swift
 **Expectations**
 Wrap your test in an Expectation. *Use the **testTimeInterval** value for your timeout value*
 ```
@@ -23,10 +23,10 @@ func testMyBehavior() {
   let api = Behavior()
   waitForExpectations(timeout: api.testTimeInterval){ error in }
 }
-```
-**listen():**
+``` swift
+**listen(for: "my-identifier"):**
 The listen method adds an event to your test queue and then listens for it to be triggered.
-```
+``` swift
 api.listen(for: "my-view") {
     // This completion handler gets called once the object has been detected
 }
@@ -66,43 +66,43 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
     }
 ```
 # API:
-```
+``` swift
 query(identifier: String) -> UIView?
 ```
-```
+``` swift
 stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String)
 ```
-```
+``` swift
 typeIntoTextField(identifier: String, text: String)
 ```
-```
+``` swift
 typeIntoSecureTextField(identifier: String, text: String)
 ```
-```
+``` swift
 tapRightNavigationItem(with object: Any? = nil, with additionalObject: Any? = nil)
 ```
-```
+``` swift
 tapBackButton()
 ```
-```
+``` swift
 tapButton(identifier: String)
 ```
-```
+``` swift
 selectTabOnTabBar(index: Int)
 ```
-```
+``` swift
 selectTableRow(identfier: String, indexPath: IndexPath)
 ```
-```
+``` swift
 scrollTableTo(indexPath: IndexPath, identfier: String)
 ```
-```
+``` swift
 selectCollectionItem(identfier: String, indexPath: IndexPath)
 ```
-```
+``` swift
 selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:IndexPath)
 ```
-```
+``` swift
 alert(complete: @escaping () -> Void)
 ```
 
