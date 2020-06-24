@@ -22,8 +22,8 @@ class LoginTests: XCTestCase {
         app.launch()
         app.textFields["email"].tap()
         app.textFields["email"].typeText("email@test.com")
-        app.textFields["Password"].tap()
-        app.textFields["Password"].typeText("password")
+        app.textFields["password-field"].tap()
+        app.textFields["password-field"].typeText("password")
         app.buttons["submit"].tap()
 
         // BACK BUTTON
