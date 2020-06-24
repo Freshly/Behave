@@ -7,9 +7,9 @@
 *Note:Included in the ExampleApp is a side by side comparison of a test written in XCTestUI vs. Behave*
 
 **The anatomy of a behave test**
-**Declare** an instance of **Behavior** in your **XCTestCase** file
+**Declare** an instance of **Behaviour** in your **XCTestCase** file
 ``` swift
-let api = Behavior()
+let api = Behaviour()
 ```
 **Expectations**
 Wrap your test in an Expectation. *Use the **testTimeInterval** value for your timeout value*
@@ -17,7 +17,7 @@ Wrap your test in an Expectation. *Use the **testTimeInterval** value for your t
 func testMyBehavior() {
   let expectations = expectation(description: "Fulfill")
   // TEST CODE WILL LIVE HERE
-  let api = Behavior()
+  let api = Behaviour()
   waitForExpectations(timeout: api.testTimeInterval){ error in }
 }
 ```
