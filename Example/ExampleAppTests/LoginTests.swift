@@ -11,7 +11,7 @@ import XCTest
 
 @testable import ExampleApp
 
-class LoginControllerBDDTests: XCTestCase {
+class LoginTests: XCTestCase {
     func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()

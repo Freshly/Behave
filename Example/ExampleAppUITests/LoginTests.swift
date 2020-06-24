@@ -16,7 +16,7 @@ class LoginTests: XCTestCase {
 
     override func tearDown() {}
 
-    func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
+    func testGivenUserCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let app = XCUIApplication()
         app.launchArguments = ["ui-tests", "login-success", "{\"success\":true}"]
         app.launch()
