@@ -27,9 +27,3 @@ public struct Stub {
         self.jsonReturn = jsonReturn
     }
 }
-
-public struct BDDEvent {
-    public let identifier: String
-    public var complete = { () in
-    }
-}
