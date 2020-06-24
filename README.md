@@ -106,7 +106,7 @@ selectCollectionItem(identfier: String, indexPath: IndexPath)
 selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:IndexPath)
 ```
 ``` swift
-alert(complete: @escaping () -> Void)
+waitForAlert(complete: @escaping () -> Void)
 ```
 
 
