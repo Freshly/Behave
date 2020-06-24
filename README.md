@@ -11,20 +11,21 @@
 
 **The anatomy of a behave test**
 **Declare** an instance of **Behavior** in your **XCTestCase** file
-```
+``` swift
 let api = Behavior()
+
 ``` swift
 **Expectations**
 Wrap your test in an Expectation. *Use the **testTimeInterval** value for your timeout value*
-```
+``` swift
 func testMyBehavior() {
   let expectations = expectation(description: "Fulfill")
   // TEST CODE WILL LIVE HERE
   let api = Behavior()
   waitForExpectations(timeout: api.testTimeInterval){ error in }
 }
-``` swift
-**listen(for: "my-identifier"):**
+```
+**listen:**
 The listen method adds an event to your test queue and then listens for it to be triggered.
 ``` swift
 api.listen(for: "my-view") {
@@ -35,9 +36,9 @@ api.listen(for: "my-view") {
 2. Behave listens for events to complete. When an event completes you can either trigger an action or verify some state change.
 3. When the event is triggered the completion handler will be called. Each event added to the test gets tested in the order it was added, **FIFO**. The events are triggered synchronously.
 
-**Run():**
+**Run:**
 To make your test run use the run method. Behave tests will not run without explicitly calling run. Run has a *fail* completion handler, this will get triggered if any of your events are not triggered. Behave will pass back the identifier in question so you can identify the issue.
-```
+``` swift
   api.run(fail: { error in
     XCTFail(error)
     expectations.fullfill()
