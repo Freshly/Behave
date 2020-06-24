@@ -11,6 +11,10 @@ Pod::Spec.new do |s|
   s.license      = 'MIT (Behave license)'
   s.author       = { 'Derek Bronston' => 'derek.bronston@freshly.com' }
   s.source       = { :git => 'git@github.com:Freshly/Behave.git', :tag => 'v1.0.0' }
-  s.source_files = 'Behave/**/*.swift'
+  
+  s.source_files = 'Behave/Source/*.swift'
+  
+  s.ios.deployment_target = '10.0'
+
   s.dependency 'OHHTTPStubs/Swift', '9.0.0'
 end
