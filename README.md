@@ -2,7 +2,7 @@
 ![N|Solid](http://bytedissident.com/behave.png)
 
 ### What is Behave
-**Behave** is a lightweight, flexible swift library designed to help iOS developers write simple BDD (UI Tests) that execute quickly.
+**Behave** is a lightweight, flexible Swift library designed to help iOS developers write simple BDD (UI Tests) that execute quickly.
 *Note: Included in the ExampleApp is a side by side comparison of a test written in XCTestUI vs. Behave*
 
 # Installation:
