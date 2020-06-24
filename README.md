@@ -1,11 +1,16 @@
 # BEHAVE
 ![N|Solid](http://bytedissident.com/behave.png)
 
-**What is Behave**
+### What is Behave
 **Behave** is a lightweight, flexible swift library designed to help iOS developers write simple BDD (UI Tests) that execute quickly.
-
 *Note:Included in the ExampleApp is a side by side comparison of a test written in XCTestUI vs. Behave*
 
+# Installation:
+### CocoaPods
+CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Behave into your Xcode project using CocoaPods, specify it in your Podfile:
+```
+pod 'Behave'
+```
 **The anatomy of a behave test**
 **Declare** an instance of **Behaviour** in your **XCTestCase** file
 ``` swift
@@ -102,3 +107,7 @@ selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:I
 ``` swift
 alert(complete: @escaping () -> Void)
 ```
+
+
+
+
