@@ -1,15 +1,7 @@
-//
-//  Behave+Stub.swift
-//  Freshly
-//
-//  Created by Derek Bronston on 9/27/19.
-//  Copyright © 2019 Derek Bronston. All rights reserved.
-//
-
 import Foundation
 import OHHTTPStubs
 
-extension Behaviour {
+public extension Behaviour {
     public func stubNetworkRequest(stub: Stub) {
         switch stub.httpMethod {
         case .get:
@@ -30,37 +22,37 @@ extension Behaviour {
     }
 
     internal func stubGET(status: Int32, json: String) {
-        stub(condition: isMethodGET()) { _ -> HTTPStubsResponse in
+        stub(condition: isMethodGET()) { _ -> OHHTTPStubsResponse in
             let stubData = json.data(using: String.Encoding.utf8)
-            return HTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
+            return OHHTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
         }
     }
 
     internal func stubPATCH(status: Int32, json: String) {
-        stub(condition: isMethodPATCH()) { _ -> HTTPStubsResponse in
+        stub(condition: isMethodPATCH()) { _ -> OHHTTPStubsResponse in
             let stubData = json.data(using: String.Encoding.utf8)
-            return HTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
+            return OHHTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
         }
     }
 
     internal func stubPOST(status: Int32, json: String) {
-        stub(condition: isMethodPOST()) { _ -> HTTPStubsResponse in
+        stub(condition: isMethodPOST()) { _ -> OHHTTPStubsResponse in
             let stubData = json.data(using: String.Encoding.utf8)
-            return HTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
+            return OHHTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
         }
     }
 
     internal func stubDELETE(status: Int32, json: String) {
-        stub(condition: isMethodDELETE()) { _ -> HTTPStubsResponse in
+        stub(condition: isMethodDELETE()) { _ -> OHHTTPStubsResponse in
             let stubData = json.data(using: String.Encoding.utf8)
-            return HTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
+            return OHHTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
         }
     }
 
     internal func stubPUT(status: Int32, json: String) {
-        stub(condition: isMethodPUT()) { _ -> HTTPStubsResponse in
+        stub(condition: isMethodPUT()) { _ -> OHHTTPStubsResponse in
             let stubData = json.data(using: String.Encoding.utf8)
-            return HTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
+            return OHHTTPStubsResponse(data: stubData!, statusCode: status, headers: nil)
         }
     }
 
