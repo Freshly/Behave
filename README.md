@@ -13,8 +13,7 @@
 **Declare** an instance of **Behavior** in your **XCTestCase** file
 ``` swift
 let api = Behavior()
-
-``` swift
+```
 **Expectations**
 Wrap your test in an Expectation. *Use the **testTimeInterval** value for your timeout value*
 ``` swift
@@ -106,7 +105,3 @@ selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:I
 ``` swift
 alert(complete: @escaping () -> Void)
 ```
-
-
-
-
