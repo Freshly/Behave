@@ -25,15 +25,15 @@
 #import <Foundation/Foundation.h>
 
 #if defined(__IPHONE_7_0) || defined(__MAC_10_9)
-#import "HTTPStubs.h"
-#import "HTTPStubsMethodSwizzling.h"
+#import "OHHTTPStubs.h"
+#import "OHHTTPStubsMethodSwizzling.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  *  This helper is used to swizzle NSURLSessionConfiguration constructor methods
  *  defaultSessionConfiguration and ephemeralSessionConfiguration to insert the private
- *  HTTPStubsProtocol into their protocolClasses array so that OHHTTPStubs is automagically
+ *  OHHTTPStubsProtocol into their protocolClasses array so that OHHTTPStubs is automagically
  *  supported when you create a new NSURLSession based on one of there configurations.
  */
 
@@ -41,32 +41,32 @@ typedef NSURLSessionConfiguration*(*SessionConfigConstructor)(id,SEL);
 static SessionConfigConstructor orig_defaultSessionConfiguration;
 static SessionConfigConstructor orig_ephemeralSessionConfiguration;
 
-static NSURLSessionConfiguration* HTTPStubs_defaultSessionConfiguration(id self, SEL _cmd)
+static NSURLSessionConfiguration* OHHTTPStubs_defaultSessionConfiguration(id self, SEL _cmd)
 {
     NSURLSessionConfiguration* config = orig_defaultSessionConfiguration(self,_cmd); // call original method
-    [HTTPStubs setEnabled:YES forSessionConfiguration:config]; //OHHTTPStubsAddProtocolClassToNSURLSessionConfiguration(config);
+    [OHHTTPStubs setEnabled:YES forSessionConfiguration:config]; //OHHTTPStubsAddProtocolClassToNSURLSessionConfiguration(config);
     return config;
 }
 
-static NSURLSessionConfiguration* HTTPStubs_ephemeralSessionConfiguration(id self, SEL _cmd)
+static NSURLSessionConfiguration* OHHTTPStubs_ephemeralSessionConfiguration(id self, SEL _cmd)
 {
     NSURLSessionConfiguration* config = orig_ephemeralSessionConfiguration(self,_cmd); // call original method
-    [HTTPStubs setEnabled:YES forSessionConfiguration:config]; //OHHTTPStubsAddProtocolClassToNSURLSessionConfiguration(config);
+    [OHHTTPStubs setEnabled:YES forSessionConfiguration:config]; //OHHTTPStubsAddProtocolClassToNSURLSessionConfiguration(config);
     return config;
 }
 
-@interface NSURLSessionConfiguration(HTTPStubsSupport) @end
+@interface NSURLSessionConfiguration(OHHTTPStubsSupport) @end
 
-@implementation NSURLSessionConfiguration(HTTPStubsSupport)
+@implementation NSURLSessionConfiguration(OHHTTPStubsSupport)
 
 +(void)load
 {
-    orig_defaultSessionConfiguration = (SessionConfigConstructor)HTTPStubsReplaceMethod(@selector(defaultSessionConfiguration),
-                                                                                          (IMP)HTTPStubs_defaultSessionConfiguration,
+    orig_defaultSessionConfiguration = (SessionConfigConstructor)OHHTTPStubsReplaceMethod(@selector(defaultSessionConfiguration),
+                                                                                          (IMP)OHHTTPStubs_defaultSessionConfiguration,
                                                                                           [NSURLSessionConfiguration class],
                                                                                           YES);
-    orig_ephemeralSessionConfiguration = (SessionConfigConstructor)HTTPStubsReplaceMethod(@selector(ephemeralSessionConfiguration),
-                                                                                            (IMP)HTTPStubs_ephemeralSessionConfiguration,
+    orig_ephemeralSessionConfiguration = (SessionConfigConstructor)OHHTTPStubsReplaceMethod(@selector(ephemeralSessionConfiguration),
+                                                                                            (IMP)OHHTTPStubs_ephemeralSessionConfiguration,
                                                                                             [NSURLSessionConfiguration class],
                                                                                             YES);
 }

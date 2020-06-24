@@ -29,7 +29,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Imports
 
-#import "HTTPStubsResponse.h"
+#import "OHHTTPStubsResponse.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Defines & Constants
@@ -44,7 +44,7 @@ const double OHHTTPStubsDownloadSpeedWifi   =- 12000 / 8; // kbps -> KB/s
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Implementation
 
-@implementation HTTPStubsResponse
+@implementation OHHTTPStubsResponse
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Commodity Constructors
@@ -56,9 +56,9 @@ const double OHHTTPStubsDownloadSpeedWifi   =- 12000 / 8; // kbps -> KB/s
                      statusCode:(int)statusCode
                         headers:(nullable NSDictionary*)httpHeaders
 {
-    HTTPStubsResponse* response = [[self alloc] initWithData:data
-                                                  statusCode:statusCode
-                                                     headers:httpHeaders];
+    OHHTTPStubsResponse* response = [[self alloc] initWithData:data
+                                                    statusCode:statusCode
+                                                       headers:httpHeaders];
     return response;
 }
 
@@ -69,9 +69,9 @@ const double OHHTTPStubsDownloadSpeedWifi   =- 12000 / 8; // kbps -> KB/s
                            statusCode:(int)statusCode
                               headers:(nullable NSDictionary *)httpHeaders
 {
-    HTTPStubsResponse* response = [[self alloc] initWithFileAtPath:filePath
-                                                        statusCode:statusCode
-                                                           headers:httpHeaders];
+    OHHTTPStubsResponse* response = [[self alloc] initWithFileAtPath:filePath
+                                                          statusCode:statusCode
+                                                             headers:httpHeaders];
     return response;
 }
 
@@ -79,9 +79,9 @@ const double OHHTTPStubsDownloadSpeedWifi   =- 12000 / 8; // kbps -> KB/s
                         statusCode:(int)statusCode
                            headers:(nullable NSDictionary *)httpHeaders
 {
-    HTTPStubsResponse* response = [[self alloc] initWithFileURL:fileURL
-                                                     statusCode:statusCode
-                                                        headers:httpHeaders];
+    OHHTTPStubsResponse* response = [[self alloc] initWithFileURL:fileURL
+                                                       statusCode:statusCode
+                                                          headers:httpHeaders];
     return response;
 }
 
@@ -89,7 +89,7 @@ const double OHHTTPStubsDownloadSpeedWifi   =- 12000 / 8; // kbps -> KB/s
 
 +(instancetype)responseWithError:(NSError*)error
 {
-    HTTPStubsResponse* response = [[self  alloc] initWithError:error];
+    OHHTTPStubsResponse* response = [[self  alloc] initWithError:error];
     return response;
 }
 

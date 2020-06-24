@@ -10,12 +10,12 @@
 #endif
 #endif
 
-#import "HTTPStubs.h"
-#import "HTTPStubsResponse.h"
 #import "Compatibility.h"
-#import "HTTPStubsResponse+JSON.h"
+#import "OHHTTPStubs.h"
+#import "OHHTTPStubsResponse.h"
+#import "OHHTTPStubsResponse+JSON.h"
 #import "NSURLRequest+HTTPBodyTesting.h"
-#import "HTTPStubsPathHelpers.h"
+#import "OHPathHelpers.h"
 #import "Compatibility.h"
 
 FOUNDATION_EXPORT double OHHTTPStubsVersionNumber;

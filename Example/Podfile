@@ -6,7 +6,7 @@ target 'ExampleApp' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'Alamofire'
   pod 'SwiftKeychainWrapper'
-  pod 'OHHTTPStubs/Swift'
+  pod 'OHHTTPStubs/Swift', '~> 8.0.0'
 
   target 'ExampleAppTests' do
     pod 'Behave', :path => '..'
