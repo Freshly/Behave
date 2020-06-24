@@ -115,7 +115,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-h6-wng">
                                         <rect key="frame" x="0.0" y="50" width="318" height="30"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="Password"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password-field"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Tpc-bj-Fdf"/>
                                         </constraints>
@@ -125,7 +125,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fy6-f7-iB4">
-                                <rect key="frame" x="169" y="536" width="76" height="36"/>
+                                <rect key="frame" x="169" y="470" width="76" height="36"/>
                                 <accessibility key="accessibilityConfiguration" identifier="submit"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title=" Submit  "/>
@@ -140,7 +140,7 @@
                             <constraint firstItem="rh7-iT-036" firstAttribute="leading" secondItem="uVS-3k-cl2" secondAttribute="leading" constant="48" id="DWY-7X-bW6"/>
                             <constraint firstItem="uVS-3k-cl2" firstAttribute="trailing" secondItem="rh7-iT-036" secondAttribute="trailing" constant="48" id="DbP-rY-dEf"/>
                             <constraint firstItem="fy6-f7-iB4" firstAttribute="centerX" secondItem="d94-kE-39b" secondAttribute="centerX" id="Ibz-ks-PHZ"/>
-                            <constraint firstItem="fy6-f7-iB4" firstAttribute="top" secondItem="rh7-iT-036" secondAttribute="bottom" constant="96" id="zDc-RF-JlI"/>
+                            <constraint firstItem="fy6-f7-iB4" firstAttribute="top" secondItem="rh7-iT-036" secondAttribute="bottom" constant="30" id="zDc-RF-JlI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVS-3k-cl2"/>
                     </view>
