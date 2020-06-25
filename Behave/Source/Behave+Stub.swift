@@ -62,7 +62,7 @@ public extension Behaviour {
      - parameter: urlString:String
      - return: String?
      */
-    public func openFileAndReadIntoString(urlString: String) -> String? {
+    func openFileAndReadIntoString(urlString: String) -> String? {
         if let dir = Bundle.main.path(forResource: urlString, ofType: "json") {
             do {
                 let text2 = try String(contentsOfFile: dir)
