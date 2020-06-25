@@ -1,7 +1,7 @@
 import Foundation
 import OHHTTPStubs
 
-extension Behaviour {
+public extension Behaviour {
     func stubNetworkRequest(stub: Stub) {
         switch stub.httpMethod {
         case .get:
