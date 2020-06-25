@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/Freshly/Behave'
   s.license      = 'MIT (Behave license)'
   s.author       = { 'Derek Bronston' => 'derek.bronston@freshly.com' }
-  s.source       = { :git => 'https://github.com/Freshly/Behave.git', :tag => 'v1.0.3' }
-  
+  s.source       = { :git => 'https://github.com/Freshly/Behave.git', :tag => '1.0.3' }
+
   s.source_files = 'Behave/Source/*.swift'
 
   s.dependency 'OHHTTPStubs/Swift', '8.0.0'
