@@ -10,7 +10,7 @@
 ### CocoaPods
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Behave into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
-pod 'Behave'
+pod 'Behave', :git => 'https://github.com/Freshly/Behave.git'
 ```
 **The anatomy of a behave test**
 **Declare** an instance of **Behaviour** in your **XCTestCase** file
