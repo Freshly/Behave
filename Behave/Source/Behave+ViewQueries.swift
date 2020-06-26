@@ -9,6 +9,9 @@
 import UIKit
 
 public extension Behaviour {
+    var timerInterval: TimeInterval { return 0.1 }
+    var attemptsMaximumNumber: Int { return 100 }
+    
     func findTable() -> UITableView? {
         guard let view = topMostViewController?.view else { return nil }
         if view is UITableView {
@@ -120,31 +123,39 @@ public extension Behaviour {
     }
 
     func waitForAlert(complete: @escaping () -> Void) {
-        var runCount = 0
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            if let _ = self?.topMostViewController as? UIAlertController {
+        var runCount: Int = 0
+        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            if let _ = self.topMostViewController as? UIAlertController {
                 complete()
                 timer.invalidate()
                 return
             }
             
             runCount += 1
-            if runCount == 10 {
+            if runCount == self.attemptsMaximumNumber {
                 timer.invalidate()
             }
         }
     }
     
     func wait(for identifier: String, parent: UIView, complete: @escaping () -> Void) {
-        var runCount = 0
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        var runCount: Int = 0
+        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
 
             if self.findView(view: parent, identifier: identifier) != nil {
                 complete()
                 timer.invalidate()
             }
             runCount += 1
-            if runCount == 10 {
+            if runCount == self.attemptsMaximumNumber {
                 timer.invalidate()
             }
         }
@@ -152,20 +163,24 @@ public extension Behaviour {
 
     func wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void) {
         var runCount = 0
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let viewController = self?.topMostViewController else { fail(identifier)
+        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            guard let viewController = self.topMostViewController else { fail(identifier)
                 timer.invalidate()
                 return
             }
             if let parent = viewController.view {
-                if parent.accessibilityIdentifier == identifier || self?.findView(view: parent, identifier: identifier) != nil {
+                if parent.accessibilityIdentifier == identifier || self.findView(view: parent, identifier: identifier) != nil {
                     complete()
                     timer.invalidate()
                     return
                 }
             }
             runCount += 1
-            if runCount == 10 {
+            if runCount == self.attemptsMaximumNumber {
                 timer.invalidate()
                 fail(identifier)
             }
