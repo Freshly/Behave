@@ -109,6 +109,6 @@ selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:I
 waitForAlert(complete: @escaping () -> Void)
 ```
 
-
-
+ ###### Behave was developed at [Freshly](https://tech.freshly.com/) and is maintained by [Derek Bronston](https://github.com/bytedissident), [Denis  Efimov](https://github.com/denpef) and the Freshly iOS team.
+ 
 
