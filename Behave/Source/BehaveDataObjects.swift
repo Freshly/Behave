@@ -20,10 +20,12 @@ public struct Stub {
     public let httpMethod: HTTPMethods
     public let httpResponse: Int32
     public let jsonReturn: String
+    public let urlString: String
 
-    public init(httpMethod: HTTPMethods, httpResponse: Int32, jsonReturn: String) {
+    public init(httpMethod: HTTPMethods, httpResponse: Int32, jsonReturn: String, urlString:String) {
         self.httpMethod = httpMethod
         self.httpResponse = httpResponse
         self.jsonReturn = jsonReturn
+        self.urlString = urlString
     }
 }
