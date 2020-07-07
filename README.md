@@ -53,7 +53,7 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.listen(for: "login-view") {
-            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 200, jsonReturn: "{\"success\":\"true\"}"))
+            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
             api.tapButton(identifier: "submit")
@@ -73,7 +73,7 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
 query(identifier: String) -> UIView?
 ```
 ``` swift
-stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String)
+stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
 ``` swift
 typeIntoTextField(identifier: String, text: String)
@@ -110,5 +110,5 @@ waitForAlert(complete: @escaping () -> Void)
 ```
 
  ###### Behave was developed at [Freshly](https://tech.freshly.com/) and is maintained by [Derek Bronston](https://github.com/bytedissident), [Denis  Efimov](https://github.com/denpef) and the Freshly iOS team.
- 
+
 
