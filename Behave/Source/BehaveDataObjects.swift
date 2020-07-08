@@ -22,7 +22,7 @@ public struct Stub {
     public let jsonReturn: String
     public let urlString: String
 
-    public init(httpMethod: HTTPMethods, httpResponse: Int32, jsonReturn: String, urlString:String) {
+    public init(httpMethod: HTTPMethods = HTTPMethods.get, httpResponse: Int32, jsonReturn: String, urlString:String) {
         self.httpMethod = httpMethod
         self.httpResponse = httpResponse
         self.jsonReturn = jsonReturn
