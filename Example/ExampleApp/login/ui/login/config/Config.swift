@@ -16,5 +16,6 @@ enum Tags: Int {
 }
 
 enum URLS: String {
-    case login = "url-to-login"
+    case login = "https://test.com/login_test.php"
+    case data = "https://test.com/data.php"
 }

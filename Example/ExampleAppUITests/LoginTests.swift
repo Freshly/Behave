@@ -16,7 +16,7 @@ class LoginTests: XCTestCase {
 
     override func tearDown() {}
 
-    func testGivenUserCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
+    func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestFailureThenDisplayAlert() {
         let app = XCUIApplication()
         app.launchArguments = ["ui-tests", "login-success", "{\"success\":true}"]
         app.launch()
@@ -27,6 +27,6 @@ class LoginTests: XCTestCase {
         app.buttons["submit"].tap()
 
         // BACK BUTTON
-        XCTAssert(app.navigationBars.staticTexts["Home"].exists)
+        XCTAssert(app.alerts.firstMatch.exists)
     }
 }

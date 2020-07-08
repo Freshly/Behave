@@ -28,7 +28,11 @@ struct LoginViewModel {
 
     func login(email: String, password: String) {
         repo.login(email: email, password: password, complete: {
-            self.processloginSucceess()
+            self.repo.data(complete: {
+                self.processloginSucceess()
+            }, fail: { msg in
+                self.displayError(errorString: msg)
+            })
         }, fail: { msg in
             self.displayError(errorString: msg)
         })
