@@ -16,8 +16,8 @@ class LoginTests: XCTestCase {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.listen(for: "login-view") {
-            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
-            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
+            api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
+            api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
             api.tapButton(identifier: "submit")
@@ -36,7 +36,7 @@ class LoginTests: XCTestCase {
         let api = Behaviour()
         api.listen(for: "login-view") {
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
-            api.stubNetworkRequest(stub: Stub(httpMethod: HTTPMethods.post, httpResponse: 400, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
+            api.stubNetworkRequest(stub: Stub(httpResponse: 400, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
             api.tapButton(identifier: "submit")
