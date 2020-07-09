@@ -8,4 +8,4 @@ before_install:
 
 
 script:
-  - xctool -project Behave.xcworkspace   -scheme "Behave" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7" ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+  - xcodebuild clean test -project Behave.xcworkspace -scheme Behave -destination "platform=iOS Simulator,name=iPhone 7,OS=12.2" ONLY_ACTIVE_ARCH=NO -quiet | xcpretty -c
