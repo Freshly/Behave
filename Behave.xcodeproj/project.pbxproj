@@ -20,6 +20,7 @@
 		BE4740CF24A1E1770079DEEF /* Behave+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */; };
 		BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */; };
 		D1BAFA6A335874D6549B41EB /* Pods_Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */; };
+		FD52D299A1BD5E6551E8AA00 /* Pods_Behave_BehaveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave-BehaveTests.debug.xcconfig"; path = "Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave-BehaveTests.release.xcconfig"; path = "Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests.release.xcconfig"; sourceTree = "<group>"; };
 		41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
+		533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave_BehaveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveTests.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */,
+				FD52D299A1BD5E6551E8AA00 /* Pods_Behave_BehaveTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */,
+				533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,6 +92,8 @@
 			children = (
 				9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */,
 				41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */,
+				1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */,
+				1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94E6ECB424B6BA8B00A6FB37 /* Build configuration list for PBXNativeTarget "BehaveTests" */;
 			buildPhases = (
+				C7D6A55F0C1277A18E36011E /* [CP] Check Pods Manifest.lock */,
 				94E6ECA624B6BA8B00A6FB37 /* Sources */,
 				94E6ECA724B6BA8B00A6FB37 /* Frameworks */,
 				94E6ECA824B6BA8B00A6FB37 /* Resources */,
+				C6ED7794A75CD0FB63C429FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +284,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C6ED7794A75CD0FB63C429FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D6A55F0C1277A18E36011E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Behave-BehaveTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -314,6 +363,7 @@
 /* Begin XCBuildConfiguration section */
 		94E6ECB224B6BA8B00A6FB37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
@@ -333,6 +383,7 @@
 		};
 		94E6ECB324B6BA8B00A6FB37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC8ABW3R5C;
