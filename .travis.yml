@@ -8,4 +8,4 @@ before_install:
 
 
 script:
-  - xcodebuild clean test -workspace Behave.xcworkspace -scheme Behave -destination "platform=iOS Simulator,name=iPhone 8,OS=13.5" ONLY_ACTIVE_ARCH=NO -quiet | xcpretty -c
+  - xcodebuild test -workspace Behave.xcworkspace -scheme "Behave" COMPILER_INDEX_STORE_ENABLE=NO -destination 'platform=iOS Simulator,OS=12.2,name=iPhone 8'| tee xcodebuild.log | xcpretty
