@@ -20,7 +20,7 @@ class BehaveTests: XCTestCase {
     }
 
     func testExample() throws {
-        XCTFail(error)
+        XCTFail()
     }
 
     func testPerformanceExample() throws {
