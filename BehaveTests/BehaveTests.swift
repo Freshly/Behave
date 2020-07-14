@@ -21,6 +21,7 @@ class BehaveTests: XCTestCase {
 
     func testExample() throws {
         XCTFail()
+        
     }
 
     func testPerformanceExample() throws {
