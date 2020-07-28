@@ -19,9 +19,9 @@ class BehaveTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testExample() throws {
-        XCTFail()
-        
+     func testFake() {
+           let five = 4
+           XCTAssertEqual(five, 5)
     }
 
     func testPerformanceExample() throws {
