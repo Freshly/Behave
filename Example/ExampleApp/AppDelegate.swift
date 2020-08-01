@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 guard let json = ProcessInfo.processInfo.arguments.last else { return true }
                 stub(condition: isMethodPOST()) { _ -> OHHTTPStubsResponse in
                     let stubData = json.data(using: String.Encoding.utf8)
-                    return OHHTTPStubsResponse(data: stubData!, statusCode: 200, headers: nil)
+                    return OHHTTPStubsResponse(data: stubData!, statusCode: 400, headers: nil)
                 }
             }
         }

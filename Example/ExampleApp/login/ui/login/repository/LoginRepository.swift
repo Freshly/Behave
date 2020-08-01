@@ -10,6 +10,7 @@ import Foundation
 
 protocol LoginRepositoryProtocol {
     func login(email: String, password: String, complete: @escaping () -> Void, fail: @escaping (_ msg: String) -> Void)
+    func data(complete: @escaping () -> Void, fail: @escaping (_ msg: String) -> Void)
     func savePasswordToKeychain(password: String)
     func saveEmailToKeychain(email: String)
     func retriveUserEmail() -> String?
@@ -25,6 +26,14 @@ struct LoginRepository: LoginRepositoryProtocol {
 
     func login(email: String, password: String, complete: @escaping () -> Void, fail: @escaping (_ msg: String) -> Void) {
         api.login(email: email, password: password, success: { () in
+            complete()
+        }, fail: { msg in
+            fail(msg)
+        })
+    }
+    
+    func data(complete: @escaping () -> Void, fail: @escaping (_ msg: String) -> Void) {
+        api.data(success: { () in
             complete()
         }, fail: { msg in
             fail(msg)

@@ -12,9 +12,11 @@ public class Behaviour {
     public var testTimeInterval: TimeInterval = 20.0
     
     private var events: [BDEvent]
+    var requests: [Stub]
 
     public init() {
         events = []
+        requests = []
     }
 
     // MARK: - Methods
