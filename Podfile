@@ -5,4 +5,8 @@ target 'Behave' do
 
   pod 'OHHTTPStubs/Swift', '8.0.0'
 
+
+  target 'BehaveTests' do
+    inherit! :complete
+end
 end

@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */; };
+		94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE473FB724A0929D0079DEEF /* Behave.framework */; };
 		BE473FBC24A0929D0079DEEF /* Behave.h in Headers */ = {isa = PBXBuildFile; fileRef = BE473FBA24A0929D0079DEEF /* Behave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE473FC424A094010079DEEF /* Behave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC324A094010079DEEF /* Behave.swift */; };
 		BE473FC624A0942A0079DEEF /* Behave+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC524A0942A0079DEEF /* Behave+Actions.swift */; };
@@ -18,11 +20,28 @@
 		BE4740CF24A1E1770079DEEF /* Behave+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */; };
 		BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */; };
 		D1BAFA6A335874D6549B41EB /* Pods_Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */; };
+		FD52D299A1BD5E6551E8AA00 /* Pods_Behave_BehaveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		94E6ECB024B6BA8B00A6FB37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE473FAE24A0929D0079DEEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE473FB624A0929D0079DEEF;
+			remoteInfo = Behave;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave-BehaveTests.debug.xcconfig"; path = "Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave-BehaveTests.release.xcconfig"; path = "Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests.release.xcconfig"; sourceTree = "<group>"; };
 		41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
+		533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave_BehaveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveTests.swift; sourceTree = "<group>"; };
+		94E6ECAE24B6BA8B00A6FB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.debug.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.debug.xcconfig"; sourceTree = "<group>"; };
 		BE473FB724A0929D0079DEEF /* Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE473FBA24A0929D0079DEEF /* Behave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behave.h; sourceTree = "<group>"; };
@@ -39,6 +58,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		94E6ECA724B6BA8B00A6FB37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */,
+				FD52D299A1BD5E6551E8AA00 /* Pods_Behave_BehaveTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE473FB424A0929D0079DEEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */,
+				533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -63,14 +92,26 @@
 			children = (
 				9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */,
 				41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */,
+				1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */,
+				1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		94E6ECAB24B6BA8B00A6FB37 /* BehaveTests */ = {
+			isa = PBXGroup;
+			children = (
+				94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */,
+				94E6ECAE24B6BA8B00A6FB37 /* Info.plist */,
+			);
+			path = BehaveTests;
 			sourceTree = "<group>";
 		};
 		BE473FAD24A0929D0079DEEF = {
 			isa = PBXGroup;
 			children = (
 				BE473FB924A0929D0079DEEF /* Behave */,
+				94E6ECAB24B6BA8B00A6FB37 /* BehaveTests */,
 				BE473FB824A0929D0079DEEF /* Products */,
 				462A43BB10324A3F06B9AC88 /* Pods */,
 				30946179AA6ADF0BDF83AA62 /* Frameworks */,
@@ -81,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BE473FB724A0929D0079DEEF /* Behave.framework */,
+				94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +167,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		94E6ECA924B6BA8B00A6FB37 /* BehaveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E6ECB424B6BA8B00A6FB37 /* Build configuration list for PBXNativeTarget "BehaveTests" */;
+			buildPhases = (
+				C7D6A55F0C1277A18E36011E /* [CP] Check Pods Manifest.lock */,
+				94E6ECA624B6BA8B00A6FB37 /* Sources */,
+				94E6ECA724B6BA8B00A6FB37 /* Frameworks */,
+				94E6ECA824B6BA8B00A6FB37 /* Resources */,
+				C6ED7794A75CD0FB63C429FF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94E6ECB124B6BA8B00A6FB37 /* PBXTargetDependency */,
+			);
+			name = BehaveTests;
+			productName = BehaveTests;
+			productReference = 94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BE473FB624A0929D0079DEEF /* Behave */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE473FBF24A0929D0079DEEF /* Build configuration list for PBXNativeTarget "Behave" */;
@@ -150,9 +212,13 @@
 		BE473FAE24A0929D0079DEEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Freshly;
 				TargetAttributes = {
+					94E6ECA924B6BA8B00A6FB37 = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					BE473FB624A0929D0079DEEF = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
@@ -173,11 +239,19 @@
 			projectRoot = "";
 			targets = (
 				BE473FB624A0929D0079DEEF /* Behave */,
+				94E6ECA924B6BA8B00A6FB37 /* BehaveTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		94E6ECA824B6BA8B00A6FB37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE473FB524A0929D0079DEEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,9 +284,56 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C6ED7794A75CD0FB63C429FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Behave-BehaveTests/Pods-Behave-BehaveTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D6A55F0C1277A18E36011E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Behave-BehaveTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		94E6ECA624B6BA8B00A6FB37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE473FB324A0929D0079DEEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,7 +352,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		94E6ECB124B6BA8B00A6FB37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE473FB624A0929D0079DEEF /* Behave */;
+			targetProxy = 94E6ECB024B6BA8B00A6FB37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		94E6ECB224B6BA8B00A6FB37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D904B9CCFDBE36E8F8A16DE /* Pods-Behave-BehaveTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PC8ABW3R5C;
+				INFOPLIST_FILE = BehaveTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.BehaveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94E6ECB324B6BA8B00A6FB37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAB78BAC62C140B51B378F3 /* Pods-Behave-BehaveTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PC8ABW3R5C;
+				INFOPLIST_FILE = BehaveTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.BehaveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BE473FBD24A0929D0079DEEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -283,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -340,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -366,7 +535,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Behave/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,7 +565,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Behave/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,6 +583,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		94E6ECB424B6BA8B00A6FB37 /* Build configuration list for PBXNativeTarget "BehaveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E6ECB224B6BA8B00A6FB37 /* Debug */,
+				94E6ECB324B6BA8B00A6FB37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BE473FB124A0929D0079DEEF /* Build configuration list for PBXProject "Behave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

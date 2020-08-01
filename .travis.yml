@@ -1,0 +1,26 @@
+language: swift
+
+before_install:
+- brew update
+- gem install bundler
+- brew outdated xctool || brew upgrade xctool
+- gem install xcpretty -N
+
+cache:
+  directories:
+    - "$HOME/Library/Caches/Homebrew"
+    - "$HOME/.cache/Homebrew"
+
+before_cache:
+    - brew cleanup -s
+
+env:
+  global:
+  - LANG=en_US.UTF-8
+  - LC_ALL=en_US.UTF-8
+  
+jobs:
+  include:
+  - script: bash run-tests.sh
+    osx_image: xcode11.6
+    name: "Swift 5.1"
