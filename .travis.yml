@@ -6,6 +6,10 @@ before_install:
 - brew outdated xctool || brew upgrade xctool
 - gem install xcpretty -N
 
+cache:
+  directories:
+    - "$HOME/Library/Caches/Homebrew"
+    - "$HOME/.cache/Homebrew"
 
 deploy:
   provider: script
