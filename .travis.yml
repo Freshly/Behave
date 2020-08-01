@@ -3,6 +3,7 @@ osx_image: xcode11.6
 
 before_install:
 - brew update
+- gem install bundler
 - brew outdated xctool || brew upgrade xctool
 - gem install xcpretty -N
 
@@ -10,8 +11,9 @@ cache:
   directories:
     - "$HOME/Library/Caches/Homebrew"
     - "$HOME/.cache/Homebrew"
-
 deploy:
   provider: script
   script: bash run-tests.sh
 
+before_cache:
+    - brew cleanup -s
