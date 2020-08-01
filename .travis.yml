@@ -1,5 +1,4 @@
 language: swift
-osx_image: xcode11.6
 
 before_install:
 - brew update
@@ -11,9 +10,21 @@ cache:
   directories:
     - "$HOME/Library/Caches/Homebrew"
     - "$HOME/.cache/Homebrew"
-deploy:
-  provider: script
-  script: bash run-tests.sh
 
 before_cache:
     - brew cleanup -s
+
+# deploy:
+#   provider: script
+#   script: bash run-tests.sh
+
+env:
+  global:
+  - LANG=en_US.UTF-8
+  - LC_ALL=en_US.UTF-8
+  
+jobs:
+  include:
+  - script: bash run-tests.sh
+    osx_image: xcode11.6
+    name: "Swift 5.1"
