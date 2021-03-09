@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 target 'ExampleApp' do
   use_frameworks!
@@ -6,7 +6,7 @@ target 'ExampleApp' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'Alamofire'
   pod 'SwiftKeychainWrapper'
-  pod 'OHHTTPStubs/Swift', '~> 8.0.0'
+  pod 'OHHTTPStubs/Swift', '~> 9.1.0'
 
   target 'ExampleAppTests' do
     pod 'Behave', :path => '..'
