@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if infoArguments.contains("ui-tests") {
             if infoArguments.contains("login-success") {
                 guard let json = ProcessInfo.processInfo.arguments.last else { return true }
-                stub(condition: isMethodPOST()) { _ -> OHHTTPStubsResponse in
+                stub(condition: isMethodPOST()) { _ -> HTTPStubsResponse in
                     let stubData = json.data(using: String.Encoding.utf8)
-                    return OHHTTPStubsResponse(data: stubData!, statusCode: 400, headers: nil)
+                    return HTTPStubsResponse(data: stubData!, statusCode: 400, headers: nil)
                 }
             }
         }
