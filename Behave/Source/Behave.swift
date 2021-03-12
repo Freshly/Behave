@@ -18,6 +18,9 @@ public class Behaviour {
         events = []
         requests = []
     }
+    // FOR PERFORMANCE
+    var start = 0.0
+    var end = 0.0
 
     // MARK: - Methods
     

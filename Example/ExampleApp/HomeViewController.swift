@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     var detailViewController: DetailViewController?
+    var isEfficent = false
     var objects = [Any]() {
         didSet {
             setupLeftBarButtonItem()
@@ -24,6 +25,7 @@ class HomeViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = "edit-button"
         setupLeftBarButtonItem()
+        add()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         addButton.accessibilityIdentifier = "add-button"
@@ -35,9 +37,16 @@ class HomeViewController: UITableViewController {
     }
 
     @objc func insertNewObject(_: Any) {
-        objects.insert(NSDate(), at: 0)
+        isEfficent = true
+        objects.insert("Here", at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    func add() {
+        for i in 0...100 {
+            objects.append("\(i)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -67,13 +76,28 @@ class HomeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let object = objects[indexPath.row] as? NSDate
-        cell.textLabel?.text = object?.description ?? ""
+        cell.textLabel?.text = isEfficent ? "\(efficient())" : "\(inefficient())"
         return cell
     }
 
     override func tableView(_: UITableView, canEditRowAt _: IndexPath) -> Bool {
         return true
+    }
+    
+    func inefficient() -> Double {
+        var x: Double = 0.0
+        for i in 0...1000000 {
+            //print()
+            let d = Double(i)
+            x = (x * (d)) / 20.0
+        }
+        
+        return x
+    }
+    
+    func efficient() -> Double {
+        
+        return 1.0
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

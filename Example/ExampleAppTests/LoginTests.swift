@@ -49,5 +49,4 @@ class LoginTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
-    
 }
