@@ -1232,10 +1232,10 @@
 				6A171061D459383AC8D9B2A7AC5A481E /* Behave+UIApplication.swift */,
 				8E90C839679A95E660C51A7D1F42D35E /* Behave+UIViewController.swift */,
 				67FBD303531810536109063A8A719C1D /* Behave+ViewQueries.swift */,
+				8710A0FF25F8190A00CFEFAD /* Behave+Performance.swift */,
 				08E291EBE88363D65E439F2800257876 /* BehaveDataObjects.swift */,
 				AB9003EA29B01FD3F16158899941E4AC /* Pod */,
 				2CFBB8056104A41A10CCE8194803C6FE /* Support Files */,
-				8710A0FF25F8190A00CFEFAD /* Behave+Performance.swift */,
 			);
 			name = Behave;
 			path = ../..;
