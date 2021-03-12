@@ -200,7 +200,6 @@
 		85E10F2E2F0044C1ACE78F76395F9077 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FAC2F8D262C21B65739575967B196 /* HTTPHeaders.swift */; };
 		85F6050B2000FFF6FCCE974C68C72EA4 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4698D3EBF4F7764E71F64A3E5BB15073 /* ObservableType.swift */; };
 		8613893FF0E80BF99DA4E2AA31AD75AD /* OHHTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BDCEC27F4CC882CA9F97A01CE4F56E /* OHHTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		8710A0F625F8026600CFEFAD /* BDScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8710A0F525F8026600CFEFAD /* BDScroll.swift */; };
 		8710A10025F8190A00CFEFAD /* Behave+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8710A0FF25F8190A00CFEFAD /* Behave+Performance.swift */; };
 		87F976DB0A7AA8D1D44E66FA38ADE223 /* UIStepper+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6D375A10EEF0C1EA9F1BE5A0BF197 /* UIStepper+Rx.swift */; };
 		885BED53300EF127497191BD7CFE3950 /* Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C65735DEEE0C5443202379B2A6D3C /* Sink.swift */; };
@@ -684,7 +683,6 @@
 		809C5FAB588354C9BA37DC3EAB8CB45C /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		823FF56C531B73B8F37FE8E51ABA4D99 /* OHHTTPStubs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.debug.xcconfig; sourceTree = "<group>"; };
 		8570BEFF84877BCEAFCFF400CFA79574 /* Pods-ExampleAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleAppTests.modulemap"; sourceTree = "<group>"; };
-		8710A0F525F8026600CFEFAD /* BDScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDScroll.swift; sourceTree = "<group>"; };
 		8710A0FF25F8190A00CFEFAD /* Behave+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Performance.swift"; sourceTree = "<group>"; };
 		8738DC24BB4EB0ED7C5754A5E3ED851C /* NSSlider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSSlider+Rx.swift"; path = "RxCocoa/macOS/NSSlider+Rx.swift"; sourceTree = "<group>"; };
 		882D3B82D06A66F59BD7BA21A6C0291D /* Behave+Stub.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Behave+Stub.swift"; path = "Behave/Source/Behave+Stub.swift"; sourceTree = "<group>"; };
@@ -1237,7 +1235,6 @@
 				08E291EBE88363D65E439F2800257876 /* BehaveDataObjects.swift */,
 				AB9003EA29B01FD3F16158899941E4AC /* Pod */,
 				2CFBB8056104A41A10CCE8194803C6FE /* Support Files */,
-				8710A0F525F8026600CFEFAD /* BDScroll.swift */,
 				8710A0FF25F8190A00CFEFAD /* Behave+Performance.swift */,
 			);
 			name = Behave;
@@ -2064,7 +2061,6 @@
 				513765F696CA407DF05C9649CA2BF661 /* Behave+ViewQueries.swift in Sources */,
 				74480D0D3F7269D4CEDBF6788E2D0952 /* Behave-dummy.m in Sources */,
 				452B36D552D8FD8D838CCE0248236DB4 /* Behave.swift in Sources */,
-				8710A0F625F8026600CFEFAD /* BDScroll.swift in Sources */,
 				3DAA46192E14F8D0DFFAEA9E8BF4F2FD /* BehaveDataObjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
