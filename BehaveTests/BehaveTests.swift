@@ -31,7 +31,7 @@ class BehaveTests: XCTestCase {
     
     func testMe() {
         let sut = Behaviour()
-        
+        let pass = sut.measurePerformance(frames: 10)
     
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87E4D61525FC1768009E921B /* Behave+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D61425FC1768009E921B /* Behave+Performance.swift */; };
+		87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */; };
 		94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */; };
 		94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE473FB724A0929D0079DEEF /* Behave.framework */; };
 		BE473FBC24A0929D0079DEEF /* Behave.h in Headers */ = {isa = PBXBuildFile; fileRef = BE473FBA24A0929D0079DEEF /* Behave.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +41,8 @@
 		41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
 		533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave_BehaveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87E4D61425FC1768009E921B /* Behave+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Performance.swift"; sourceTree = "<group>"; };
+		87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+PerformanceTests.swift"; sourceTree = "<group>"; };
 		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveTests.swift; sourceTree = "<group>"; };
 		94E6ECAE24B6BA8B00A6FB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */,
 				94E6ECAE24B6BA8B00A6FB37 /* Info.plist */,
+				87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */,
 			);
 			path = BehaveTests;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				BE473FCB24A094760079DEEF /* Behave+UIViewController.swift */,
 				BE4740D024A1E17E0079DEEF /* BehaveDataObjects.swift */,
 				BE4740CE24A1E1770079DEEF /* Behave+Stub.swift */,
+				87E4D61425FC1768009E921B /* Behave+Performance.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */,
+				87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +352,7 @@
 				BE473FC824A094480079DEEF /* Behave+ViewQueries.swift in Sources */,
 				BE473FCE24A095310079DEEF /* BDElements.swift in Sources */,
 				BE473FC424A094010079DEEF /* Behave.swift in Sources */,
+				87E4D61525FC1768009E921B /* Behave+Performance.swift in Sources */,
 				BE4740D124A1E17E0079DEEF /* BehaveDataObjects.swift in Sources */,
 				BE473FD124A098320079DEEF /* BDEvent.swift in Sources */,
 			);
