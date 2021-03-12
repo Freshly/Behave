@@ -189,21 +189,6 @@ public extension Behaviour {
     
     func wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void) {
         var runCount: Int = 0
-//        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
-//            guard let self = self else {
-//                timer.invalidate()
-//                return
-//            }
-//
-//            if let tableCell = parent.cellForRow(at: cell) {
-//                timer.invalidate()
-//                complete(tableCell)
-//            }
-//            runCount += 1
-//            if runCount == self.attemptsMaximumNumber {
-//                timer.invalidate()
-//            }
-//        }
         while runCount < self.attemptsMaximumNumber {
             if let tableCell = parent.cellForRow(at: cell) {
                 runCount = self.attemptsMaximumNumber
