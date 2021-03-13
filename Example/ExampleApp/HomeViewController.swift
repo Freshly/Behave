@@ -43,11 +43,6 @@ class HomeViewController: UITableViewController {
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
-    func add() {
-        for i in 0...100 {
-            objects.append("\(i)")
-        }
-    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = UIStoryboard(name: "Main", bundle: nil)
@@ -65,7 +60,6 @@ class HomeViewController: UITableViewController {
     }
 
     // MARK: - Table View
-
     override func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
@@ -84,7 +78,14 @@ class HomeViewController: UITableViewController {
         return true
     }
     
-    func inefficient() -> Double {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            objects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    private func inefficient() -> Double {
         var x: Double = 0.0
         for i in 0...1000000 {
             //print()
@@ -95,15 +96,13 @@ class HomeViewController: UITableViewController {
         return x
     }
     
-    func efficient() -> Double {
-        
+    private func efficient() -> Double {
         return 1.0
     }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+    
+    private  func add() {
+        for i in 0...100 {
+            objects.append("\(i)")
         }
     }
 }
