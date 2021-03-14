@@ -35,7 +35,7 @@ class PerformanceBDDTests: XCTestCase {
         waitForExpectations(timeout: api.testTimeInterval)
     }
     
-    // THIS TESTS AN INEFFICIENT TABLE SO IT SHOULD FAIL
+    // THIS TESTS AN INEFFICIENT TABLE SO IT SHOULD FAIL, IN THIS CASE TO SATISFY TEST IT RETURNS FALSE
     func testPerformance_isInEfficient() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
@@ -54,7 +54,7 @@ class PerformanceBDDTests: XCTestCase {
             let cell = table.cellForRow(at: indexPath)
             XCTAssertNotNil(cell)
                 api.wait(for: indexPath, parent: api.findTable()!, complete: { cell in
-                XCTAssert(api.measurePerformance(frames: 10))
+                XCTAssertFalse(api.measurePerformance(frames: 10))
                 expectations.fulfill()
             })
         }

@@ -51,6 +51,7 @@ extension UIViewController {
         let action = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             self.loader(show: false)
         })
+        action.accessibilityIdentifier = "cancel"
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
     }

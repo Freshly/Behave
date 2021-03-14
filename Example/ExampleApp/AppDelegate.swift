@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        #if targetEnvironment(simulator)
+        // Disable hardware keyboards.
+        let setHardwareLayout = NSSelectorFromString("setHardwareLayout:")
+        UITextInputMode.activeInputModes
+            // Filter `UIKeyboardInputMode`s.
+            .filter({ $0.responds(to: setHardwareLayout) })
+            .forEach { $0.perform(setHardwareLayout, with: nil) }
+        #endif
        
         let infoArguments = ProcessInfo.processInfo.arguments
         if infoArguments.contains("ui-tests") {

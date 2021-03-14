@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExampleListViewController: UITableViewController {
+class ApiViewController: UITableViewController {
     var list = ["Api", "Performance", "Networking", "Behave vs. XCTest UI"]
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ExampleListViewController: UITableViewController {
         let story = UIStoryboard(name: "Main", bundle: nil)
         switch indexPath.row {
         case 0:
-            guard let controller = story.instantiateViewController(withIdentifier: "Api") as? ApiViewController else { return }
+            guard let controller = story.instantiateViewController(withIdentifier: "Api") as? PerformanceViewController else { return }
             navigationController?.pushViewController(controller, animated: true)
             break
         case 1:

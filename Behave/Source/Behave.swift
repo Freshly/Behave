@@ -65,7 +65,13 @@ public class Behaviour {
     }
 
     private func resetUI() {
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: {
+            if let rootViewController = UIApplication.shared.delegate?.window??.rootViewController {
+                if let nav = rootViewController as? UINavigationController {
+                    nav.popToRootViewController(animated: false)
+                }
+            }
+        })
         if let rootViewController = UIApplication.shared.delegate?.window??.rootViewController {
             if let nav = rootViewController as? UINavigationController {
                 nav.popToRootViewController(animated: false)
