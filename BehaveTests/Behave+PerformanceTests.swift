@@ -19,6 +19,8 @@ class Behave_PerformanceTests: XCTestCase {
     
     func testSetUpPerformanceTest() {
         let sut = Behaviour()
+        
+        // SET SOME BASE VALUES
         sut.start = 1.0
         sut.end = 1.0
         

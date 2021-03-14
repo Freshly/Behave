@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		87E4D61525FC1768009E921B /* Behave+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D61425FC1768009E921B /* Behave+Performance.swift */; };
 		87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */; };
-		94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */; };
 		94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE473FB724A0929D0079DEEF /* Behave.framework */; };
 		BE473FBC24A0929D0079DEEF /* Behave.h in Headers */ = {isa = PBXBuildFile; fileRef = BE473FBA24A0929D0079DEEF /* Behave.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE473FC424A094010079DEEF /* Behave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE473FC324A094010079DEEF /* Behave.swift */; };
@@ -44,7 +43,6 @@
 		87E4D61425FC1768009E921B /* Behave+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Performance.swift"; sourceTree = "<group>"; };
 		87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+PerformanceTests.swift"; sourceTree = "<group>"; };
 		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveTests.swift; sourceTree = "<group>"; };
 		94E6ECAE24B6BA8B00A6FB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFAEB086147DF95D133C9D9 /* Pods-Behave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.debug.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.debug.xcconfig"; sourceTree = "<group>"; };
 		BE473FB724A0929D0079DEEF /* Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +103,6 @@
 		94E6ECAB24B6BA8B00A6FB37 /* BehaveTests */ = {
 			isa = PBXGroup;
 			children = (
-				94E6ECAC24B6BA8B00A6FB37 /* BehaveTests.swift */,
 				94E6ECAE24B6BA8B00A6FB37 /* Info.plist */,
 				87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */,
 			);
@@ -336,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E6ECAD24B6BA8B00A6FB37 /* BehaveTests.swift in Sources */,
 				87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
