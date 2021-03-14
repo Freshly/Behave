@@ -66,8 +66,8 @@ class PerformanceBDDTests: XCTestCase {
     }
     
     private func navgateToThePerformanceScreen(_ api: Behaviour) {
-        api.listen(for: "login-view") {
-            api.tapButton(identifier: "performance-button")
+        api.listen(for: "list-view") {
+            api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 1, section: 0))
         }
     }
 }

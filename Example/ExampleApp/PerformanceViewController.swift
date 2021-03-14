@@ -41,24 +41,23 @@ class PerformanceViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = isEfficent ? "\(efficient())" : "\(inefficient())"
+        cell.textLabel?.text = isEfficent ? "\(efficient(row: indexPath.row))" : "\(inefficient(row: indexPath.row))"
         return cell
     }
     
     // PURELY FOR TESTING
-    private func inefficient() -> Double {
+    private func inefficient(row: Int) -> String {
         var x: Double = 0.0
         for i in 0...1000000 {
             //print()
             let d = Double(i)
             x = (x * (d)) / 20.0
         }
-        
-        return x
+        return "Row: \(row)"
     }
     
-    private func efficient() -> Double {
-        return 1.0
+    private func efficient(row: Int) -> String {
+        return "Row: \(row)"
     }
     
     private  func add() {
