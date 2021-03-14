@@ -156,6 +156,45 @@
             </objects>
             <point key="canvasLocation" x="-167" y="-747"/>
         </scene>
+        <!--Performance-->
+        <scene sceneID="jkP-vU-GE8">
+            <objects>
+                <tableViewController storyboardIdentifier="Performance" title="Performance" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="4lH-d7-9ol" customClass="PerformanceViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Q7-Vx-2F2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="hsb-3F-oYS" style="IBUITableViewCellStyleDefault" id="mXt-vs-sLA">
+                                <rect key="frame" x="0.0" y="28" width="414" height="47.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mXt-vs-sLA" id="EU3-FF-Ftq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hsb-3F-oYS">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="4lH-d7-9ol" id="hFg-RF-Bsn"/>
+                            <outlet property="delegate" destination="4lH-d7-9ol" id="BuN-QS-pFa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="FrY-wg-uaM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B09-1L-72d" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="-747"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

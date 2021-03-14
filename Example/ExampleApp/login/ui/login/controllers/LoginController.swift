@@ -20,6 +20,8 @@ class LoginController: UIViewController, ViewControllerProtocol {
         super.viewDidLoad()
         view.accessibilityIdentifier = "login-view"
         bindings()
+        //PURE TEST CODE
+        setUpPerformance()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,5 +56,18 @@ class LoginController: UIViewController, ViewControllerProtocol {
     private func clearFields() {
         emailField.text = ""
         passwordField.text = ""
+    }
+    
+    // PURELY FOR TESTING
+    @objc private func navigateToPerformance() {
+        guard let performanceViewController = storyboard?.instantiateViewController(withIdentifier: "Performance") else { return }
+        navigationController?.pushViewController(performanceViewController, animated: true)
+    }
+    
+    private func setUpPerformance() {
+        let button = UIButton()
+        button.accessibilityIdentifier = "performance-button"
+        button.addTarget(self, action: #selector(navigateToPerformance), for: .touchUpInside)
+        view.addSubview(button)
     }
 }
