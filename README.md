@@ -69,12 +69,16 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
     }
 ```
 # API:
+### Views
 ``` swift
 query(identifier: String) -> UIView?
 ```
+
+### Network
 ``` swift
 stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
+### Actions
 ``` swift
 typeIntoTextField(identifier: String, text: String)
 ```
@@ -108,6 +112,15 @@ selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:I
 ``` swift
 waitForAlert(complete: @escaping () -> Void)
 ```
+### Performance
+``` swift
+setUpPerformanceTest()
+```
+
+``` swift
+measurePerformance(frames: Int) -> Bool
+```
+
 
  ###### Behave was developed at [Freshly](https://tech.freshly.com/) and is maintained by [Derek Bronston](https://github.com/bytedissident), [Denis  Efimov](https://github.com/denpef) and the Freshly iOS team.
 
