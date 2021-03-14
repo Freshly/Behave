@@ -73,11 +73,36 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
 ``` swift
 query(identifier: String) -> UIView?
 ```
-
-### Network
 ``` swift
-stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
+findTable() -> UITableView?
 ```
+
+``` swift
+findCollection() -> UICollectionView?
+```
+
+``` swift
+findButton(identifier: String) -> UIButton?
+```
+
+``` swift
+findView(view: UIView, identifier: String) -> UIView?
+```
+``` swift
+wait(for identifier: String, parent: UIView, complete: @escaping () -> Void)
+```
+``` swift
+wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void)
+```
+
+``` swift
+wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void)
+```
+
+``` swift
+waitForAlert(complete: @escaping () -> Void)
+```
+
 ### Actions
 ``` swift
 typeIntoTextField(identifier: String, text: String)
@@ -109,9 +134,11 @@ selectCollectionItem(identfier: String, indexPath: IndexPath)
 ``` swift
 selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:IndexPath)
 ```
+### Network
 ``` swift
-waitForAlert(complete: @escaping () -> Void)
+stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
+
 ### Performance
 ``` swift
 setUpPerformanceTest()
