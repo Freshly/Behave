@@ -8,7 +8,7 @@ public extension Behaviour {
     }
     
     internal func stubRequest() {
-        for request in requests{
+        for request in requests {
             stub(condition: isAbsoluteURLString(request.urlString), response: { _ -> HTTPStubsResponse in
                 let stubData = request.jsonReturn.data(using: String.Encoding.utf8)
                 return HTTPStubsResponse(data: stubData!, statusCode: request.httpResponse, headers: nil)

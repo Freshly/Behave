@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		878270CD25FDA8B2003CB3E7 /* BDEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */; };
+		878270D125FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */; };
+		878270E325FE3560003CB3E7 /* Behave+StubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270E225FE3560003CB3E7 /* Behave+StubTests.swift */; };
 		87E4D61525FC1768009E921B /* Behave+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D61425FC1768009E921B /* Behave+Performance.swift */; };
 		87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */; };
 		94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE473FB724A0929D0079DEEF /* Behave.framework */; };
@@ -40,6 +43,9 @@
 		41DE823A3FD0BA776AE8FFF5 /* Pods-Behave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Behave.release.xcconfig"; path = "Target Support Files/Pods-Behave/Pods-Behave.release.xcconfig"; sourceTree = "<group>"; };
 		533E2E06CA7670A57B4FF434 /* Pods_Behave_BehaveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave_BehaveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDEventTests.swift; sourceTree = "<group>"; };
+		878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveDataObjectsTests.swift; sourceTree = "<group>"; };
+		878270E225FE3560003CB3E7 /* Behave+StubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+StubTests.swift"; sourceTree = "<group>"; };
 		87E4D61425FC1768009E921B /* Behave+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Performance.swift"; sourceTree = "<group>"; };
 		87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+PerformanceTests.swift"; sourceTree = "<group>"; };
 		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +111,9 @@
 			children = (
 				94E6ECAE24B6BA8B00A6FB37 /* Info.plist */,
 				87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */,
+				878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */,
+				878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */,
+				878270E225FE3560003CB3E7 /* Behave+StubTests.swift */,
 			);
 			path = BehaveTests;
 			sourceTree = "<group>";
@@ -333,7 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878270E325FE3560003CB3E7 /* Behave+StubTests.swift in Sources */,
+				878270CD25FDA8B2003CB3E7 /* BDEventTests.swift in Sources */,
 				87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */,
+				878270D125FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
