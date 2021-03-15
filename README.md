@@ -10,7 +10,7 @@
 ### CocoaPods
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Behave into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
-pod 'Behave', '~> 1.0'
+pod 'Behave'
 ```
 **The anatomy of a behave test**
 **Declare** an instance of **Behaviour** in your **XCTestCase** file
@@ -29,6 +29,12 @@ func testMyBehavior() {
 ```
 **listen:**
 The listen method adds an event to your test queue and then listens for it to be triggered.
+``` swift
+override func viewDidLoad() {
+        super.viewDidLoad()
+        view.accessibilityIdentifier = "my-view"
+    }
+```
 ``` swift
 api.listen(for: "my-view") {
     // This completion handler gets called once the object has been detected
