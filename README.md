@@ -37,7 +37,7 @@ override func viewDidLoad() {
 ```
 ``` swift
 api.listen(for: "my-view") {
-    // In this example the complestion handler will be called when the view controller above is loaded
+    // In this example the completion handler will be called when the view controller above is loaded
 }
 ```
 1. Behave, like XCUITest, relies on **accessibility identifiers**. You will need to add them in order to access elements in your code. They can be added in code directly or via Interface Builder.
