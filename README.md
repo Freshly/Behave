@@ -69,38 +69,12 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
     }
 ```
 # API:
-### Views
 ``` swift
-query(identifier: String) -> UIView?
-```
-``` swift
-findTable() -> UITableView?
+listen(for identifier: String, completion: @escaping () -> Void)
 ```
 
 ``` swift
-findCollection() -> UICollectionView?
-```
-
-``` swift
-findButton(identifier: String) -> UIButton?
-```
-
-``` swift
-findView(view: UIView, identifier: String) -> UIView?
-```
-``` swift
-wait(for identifier: String, parent: UIView, complete: @escaping () -> Void)
-```
-``` swift
-wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void)
-```
-
-``` swift
-wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void)
-```
-
-``` swift
-waitForAlert(complete: @escaping () -> Void)
+run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil)
 ```
 
 ### Actions
@@ -147,8 +121,39 @@ setUpPerformanceTest()
 ``` swift
 measurePerformance(frames: Int) -> Bool
 ```
+### Views
+``` swift
+query(identifier: String) -> UIView?
+```
+``` swift
+findTable() -> UITableView?
+```
 
+``` swift
+findCollection() -> UICollectionView?
+```
 
+``` swift
+findButton(identifier: String) -> UIButton?
+```
+
+``` swift
+findView(view: UIView, identifier: String) -> UIView?
+```
+``` swift
+wait(for identifier: String, parent: UIView, complete: @escaping () -> Void)
+```
+``` swift
+wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void)
+```
+
+``` swift
+wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void)
+```
+
+``` swift
+waitForAlert(complete: @escaping () -> Void)
+```
  ###### Behave was developed at [Freshly](https://tech.freshly.com/) and is maintained by [Derek Bronston](https://github.com/bytedissident), [Denis  Efimov](https://github.com/denpef) and the Freshly iOS team.
 
 
