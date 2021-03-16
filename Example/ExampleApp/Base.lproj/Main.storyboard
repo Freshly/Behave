@@ -234,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="568" y="-747"/>
         </scene>
-        <!--Api-->
+        <!--Actions-->
         <scene sceneID="HdZ-5H-i2H">
             <objects>
-                <tableViewController storyboardIdentifier="Api" title="Api" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="xjy-F1-fFt" customClass="ApiViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Actions" title="Actions" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="xjy-F1-fFt" customClass="ActionsViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OdJ-e1-uvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z9L-th-pal">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z9L-th-pal">
                                             <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>

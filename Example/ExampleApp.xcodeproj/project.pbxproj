@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */; };
 		87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CF924A17710003E6940 /* LoginViewModel.swift */; };
 		87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFA24A17710003E6940 /* TestViewModel.swift */; };
 		87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFC24A17710003E6940 /* LoginRepository.swift */; };
@@ -20,7 +21,7 @@
 		87732D1424A17CC2003E6940 /*  LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1324A17CC2003E6940 /*  LoginTests.swift */; };
 		87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* LoginTests.swift */; };
 		878270ED25FE92A4003CB3E7 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */; };
-		878270F225FE9F34003CB3E7 /* ApiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270F125FE9F34003CB3E7 /* ApiViewController.swift */; };
+		878270F225FE9F34003CB3E7 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270F125FE9F34003CB3E7 /* ActionsViewController.swift */; };
 		87E4D5A925FB98E8009E921B /* PerformanceBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */; };
 		87E4D65425FD5FE0009E921B /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		4770452ED16A65D9C8C7BA5F /* Pods_ExampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF85CB22A9CBE5F8DA9FC0 /* Pods-ExampleAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleAppTests/Pods-ExampleAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70E5637E2475AAD51287F2FE /* Pods-ExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewControllerTests.swift; sourceTree = "<group>"; };
 		87732CF924A17710003E6940 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		87732CFA24A17710003E6940 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		87732CFC24A17710003E6940 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		87732D1324A17CC2003E6940 /*  LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " LoginTests.swift"; sourceTree = "<group>"; };
 		87732D1724A17E5C003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
-		878270F125FE9F34003CB3E7 /* ApiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewController.swift; sourceTree = "<group>"; };
+		878270F125FE9F34003CB3E7 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceBDDTests.swift; sourceTree = "<group>"; };
 		87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		BE47409524A1343A0079DEEF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +262,7 @@
 				BE4740A824A1343C0079DEEF /* Info.plist */,
 				87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */,
 				878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */,
-				878270F125FE9F34003CB3E7 /* ApiViewController.swift */,
+				878270F125FE9F34003CB3E7 /* ActionsViewController.swift */,
 			);
 			path = ExampleApp;
 			sourceTree = "<group>";
@@ -272,6 +274,7 @@
 				BE4740B124A1343C0079DEEF /* HomeViewControllerBDDTests.swift */,
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 				87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */,
+				871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */,
 			);
 			path = ExampleAppTests;
 			sourceTree = "<group>";
@@ -512,7 +515,7 @@
 				87732D1024A17710003E6940 /* Keychain.swift in Sources */,
 				87732D0D24A17710003E6940 /* LoginController+UserActions.swift in Sources */,
 				BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */,
-				878270F225FE9F34003CB3E7 /* ApiViewController.swift in Sources */,
+				878270F225FE9F34003CB3E7 /* ActionsViewController.swift in Sources */,
 				87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */,
 				878270ED25FE92A4003CB3E7 /* ExampleListViewController.swift in Sources */,
 				87732D1124A17710003E6940 /* API.swift in Sources */,
@@ -527,6 +530,7 @@
 				87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */,
 				87E4D5A925FB98E8009E921B /* PerformanceBDDTests.swift in Sources */,
 				BE4740B224A1343C0079DEEF /* HomeViewControllerBDDTests.swift in Sources */,
+				871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
