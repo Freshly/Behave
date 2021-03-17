@@ -135,6 +135,26 @@ class ActionsViewControllerTests: XCTestCase {
         waitForExpectations(timeout: api.testTimeInterval)
     }
     
+    /**
+     scrollTableTo(indexPath: IndexPath, identfier: String)
+     */
+    func test_scrollTableTo() {
+        let expectations = expectation(description: "done")
+        let api = Behaviour()
+        navgateToTheApiScreen(api)
+        api.listen(for: "actions-view"){
+            api.selectTableRow(identfier: "actions-view", indexPath: IndexPath(row: 3, section: 0))
+            api.scrollTableTo(indexPath: IndexPath(row: 10, section: 0), identfier: "actions-view")
+            let cell = api.returnTableCell(identfier: "actions-view", indexPath: IndexPath(row: 10, section: 0))
+            XCTAssertNotNil(cell)
+            expectations.fulfill()
+        }
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
+    }
+    
     private func navgateToTheApiScreen(_ api: Behaviour) {
         api.listen(for: "list-view") {
             api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 0, section: 0))

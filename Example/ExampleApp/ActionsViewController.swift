@@ -11,7 +11,8 @@ import UIKit
 class ActionsViewController: UITableViewController {
     var list = ["TextField",
                 "SecureTextField",
-                "Button"]
+                "Button",
+                "Scroll Table"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,9 @@ class ActionsViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             tableView.cellForRow(at: indexPath)?.textLabel?.text = "row tapped"
+            break
+        case 3:
+            addToTable()
             break
         default:
             break
@@ -102,6 +106,13 @@ class ActionsViewController: UITableViewController {
     @objc private func buttonAction() {
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         cell?.textLabel?.text = "button action"
+    }
+    
+    private func addToTable() {
+        for number in 0...50 {
+            list.append("test: \(number)")
+        }
+        tableView.reloadData()
     }
 }
 
