@@ -111,9 +111,6 @@ scrollTableTo(indexPath: IndexPath, identfier: String)
 ``` swift
 selectCollectionItem(identfier: String, indexPath: IndexPath)
 ```
-``` swift
-selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:IndexPath)
-```
 ### Network
 ``` swift
 stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
@@ -136,15 +133,7 @@ findTable() -> UITableView?
 ```
 
 ``` swift
-findCollection() -> UICollectionView?
-```
-
-``` swift
 findButton(identifier: String) -> UIButton?
-```
-
-``` swift
-findView(view: UIView, identifier: String) -> UIView?
 ```
 ``` swift
 wait(for identifier: String, parent: UIView, complete: @escaping () -> Void)
