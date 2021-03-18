@@ -88,10 +88,8 @@ class HomeViewControllerBDDTests: XCTestCase {
             expectations.fulfill()
         }
 
-        api.run(success: {
-            
-        }, fail: {error in
-            
+        api.run(fail: { error in
+            XCTFail(error)
         })
 
         waitForExpectations(timeout: api.testTimeInterval)
