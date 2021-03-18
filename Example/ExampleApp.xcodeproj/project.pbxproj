@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */; };
+		871C119A2602941B00B1BF65 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C11992602941B00B1BF65 /* CollectionViewController.swift */; };
 		87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CF924A17710003E6940 /* LoginViewModel.swift */; };
 		87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFA24A17710003E6940 /* TestViewModel.swift */; };
 		87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFC24A17710003E6940 /* LoginRepository.swift */; };
@@ -60,6 +61,7 @@
 		50BF85CB22A9CBE5F8DA9FC0 /* Pods-ExampleAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleAppTests/Pods-ExampleAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70E5637E2475AAD51287F2FE /* Pods-ExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewControllerTests.swift; sourceTree = "<group>"; };
+		871C11992602941B00B1BF65 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		87732CF924A17710003E6940 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		87732CFA24A17710003E6940 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		87732CFC24A17710003E6940 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */,
 				878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */,
 				878270F125FE9F34003CB3E7 /* ActionsViewController.swift */,
+				871C11992602941B00B1BF65 /* CollectionViewController.swift */,
 			);
 			path = ExampleApp;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				87732D0E24A17710003E6940 /* Config.swift in Sources */,
 				87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */,
 				87732D1024A17710003E6940 /* Keychain.swift in Sources */,
+				871C119A2602941B00B1BF65 /* CollectionViewController.swift in Sources */,
 				87732D0D24A17710003E6940 /* LoginController+UserActions.swift in Sources */,
 				BE47409F24A1343A0079DEEF /* DetailViewController.swift in Sources */,
 				878270F225FE9F34003CB3E7 /* ActionsViewController.swift in Sources */,

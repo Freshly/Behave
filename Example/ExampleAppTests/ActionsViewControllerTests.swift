@@ -114,6 +114,7 @@ class ActionsViewControllerTests: XCTestCase {
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)
+
     }
     
     /**
@@ -154,6 +155,47 @@ class ActionsViewControllerTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
+    
+    /**
+     selectTabOnTabBar(index: Int)
+     */
+    func test_selectTabOnTabBar()  {
+        let expectations = expectation(description: "done")
+        let api = Behaviour()
+        navgateToTheApiScreen(api)
+        api.listen(for: "actions-view") {
+            api.selectTabOnTabBar(index: 1)
+        }
+        api.listen(for: "collection-view") {
+            expectations.fulfill()
+        }
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
+    }
+    
+    /**
+    selectCollectionItem(identfier: String, indexPath: IndexPath)
+    */
+   func test_selectCollectionItem() {
+        let expectations = expectation(description: "done")
+        let api = Behaviour()
+        navgateToTheApiScreen(api)
+        api.listen(for: "actions-view") {
+            api.selectTabOnTabBar(index: 1)
+        }
+        api.listen(for: "collection-view") {
+            api.selectCollectionItem(identfier: "collection-view", indexPath: IndexPath(item: 0, section: 0))
+        }
+        api.waitForAlert {
+            expectations.fulfill()
+        }
+        api.run(fail: { error in
+            XCTFail(error)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
+   }
     
     private func navgateToTheApiScreen(_ api: Behaviour) {
         api.listen(for: "list-view") {

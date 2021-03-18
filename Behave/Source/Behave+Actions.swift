@@ -70,7 +70,7 @@ public extension Behaviour {
     func selectCollectionItem(identfier: String, indexPath: IndexPath) {
         guard let collection = query(identifier: identfier) as? UICollectionView else { return }
         collection.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        collection.delegate?.collectionView?(collection, didDeselectItemAt: indexPath)
+        collection.delegate?.collectionView?(collection, didSelectItemAt: indexPath)
     }
 
     func selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath: IndexPath) {

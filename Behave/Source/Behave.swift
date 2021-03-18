@@ -76,6 +76,15 @@ public class Behaviour {
             if let nav = rootViewController as? UINavigationController {
                 nav.popToRootViewController(animated: false)
             }
+            if let tab = rootViewController as? UITabBarController {
+                tab.selectedIndex = 0
+                if let nav = tab.selectedViewController as? UINavigationController {
+                    nav.viewControllers.first?.dismiss(animated: false, completion: {
+                        nav.popToRootViewController(animated: false)
+                    })
+                    nav.popToRootViewController(animated: false)
+                }
+            }
         }
     }
 }

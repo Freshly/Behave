@@ -12,15 +12,20 @@ class ActionsViewController: UITableViewController {
     var list = ["TextField",
                 "SecureTextField",
                 "Button",
-                "Scroll Table"]
+                "Scroll Table",
+                ""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.accessibilityIdentifier = "actions-view"
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapRightButton))
         rightButton.accessibilityIdentifier = "right-nav-button"
         navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.accessibilityIdentifier = "actions-view"
     }
 
     override func viewWillAppear(_ animated: Bool) {
