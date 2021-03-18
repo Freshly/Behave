@@ -9,7 +9,7 @@
 import UIKit
 
 class ExampleListViewController: UITableViewController {
-    var list = ["Actions", "Performance", "Networking", "Behave vs. XCTest UI"]
+    var list = ["Actions", "Performance beta", "Networking", "Behave vs. XCTest UI"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
