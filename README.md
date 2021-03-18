@@ -116,7 +116,7 @@ selectCollectionItem(identfier: String, indexPath: IndexPath)
 stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
 
-### Performance
+### Performance (beta)
 ``` swift
 setUpPerformanceTest()
 ```
