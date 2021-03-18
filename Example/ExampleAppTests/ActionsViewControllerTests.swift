@@ -114,7 +114,6 @@ class ActionsViewControllerTests: XCTestCase {
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)
-
     }
     
     /**
