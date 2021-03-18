@@ -52,7 +52,7 @@ To make your test run use the run method. Behave tests will not run without expl
     expectations.fullfill()
   })
 ```
-*** Note ***
+***Note:***
 Behave attempts to reset the UI between tests in order to ensure smooth testing. There are probably cases where this might not work. So you may need to do this manually in the completion handler of the run() method.
 ``` swift
   api.run(success: {
