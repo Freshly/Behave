@@ -52,6 +52,17 @@ To make your test run use the run method. Behave tests will not run without expl
     expectations.fullfill()
   })
 ```
+***Note:***
+Behave attempts to reset the UI between tests in order to ensure smooth testing. There are probably cases where this might not work. So you may need to do this manually in the completion handler of the run() method.
+``` swift
+  api.run(success: {
+    // RESET CUSTOM UI?
+  }, fail: {error in
+    XCTFail(error)
+    expectations.fullfill()
+  })
+```
+
 **Sample Test**
 The test below is included in our sample app. It tests a simple login flow:
 ``` swift
