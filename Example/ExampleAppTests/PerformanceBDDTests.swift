@@ -65,6 +65,12 @@ class PerformanceBDDTests: XCTestCase {
         waitForExpectations(timeout: api.testTimeInterval)
     }
     
+    func testMe() {
+        let dic = ProcessInfo.processInfo.systemUptime
+        
+    }
+    
+    
     private func navgateToThePerformanceScreen(_ api: Behaviour) {
         api.listen(for: "list-view") {
             api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 1, section: 0))

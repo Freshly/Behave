@@ -11,7 +11,7 @@ public extension Behaviour {
    
     /// Sets up test. Resets start and end values. Then sets start to current timestamp.
     /// - Parameters:
-    ///   - frames: the number of frames displayed in this view
+    /// - frames: the number of frames displayed in this view
     /// - Returns: Bool
     func setUpPerformanceTest() {
         reset()
@@ -20,7 +20,7 @@ public extension Behaviour {
     
     /// Measures performance based on time in relation for FPS. Given that one frame is displayed in 16.67ms at 60 fps. Then the Number of frames * 16.67 shouldl be the total time it takes to display the frames in question.
     /// - Parameters:
-    ///   - frames: the number of frames displayed in this view
+    /// - frames: the number of frames displayed in this view
     /// - Returns: Bool
     func measurePerformance(frames: Int) -> Bool {
         mark()
@@ -30,6 +30,10 @@ public extension Behaviour {
             return true
         }
         return false
+    }
+    
+    func launchTime() {
+        x
     }
     
     private func reset() {
