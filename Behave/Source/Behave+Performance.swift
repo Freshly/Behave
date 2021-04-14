@@ -20,24 +20,24 @@ public extension Behaviour {
     
     /// THIS IS CALLED ON EACH FRAME RENDERING PER THE CADisplayLink callback. It checks each frame render and calculates the time based on the returned timestamp. If the frame is rendered in more than 16.67ms it markes it as failing the performnace test.
     @objc private func step(displaylink: CADisplayLink) {
-        if start == 0.0 {
-            start = displaylink.timestamp
+        if frameStart == 0.0 {
+            frameStart = displaylink.timestamp
         } else {
-            end = displaylink.timestamp
+            frameEnd = displaylink.timestamp
             calculatePerformance()
-            start = displaylink.timestamp
+            frameStart = displaylink.timestamp
         }
     }
     
     func calculatePerformance(){
-        if (end - start) > 0.0167 {
+        if (frameEnd - frameStart) > 0.0167 {
             passesPerformanceTest = false
         }
     }
     
     private func reset() {
-        start = 0.0
-        end = 0.0
+        frameStart = 0.0
+        frameEnd = 0.0
         passesPerformanceTest = true
     }
 }

@@ -19,8 +19,8 @@ public class Behaviour {
         requests = []
     }
     // FOR PERFORMANCE
-    var start = 0.0
-    var end = 0.0
+    var frameStart = 0.0
+    var frameEnd = 0.0
     public var passesPerformanceTest = false
 
     // MARK: - Methods
