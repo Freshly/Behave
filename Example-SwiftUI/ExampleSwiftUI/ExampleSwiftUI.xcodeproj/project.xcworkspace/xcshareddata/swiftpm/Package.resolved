@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HotReloading",
+        "repositoryURL": "https://github.com/johnno1962/HotReloading",
+        "state": {
+          "branch": null,
+          "revision": "f6cf683d0ae6d69795072b27b32b2ddeea05d90d",
+          "version": "1.5.8"
+        }
+      },
+      {
+        "package": "RemotePlugin",
+        "repositoryURL": "https://github.com/johnno1962/Remote",
+        "state": {
+          "branch": null,
+          "revision": "72c1621846d120bbe1e328a1c5dfb30a7bc403a7",
+          "version": "2.1.0"
+        }
+      },
+      {
+        "package": "SwiftRegex",
+        "repositoryURL": "https://github.com/johnno1962/SwiftRegex5",
+        "state": {
+          "branch": null,
+          "revision": "bc9b22e4b4521075057ae98826def52cea5226f0",
+          "version": "5.2.1"
+        }
+      },
+      {
+        "package": "SwiftTrace",
+        "repositoryURL": "https://github.com/johnno1962/SwiftTrace",
+        "state": {
+          "branch": null,
+          "revision": "e2c941f09042d1f5464a25113c277b828f3a752b",
+          "version": "7.2.1"
+        }
+      },
+      {
+        "package": "ViewInspector",
+        "repositoryURL": "https://github.com/nalexn/ViewInspector",
+        "state": {
+          "branch": null,
+          "revision": "cc098e230a861cae3566c3ae179cacc1f9bf8ec2",
+          "version": "0.7.2"
+        }
+      },
+      {
+        "package": "XprobePlugin",
+        "repositoryURL": "https://github.com/johnno1962/XprobePlugin",
+        "state": {
+          "branch": null,
+          "revision": "e5da5171e12bb0d84aaa4457faac11fe38b7141b",
+          "version": "2.2.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
