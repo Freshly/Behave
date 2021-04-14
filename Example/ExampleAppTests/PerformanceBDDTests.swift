@@ -19,17 +19,15 @@ class PerformanceBDDTests: XCTestCase {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         navgateToThePerformanceScreen(api)
+        api.measurePerformance()
         api.listen(for: performanceView) {
             let indexPath = IndexPath(row: 5, section: 0)
-            api.setUpPerformanceTest()
             api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
-            api.wait(for: indexPath, parent: api.findTable()!, complete: { cell in
-                XCTAssert(api.measurePerformance(frames: 5))
-                expectations.fulfill()
-            })
         }
-
-        api.run(fail: { error in
+        api.run(success: {
+            XCTAssert(api.passesPerformanceTest)
+            expectations.fulfill()
+        },fail: { error in
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)
@@ -39,7 +37,9 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isInEfficient() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        
         navgateToThePerformanceScreen(api)
+        api.measurePerformance()
         api.listen(for: performanceView) {
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
                 XCTFail("Can't find item")
@@ -47,29 +47,19 @@ class PerformanceBDDTests: XCTestCase {
                 return
             }
             api.tapRightNavigationItem(with: efficiencyButton)
-            let indexPath = IndexPath(row: 10, section: 0)
-            api.setUpPerformanceTest()
+            let indexPath = IndexPath(row: 15, section: 0)
             api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
-            let table = api.findTable()!
-            let cell = table.cellForRow(at: indexPath)
-            XCTAssertNotNil(cell)
-                api.wait(for: indexPath, parent: api.findTable()!, complete: { cell in
-                XCTAssertFalse(api.measurePerformance(frames: 10))
-                expectations.fulfill()
-            })
         }
-
-        api.run(fail: { error in
+        api.listen(for: "row-15", completion: {
+            XCTAssertFalse(api.passesPerformanceTest)
+            expectations.fulfill()
+        })
+        api.run(success: {
+        },fail: { error in
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
-    
-    func testMe() {
-        let dic = ProcessInfo.processInfo.systemUptime
-        
-    }
-    
     
     private func navgateToThePerformanceScreen(_ api: Behaviour) {
         api.listen(for: "list-view") {

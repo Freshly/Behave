@@ -28,6 +28,7 @@ class PerformanceViewController: UITableViewController {
 
     @objc func updateEfficency(_: Any) {
         isEfficent = false
+        tableView.reloadData()
     }
     
     // MARK: - Table View
@@ -41,21 +42,26 @@ class PerformanceViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = isEfficent ? "\(efficient(row: indexPath.row))" : "\(inefficient(row: indexPath.row))"
+        if isEfficent {
+            cell.textLabel?.text = "\(efficient(row: indexPath.row))"
+        } else {
+            cell.textLabel?.text = "\(efficient(row: indexPath.row))"
+            
+            for _ in 0...100 {
+                let sview2 = UIView(frame: CGRect(x: 10000.0, y: 10000.0, width: 10000.0, height: 10000.0))
+                cell.contentView.addSubview(sview2)
+            }
+        }
         return cell
     }
     
-    // PURELY FOR TESTING
-    private func inefficient(row: Int) -> String {
-        var x: Double = 0.0
-        for i in 0...1000000 {
-            //print()
-            let d = Double(i)
-            x = (x * (d)) / 20.0
-        }
-        return "Row: \(row)"
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let sview = UIView(frame: CGRect(x: 10000.0, y: 10000.0, width: 10000.0, height: 10000.0))
+        sview.accessibilityIdentifier = "row-\(indexPath.row)"
+        view.addSubview(sview)
     }
     
+    // PURELY FOR TESTING
     private func efficient(row: Int) -> String {
         return "Row: \(row)"
     }
