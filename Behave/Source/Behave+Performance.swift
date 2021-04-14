@@ -5,8 +5,7 @@
 //  Created by Derek Bronston on 3/9/21.
 //
 
-import Foundation
-import Metal
+import UIKit
 
 public extension Behaviour {
     
@@ -25,10 +24,14 @@ public extension Behaviour {
             start = displaylink.timestamp
         } else {
             end = displaylink.timestamp
-            if (end - start) > 0.0167 {
-                passesPerformanceTest = false
-            }
+            calculatePerformance()
             start = displaylink.timestamp
+        }
+    }
+    
+    func calculatePerformance(){
+        if (end - start) > 0.0167 {
+            passesPerformanceTest = false
         }
     }
     
