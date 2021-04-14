@@ -6,42 +6,35 @@
 //
 
 import Foundation
+import Metal
 
 public extension Behaviour {
-   
-    /// Sets up test. Resets start and end values. Then sets start to current timestamp.
-    /// - Parameters:
-    /// - frames: the number of frames displayed in this view
-    /// - Returns: Bool
-    func setUpPerformanceTest() {
+    
+    /// Measures performance based on time in relation for FPS. Given that one frame is displayed in 16.67ms at 60 fps. This inititates the test process. Resest start, end and passesPerformanceTest for tracking and enables the CADisplayLink API. 
+    func measurePerformance(){
         reset()
-        start = NSDate().timeIntervalSince1970
+        let displaylink = CADisplayLink(target: self,
+                                        selector: #selector(step))
+        displaylink.add(to: .current,
+                        forMode: .default)
     }
     
-    /// Measures performance based on time in relation for FPS. Given that one frame is displayed in 16.67ms at 60 fps. Then the Number of frames * 16.67 shouldl be the total time it takes to display the frames in question.
-    /// - Parameters:
-    /// - frames: the number of frames displayed in this view
-    /// - Returns: Bool
-    func measurePerformance(frames: Int) -> Bool {
-        mark()
-        let renderTime = (16.67 * Double(frames))
-        let frameTime = ((end - start) * 1000.0)
-        if frameTime <= renderTime {
-            return true
+    /// THIS IS CALLED ON EACH FRAME RENDERING PER THE CADisplayLink callback. It checks each frame render and calculates the time based on the returned timestamp. If the frame is rendered in more than 16.67ms it markes it as failing the performnace test.
+    @objc private func step(displaylink: CADisplayLink) {
+        if start == 0.0 {
+            start = displaylink.timestamp
+        } else {
+            end = displaylink.timestamp
+            if (end - start) > 0.0167 {
+                passesPerformanceTest = false
+            }
+            start = displaylink.timestamp
         }
-        return false
-    }
-    
-    func launchTime() {
-        x
     }
     
     private func reset() {
         start = 0.0
         end = 0.0
-    }
-    
-    private func mark() {
-        end = NSDate().timeIntervalSince1970
+        passesPerformanceTest = true
     }
 }
