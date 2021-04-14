@@ -22,6 +22,8 @@ public class Behaviour {
     var frameStart = 0.0
     var frameEnd = 0.0
     public var passesPerformanceTest = false
+    public var testPerformance = true
+    internal var performanceMetrics = [Double]()
 
     // MARK: - Methods
     
@@ -42,6 +44,10 @@ public class Behaviour {
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
         resetUI()
+        if testPerformance{
+            resetPerformance()
+            measurePerformance()
+        }
         if !swiftui {
             runTests(success: success, fail: fail)
         } else {
@@ -59,7 +65,15 @@ public class Behaviour {
         if let event = events.first {
             runHelper(event: event, success: success, fail: fail)
         } else {
-            success?()
+            if testPerformance {
+                if !passesPerformanceTest {
+                    fail?("Performing under 60fps:")
+                } else {
+                    success?()
+                }
+            } else {
+                success?()
+            }
         }
     }
 
