@@ -129,11 +129,7 @@ stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlStrin
 
 ### Performance (beta)
 ``` swift
-setUpPerformanceTest()
-```
-
-``` swift
-measurePerformance(frames: Int) -> Bool
+measurePerformance()
 ```
 ### Views
 ``` swift
