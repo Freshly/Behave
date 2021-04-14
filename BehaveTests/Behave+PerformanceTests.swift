@@ -17,29 +17,42 @@ class Behave_PerformanceTests: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testSetUpPerformanceTest() {
+    func testMeasurePerformance() {
         let sut = Behaviour()
         
         // SET SOME BASE VALUES
         sut.start = 1.0
         sut.end = 1.0
+        sut.passesPerformanceTest = false
         
         // TEST
-        sut.setUpPerformanceTest()
-        XCTAssert(sut.start > 1.0)
+        sut.measurePerformance()
+        XCTAssert(sut.start == 0.0)
         XCTAssert(sut.end == 0.0)
-    }
-
-    func testMeasurePerformance_false() {
-        let sut = Behaviour()
-        let passedTest = sut.measurePerformance(frames: 10)
-        XCTAssertFalse(passedTest)
+        XCTAssert(sut.passesPerformanceTest)
     }
     
-    func testMeasurePerformance_true() {
+    func testCalculatePerformance_true() {
         let sut = Behaviour()
-        sut.start = NSDate().timeIntervalSince1970 + 1000.0
-        let passedTest = sut.measurePerformance(frames: 10)
-        XCTAssert(passedTest)
+        
+        // SET SOME BASE VALUES
+        sut.start = 0.0167
+        sut.end = 0.0334
+        sut.passesPerformanceTest = true
+        
+        sut.calculatePerformance()
+        XCTAssert(sut.passesPerformanceTest)
+    }
+    
+    func testCalculatePerformance_false() {
+        let sut = Behaviour()
+        
+        // SET SOME BASE VALUES
+        sut.start = 0.0167
+        sut.end = 0.0444
+        sut.passesPerformanceTest = true
+        
+        sut.calculatePerformance()
+        XCTAssertFalse(sut.passesPerformanceTest)
     }
 }

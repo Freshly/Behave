@@ -19,14 +19,16 @@ class PerformanceBDDTests: XCTestCase {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         navgateToThePerformanceScreen(api)
-        api.measurePerformance()
         api.listen(for: performanceView) {
+            api.measurePerformance()
             let indexPath = IndexPath(row: 5, section: 0)
             api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
         }
-        api.run(success: {
+        api.listen(for: "row-4", completion: {
             XCTAssert(api.passesPerformanceTest)
             expectations.fulfill()
+        })
+        api.run(success: {
         },fail: { error in
             XCTFail(error)
         })
@@ -39,8 +41,8 @@ class PerformanceBDDTests: XCTestCase {
         let api = Behaviour()
         
         navgateToThePerformanceScreen(api)
-        api.measurePerformance()
         api.listen(for: performanceView) {
+            api.measurePerformance()
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
                 XCTFail("Can't find item")
                 expectations.fulfill()
