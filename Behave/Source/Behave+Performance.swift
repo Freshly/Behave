@@ -40,5 +40,6 @@ public extension Behaviour {
         frameStart = 0.0
         frameEnd = 0.0
         passesPerformanceTest = true
+        performanceMetrics.removeAll()
     }
 }
