@@ -12,11 +12,15 @@ public class Behaviour {
     public var testTimeInterval: TimeInterval = 10.0
     public var swiftui = false
     private var events: [BDEvent]
+    private var storedEvents: [Array<NSDictionary>]
+    private var eventFailures: [String]
     var requests: [Stub]
 
     public init() {
         events = []
         requests = []
+        storedEvents = []
+        eventFailures = []
     }
     // FOR PERFORMANCE
     var frameStart = 0.0
@@ -45,8 +49,17 @@ public class Behaviour {
         events.append(event)
     }
     
+    private func readEvents() {
+        if storedEvents.count > 0 {
+            return
+        }
+        if let testEvents = BehaveRecord.shared.read(){
+            storedEvents = testEvents as! [Array<NSDictionary>]
+        }
+    }
+    
     public func addEvents() {
-        if let testEvents = BehaveRecord.shared.read() {
+        if let testEvents = storedEvents.first  {
             for testEvent in testEvents {
                 var eventIdentifier = ""
                 if let event = testEvent["identifier"] as? String {
@@ -68,9 +81,6 @@ public class Behaviour {
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        if autoPlay {
-            addEvents()
-        }
         resetUI()
         if !swiftui {
             runTests(success: success, fail: fail)
@@ -79,8 +89,40 @@ public class Behaviour {
         }
     }
     
-    public func play() {
-        
+    private func completeStoredTest()  {
+        if storedEvents.count > 0 {
+            storedEvents.removeFirst()
+        }
+    }
+    
+    private func p(complete: (() -> Void)? = nil) {
+        addEvents()
+        run(success: { [weak self] in
+            self?.completeStoredTest()
+                
+            if self?.storedEvents.count == 0 {
+                complete?()
+            } else {
+                self?.resetUI()
+                self?.p()
+            }
+    
+        }, fail: { [weak self] error in
+            self?.completeStoredTest()
+                
+            if self?.storedEvents.count == 0 {
+                complete?()
+            } else {
+                self?.resetUI()
+                self?.p()
+            }
+        })
+    }
+    
+    public func play(complete: (() -> Void)? = nil) {
+        autoPlay = true
+        readEvents()
+        p(complete: complete)
     }
 
     // MARK: - Private methods
@@ -98,20 +140,36 @@ public class Behaviour {
     }
 
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        wait(for: event.identifier, complete: { [weak self] in
-            event.complete()
-            if !self!.autoPlay {
-                self?.events.removeFirst()
-                self?.runTests(success: success, fail: fail)
-            } else {
-                self?.runActions(complete: {
+        print(event.identifier)
+        if event.identifier == "alert" {
+            waitForAlert { [weak self] in
+                if !self!.autoPlay {
                     self?.events.removeFirst()
                     self?.runTests(success: success, fail: fail)
-                })
+                } else {
+                    self?.runActions(complete: {
+                        self?.events.removeFirst()
+                        self?.runTests(success: success, fail: fail)
+                    })
+                }
             }
-        }, fail: { error in
-            fail?(error)
-        })
+        } else {
+            wait(for: event.identifier, complete: { [weak self] in
+                event.complete()
+                if !self!.autoPlay {
+                    self?.events.removeFirst()
+                    self?.runTests(success: success, fail: fail)
+                } else {
+                    self?.runActions(complete: {
+                        self?.events.removeFirst()
+                        self?.runTests(success: success, fail: fail)
+                    })
+                }
+            }, fail: { [weak self] error in
+                self?.eventFailures.append(error)
+                fail?(error)
+            })
+        }
     }
     
     private func runActions(complete: (() -> Void)) {
@@ -155,6 +213,11 @@ public class Behaviour {
                 guard let json = customData["json"] as? String else { return }
                 guard let httpResponse = customData["response"] as? Int else { return }
                 stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
+            break
+            case "wait-for-alert":
+                waitForAlert {
+                    
+                }
             break
             default:
                 return

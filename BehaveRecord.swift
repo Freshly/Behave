@@ -28,13 +28,11 @@ class BehaveRecord {
         array.write(toFile: path, atomically: true)
     }
     
-    func read() -> [NSDictionary]? {
+    func read() -> NSArray? {
         if let infoPlistPath = BehaveRecord.applicationDocumentsDirectory {
             if FileManager().fileExists(atPath: infoPlistPath) {
                 if let arr = NSArray(contentsOfFile: infoPlistPath) {
-                
-                    return arr as? [NSDictionary]
-                 
+                    return arr
                 }
             }
         }
