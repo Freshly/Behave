@@ -18,18 +18,16 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isEfficient() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        api.testPerformance = true
         navgateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
-            api.measurePerformance()
             let indexPath = IndexPath(row: 5, section: 0)
             api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
         }
         api.listen(for: "row-4", completion: {
-            XCTAssert(api.passesPerformanceTest)
             expectations.fulfill()
         })
-        api.run(success: {
-        },fail: { error in
+        api.run(fail: { error in
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)
@@ -39,10 +37,9 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isInEfficient() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        
+        api.testPerformance = true
         navgateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
-            api.measurePerformance()
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
                 XCTFail("Can't find item")
                 expectations.fulfill()
@@ -53,11 +50,9 @@ class PerformanceBDDTests: XCTestCase {
             api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
         }
         api.listen(for: "row-15", completion: {
-            XCTAssertFalse(api.passesPerformanceTest)
             expectations.fulfill()
         })
-        api.run(success: {
-        },fail: { error in
+        api.run(fail: { error in
             XCTFail(error)
         })
         waitForExpectations(timeout: api.testTimeInterval)

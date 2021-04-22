@@ -67,7 +67,7 @@ public class Behaviour {
         } else {
             if testPerformance {
                 if !passesPerformanceTest {
-                    fail?("Performing under 60fps:")
+                    fail?("Performing under 60fps: \n\n \(performanceMetrics)")
                 } else {
                     success?()
                 }
