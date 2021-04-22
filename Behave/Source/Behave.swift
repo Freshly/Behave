@@ -22,6 +22,9 @@ public class Behaviour {
     var frameStart = 0.0
     var frameEnd = 0.0
     public var passesPerformanceTest = false
+    
+    // FOR AUTO PLAY
+    var autoPlay = true
 
     // MARK: - Methods
     
@@ -36,11 +39,37 @@ public class Behaviour {
         return self
     }
     
+    public func addEvent(for identifier: String, actions: NSArray? = nil, completion: @escaping () -> Void) {
+        let event = BDEvent(identifier: identifier, complete: completion, actions: actions)
+        events.append(event)
+    }
+    
+    public func addEvents() {
+        if let testEvents = BehaveRecord.shared.read() {
+            for testEvent in testEvents {
+                var eventIdentifier = ""
+                if let event = testEvent["identifier"] as? String {
+                    eventIdentifier = event
+                }
+                if let actions = testEvent["actions"] as? NSArray {
+                    addEvent(for: eventIdentifier, actions: actions,completion: {})
+                } else {
+                    addEvent(for: eventIdentifier,completion: {})
+                }
+            }
+        }
+    }
+    
+    //private func createActions() -> [[String: String]]
+    
     /// Starting an event listen queue
     /// - Parameters:
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+        if autoPlay {
+            addEvents()
+        }
         resetUI()
         if !swiftui {
             runTests(success: success, fail: fail)
@@ -66,11 +95,67 @@ public class Behaviour {
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
         wait(for: event.identifier, complete: { [weak self] in
             event.complete()
-            self?.events.removeFirst()
-            self?.runTests(success: success, fail: fail)
+            if !self!.autoPlay {
+                self?.events.removeFirst()
+                self?.runTests(success: success, fail: fail)
+            } else {
+                self?.runActions(complete: {
+                    self?.events.removeFirst()
+                    self?.runTests(success: success, fail: fail)
+                })
+            }
         }, fail: { error in
             fail?(error)
         })
+    }
+    
+    private func runActions(complete: (() -> Void)) {
+        if let actions = self.events.first?.actions {
+            for action in actions {
+                if let dict = action as? NSDictionary {
+                    if let aid = dict["identifier"] as? String {
+                      runAction(for: aid, action: dict)
+                    }
+                }
+                
+            }
+        }
+        complete()
+    }
+    
+    private func runAction(for identifier: String, action: NSDictionary ){
+        if let actionType = action["type"] as? String {
+            switch actionType {
+            case "select-table-row":
+                guard let customData = action["customData"] as? NSDictionary else { return }
+                guard let row = customData["row"] as? Int else { return }
+                guard let section = customData["section"] as? Int else { return }
+                selectTableRow(identfier: identifier, indexPath: IndexPath(row: row as Int, section: section))
+            break
+            case "type-into-textfield":
+                guard let customData = action["customData"] as? NSDictionary else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoTextField(identifier: identifier, text: text)
+            break
+            case "type-into-secure-textfield":
+                guard let customData = action["customData"] as? NSDictionary else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoSecureTextField(identifier: identifier, text: text)
+            break
+            case "tap-button":
+                tapButton(identifier: identifier)
+            break
+            case "stub-network-request":
+                guard let customData = action["customData"] as? NSDictionary else { return }
+                guard let url = customData["url"] as? String else { return }
+                guard let json = customData["json"] as? String else { return }
+                guard let httpResponse = customData["response"] as? Int else { return }
+                stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
+            break
+            default:
+                return
+            }
+        }
     }
 
     private func resetUI() {

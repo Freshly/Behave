@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		878270CD25FDA8B2003CB3E7 /* BDEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */; };
 		878270D125FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */; };
+		87A8DE8C2631A1EF00920F10 /* BehaviourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8DE8B2631A1EF00920F10 /* BehaviourTests.swift */; };
 		87E4D61525FC1768009E921B /* Behave+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D61425FC1768009E921B /* Behave+Performance.swift */; };
 		87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */; };
 		94E6ECAF24B6BA8B00A6FB37 /* Behave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE473FB724A0929D0079DEEF /* Behave.framework */; };
@@ -44,6 +45,7 @@
 		688AE5F33EA228A2245DFC74 /* Pods_Behave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Behave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDEventTests.swift; sourceTree = "<group>"; };
 		878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveDataObjectsTests.swift; sourceTree = "<group>"; };
+		87A8DE8B2631A1EF00920F10 /* BehaviourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourTests.swift; sourceTree = "<group>"; };
 		87E4D61425FC1768009E921B /* Behave+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+Performance.swift"; sourceTree = "<group>"; };
 		87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behave+PerformanceTests.swift"; sourceTree = "<group>"; };
 		94E6ECAA24B6BA8B00A6FB37 /* BehaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				87E4D62225FC18C3009E921B /* Behave+PerformanceTests.swift */,
 				878270CC25FDA8B2003CB3E7 /* BDEventTests.swift */,
 				878270D025FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift */,
+				87A8DE8B2631A1EF00920F10 /* BehaviourTests.swift */,
 			);
 			path = BehaveTests;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				878270CD25FDA8B2003CB3E7 /* BDEventTests.swift in Sources */,
 				87E4D62325FC18C3009E921B /* Behave+PerformanceTests.swift in Sources */,
 				878270D125FDAAD3003CB3E7 /* BehaveDataObjectsTests.swift in Sources */,
+				87A8DE8C2631A1EF00920F10 /* BehaviourTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

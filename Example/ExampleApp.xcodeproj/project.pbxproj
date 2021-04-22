@@ -23,6 +23,8 @@
 		87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732D1724A17E5C003E6940 /* LoginTests.swift */; };
 		878270ED25FE92A4003CB3E7 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */; };
 		878270F225FE9F34003CB3E7 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270F125FE9F34003CB3E7 /* ActionsViewController.swift */; };
+		87A8DE872631A0AD00920F10 /* AutomatedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8DE862631A0AD00920F10 /* AutomatedTests.swift */; };
+		87BAD6B12631B27600253213 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87BAD6A62631ACE600253213 /* test.plist */; };
 		87E4D5A925FB98E8009E921B /* PerformanceBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */; };
 		87E4D65425FD5FE0009E921B /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
@@ -76,6 +78,8 @@
 		87732D1724A17E5C003E6940 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
 		878270F125FE9F34003CB3E7 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		87A8DE862631A0AD00920F10 /* AutomatedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomatedTests.swift; sourceTree = "<group>"; };
+		87BAD6A62631ACE600253213 /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
 		87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceBDDTests.swift; sourceTree = "<group>"; };
 		87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		BE47409524A1343A0079DEEF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +258,7 @@
 		BE47409724A1343A0079DEEF /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				87BAD6A62631ACE600253213 /* test.plist */,
 				87732CF524A17710003E6940 /* login */,
 				BE47409824A1343A0079DEEF /* AppDelegate.swift */,
 				BE47409C24A1343A0079DEEF /* HomeViewController.swift */,
@@ -278,6 +283,7 @@
 				BE4740B324A1343C0079DEEF /* Info.plist */,
 				87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */,
 				871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */,
+				87A8DE862631A0AD00920F10 /* AutomatedTests.swift */,
 			);
 			path = ExampleAppTests;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87BAD6B12631B27600253213 /* test.plist in Resources */,
 				BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */,
 				BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */,
 				BE4740A224A1343A0079DEEF /* Main.storyboard in Resources */,
@@ -533,6 +540,7 @@
 			files = (
 				87732D1824A17E5C003E6940 /* LoginTests.swift in Sources */,
 				87E4D5A925FB98E8009E921B /* PerformanceBDDTests.swift in Sources */,
+				87A8DE872631A0AD00920F10 /* AutomatedTests.swift in Sources */,
 				BE4740B224A1343C0079DEEF /* HomeViewControllerBDDTests.swift in Sources */,
 				871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */,
 			);
