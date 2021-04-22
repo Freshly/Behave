@@ -23,6 +23,7 @@ class AutomatedTests: XCTestCase {
     func testAutomated()  {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        api.autoPlay = true
         api.run(success: {
             expectations.fulfill()
         },fail: { error in
@@ -30,5 +31,4 @@ class AutomatedTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
-
 }

@@ -18,7 +18,7 @@ class BehaveRecord {
 //           let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
 //        return paths.first?.appendingFormat("/test.plist")
         let bundlePath = Bundle.main.bundlePath
-        return bundlePath.appendingFormat("/test.plist")
+        return bundlePath.appendingFormat("/login_test.plist")
     }
 
 

@@ -24,7 +24,8 @@ public class Behaviour {
     public var passesPerformanceTest = false
     
     // FOR AUTO PLAY
-    var autoPlay = true
+    public var autoPlay = false
+    //public var testFile = ""
 
     // MARK: - Methods
     
@@ -77,6 +78,10 @@ public class Behaviour {
             runSwiftUITests(success: success, fail: fail)
         }
     }
+    
+    public func play() {
+        
+    }
 
     // MARK: - Private methods
     
@@ -117,7 +122,6 @@ public class Behaviour {
                       runAction(for: aid, action: dict)
                     }
                 }
-                
             }
         }
         complete()
