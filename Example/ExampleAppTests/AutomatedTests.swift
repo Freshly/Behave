@@ -30,5 +30,4 @@ class AutomatedTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
-
 }
