@@ -44,35 +44,6 @@ public class Behaviour {
         return self
     }
     
-    public func addEvent(for identifier: String, actions: NSArray? = nil, completion: @escaping () -> Void) {
-        let event = BDEvent(identifier: identifier, complete: completion, actions: actions)
-        events.append(event)
-    }
-    
-    private func readEvents() {
-        if storedEvents.count > 0 {
-            return
-        }
-        if let testEvents = BehaveRecord.shared.read(){
-            storedEvents = testEvents as! [Array<NSDictionary>]
-        }
-    }
-    
-    public func addEvents() {
-        if let testEvents = storedEvents.first  {
-            for testEvent in testEvents {
-                var eventIdentifier = ""
-                if let event = testEvent["identifier"] as? String {
-                    eventIdentifier = event
-                }
-                if let actions = testEvent["actions"] as? NSArray {
-                    addEvent(for: eventIdentifier, actions: actions,completion: {})
-                } else {
-                    addEvent(for: eventIdentifier,completion: {})
-                }
-            }
-        }
-    }
     
     //private func createActions() -> [[String: String]]
     
@@ -86,6 +57,44 @@ public class Behaviour {
             runTests(success: success, fail: fail)
         } else {
             runSwiftUITests(success: success, fail: fail)
+        }
+    }
+    
+    // MARK: Automated Tests
+    
+    public func play(complete: (() -> Void)? = nil) {
+        autoPlay = true
+        readEvents()
+        playAutomatedTests(complete: complete)
+    }
+    
+    private func addEvent(for identifier: String, actions: NSArray? = nil, completion: @escaping () -> Void) {
+        let event = BDEvent(identifier: identifier, complete: completion, actions: actions)
+        events.append(event)
+    }
+    
+    private func readEvents() {
+        if storedEvents.count > 0 {
+            return
+        }
+        if let testEvents = BehaveRecord.shared.read(){
+            storedEvents = testEvents as! [Array<NSDictionary>]
+        }
+    }
+    
+    private func addEvents() {
+        if let testEvents = storedEvents.first  {
+            for testEvent in testEvents {
+                var eventIdentifier = ""
+                if let event = testEvent["identifier"] as? String {
+                    eventIdentifier = event
+                }
+                if let actions = testEvent["actions"] as? NSArray {
+                    addEvent(for: eventIdentifier, actions: actions,completion: {})
+                } else {
+                    addEvent(for: eventIdentifier,completion: {})
+                }
+            }
         }
     }
     
@@ -117,12 +126,6 @@ public class Behaviour {
                 self?.playAutomatedTests(complete: complete)
             }
         })
-    }
-    
-    public func play(complete: (() -> Void)? = nil) {
-        autoPlay = true
-        readEvents()
-        playAutomatedTests(complete: complete)
     }
 
     // MARK: - Private methods
