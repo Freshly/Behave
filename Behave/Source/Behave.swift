@@ -95,7 +95,7 @@ public class Behaviour {
         }
     }
     
-    private func p(complete: (() -> Void)? = nil) {
+    private func playAutomatedTests(complete: (() -> Void)? = nil) {
         addEvents()
         run(success: { [weak self] in
             self?.completeStoredTest()
@@ -104,7 +104,7 @@ public class Behaviour {
                 complete?()
             } else {
                 self?.resetUI()
-                self?.p()
+                self?.playAutomatedTests(complete: complete)
             }
     
         }, fail: { [weak self] error in
@@ -114,7 +114,7 @@ public class Behaviour {
                 complete?()
             } else {
                 self?.resetUI()
-                self?.p()
+                self?.playAutomatedTests(complete: complete)
             }
         })
     }
@@ -122,7 +122,7 @@ public class Behaviour {
     public func play(complete: (() -> Void)? = nil) {
         autoPlay = true
         readEvents()
-        p(complete: complete)
+        playAutomatedTests(complete: complete)
     }
 
     // MARK: - Private methods
