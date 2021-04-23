@@ -40,6 +40,7 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
         // Configure the cell
+        cell.accessibilityIdentifier = "\(indexPath.item)|\(indexPath.section)"
         cell.contentView.backgroundColor = .gray
         cell.contentView.layer.borderColor = UIColor.blue.cgColor
         cell.contentView.layer.borderWidth = 1.0

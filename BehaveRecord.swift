@@ -43,6 +43,7 @@ class BehaveRecord {
 extension UITableViewCell {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        print(touches)
         for touch in touches {
             if touch.tapCount > 0 {
                 BehaveRecord.shared.list.append(self.accessibilityIdentifier!)
@@ -56,6 +57,7 @@ extension UITableViewCell {
 extension UITextField {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        print(touches)
         for touch in touches {
             if touch.tapCount > 0 {
                 BehaveRecord.shared.list.append(self.accessibilityIdentifier!)
@@ -69,6 +71,7 @@ extension UITextField {
 extension UIButton {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
         for touch in touches {
             if touch.tapCount > 0 {
                 BehaveRecord.shared.list.append(self.accessibilityIdentifier!)

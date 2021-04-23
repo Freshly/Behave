@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */; };
 		871C119A2602941B00B1BF65 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C11992602941B00B1BF65 /* CollectionViewController.swift */; };
+		87445F9A2632535E0005B596 /* BehaveRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87445F992632535E0005B596 /* BehaveRecorder.swift */; };
+		87445F9F2632EF970005B596 /* login_test copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87445F9E2632EF970005B596 /* login_test copy.plist */; };
 		87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CF924A17710003E6940 /* LoginViewModel.swift */; };
 		87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFA24A17710003E6940 /* TestViewModel.swift */; };
 		87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFC24A17710003E6940 /* LoginRepository.swift */; };
@@ -64,6 +66,8 @@
 		70E5637E2475AAD51287F2FE /* Pods-ExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewControllerTests.swift; sourceTree = "<group>"; };
 		871C11992602941B00B1BF65 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		87445F992632535E0005B596 /* BehaveRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveRecorder.swift; sourceTree = "<group>"; };
+		87445F9E2632EF970005B596 /* login_test copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "login_test copy.plist"; sourceTree = "<group>"; };
 		87732CF924A17710003E6940 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		87732CFA24A17710003E6940 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		87732CFC24A17710003E6940 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				87BAD6A62631ACE600253213 /* login_test.plist */,
+				87445F9E2632EF970005B596 /* login_test copy.plist */,
 				87732CF524A17710003E6940 /* login */,
 				BE47409824A1343A0079DEEF /* AppDelegate.swift */,
 				BE47409C24A1343A0079DEEF /* HomeViewController.swift */,
@@ -271,6 +276,7 @@
 				878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */,
 				878270F125FE9F34003CB3E7 /* ActionsViewController.swift */,
 				871C11992602941B00B1BF65 /* CollectionViewController.swift */,
+				87445F992632535E0005B596 /* BehaveRecorder.swift */,
 			);
 			path = ExampleApp;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				87BAD6B12631B27600253213 /* login_test.plist in Resources */,
 				BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */,
 				BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */,
+				87445F9F2632EF970005B596 /* login_test copy.plist in Resources */,
 				BE4740A224A1343A0079DEEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +537,7 @@
 				87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */,
 				878270ED25FE92A4003CB3E7 /* ExampleListViewController.swift in Sources */,
 				87732D1124A17710003E6940 /* API.swift in Sources */,
+				87445F9A2632535E0005B596 /* BehaveRecorder.swift in Sources */,
 				87732D0C24A17710003E6940 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
