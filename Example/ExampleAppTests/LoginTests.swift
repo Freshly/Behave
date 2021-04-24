@@ -21,8 +21,8 @@ class LoginTests: XCTestCase {
         api.listen(for: "login-view") {
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
-            api.typeIntoTextField(identifier: "email", text: "email")
-            api.typeIntoTextField(identifier: "password", text: "password")
+            api.typeIntoTextField(identifier: "email-field", text: "email")
+            api.typeIntoTextField(identifier: "password-field", text: "password")
             api.tapButton(identifier: "submit")
         }
         api.listen(for: "home-view") {

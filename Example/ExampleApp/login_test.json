@@ -1,0 +1,51 @@
+[
+    [{
+            "identifier": "list-view",
+            "action": "select-table-row",
+            "customData": {
+                "row": 3,
+                "section": 0
+            }
+        },
+        {
+            "identifier": "url",
+            "action": "stub-network-request",
+            "customData": {
+                "url": "https://test.com/login_test.php",
+                "response": 200,
+                "json": "{\"success\": \"true\"}"
+            }
+        },
+        {
+            "identifier": "url-2",
+            "action": "stub-network-request",
+            "customData": {
+                "url": "https://test.com/data.php",
+                "response": 200,
+                "json": "{\"success\": \"true\"}"
+            }
+        },
+        {
+            "identifier": "email-field",
+            "action": "type-into-textfield",
+            "customData": {
+                "text": "email"
+            }
+        },
+        {
+            "identifier": "password-field",
+            "action": "type-into-secure-textfield",
+            "customData": {
+                "text": "password"
+            }
+        },
+        {
+            "identifier": "submit",
+            "action": "tap-button",
+            "customData": {}
+        },
+        {
+            "identifier": "home-view"
+        }
+    ]
+]

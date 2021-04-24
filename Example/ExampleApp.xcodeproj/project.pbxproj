@@ -10,7 +10,7 @@
 		871C1145260036C500B1BF65 /* ActionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */; };
 		871C119A2602941B00B1BF65 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C11992602941B00B1BF65 /* CollectionViewController.swift */; };
 		87445F9A2632535E0005B596 /* BehaveRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87445F992632535E0005B596 /* BehaveRecorder.swift */; };
-		87445F9F2632EF970005B596 /* login_test copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87445F9E2632EF970005B596 /* login_test copy.plist */; };
+		87445FA42633A4580005B596 /* login_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 87445FA32633A4580005B596 /* login_test.json */; };
 		87732D0924A17710003E6940 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CF924A17710003E6940 /* LoginViewModel.swift */; };
 		87732D0A24A17710003E6940 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFA24A17710003E6940 /* TestViewModel.swift */; };
 		87732D0B24A17710003E6940 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87732CFC24A17710003E6940 /* LoginRepository.swift */; };
@@ -26,7 +26,6 @@
 		878270ED25FE92A4003CB3E7 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */; };
 		878270F225FE9F34003CB3E7 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878270F125FE9F34003CB3E7 /* ActionsViewController.swift */; };
 		87A8DE872631A0AD00920F10 /* AutomatedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8DE862631A0AD00920F10 /* AutomatedTests.swift */; };
-		87BAD6B12631B27600253213 /* login_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87BAD6A62631ACE600253213 /* login_test.plist */; };
 		87E4D5A925FB98E8009E921B /* PerformanceBDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */; };
 		87E4D65425FD5FE0009E921B /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */; };
 		BE47409924A1343A0079DEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47409824A1343A0079DEEF /* AppDelegate.swift */; };
@@ -67,7 +66,7 @@
 		871C1144260036C500B1BF65 /* ActionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewControllerTests.swift; sourceTree = "<group>"; };
 		871C11992602941B00B1BF65 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		87445F992632535E0005B596 /* BehaveRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaveRecorder.swift; sourceTree = "<group>"; };
-		87445F9E2632EF970005B596 /* login_test copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "login_test copy.plist"; sourceTree = "<group>"; };
+		87445FA32633A4580005B596 /* login_test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login_test.json; sourceTree = "<group>"; };
 		87732CF924A17710003E6940 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		87732CFA24A17710003E6940 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		87732CFC24A17710003E6940 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		878270EC25FE92A4003CB3E7 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
 		878270F125FE9F34003CB3E7 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		87A8DE862631A0AD00920F10 /* AutomatedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomatedTests.swift; sourceTree = "<group>"; };
-		87BAD6A62631ACE600253213 /* login_test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = login_test.plist; sourceTree = "<group>"; };
 		87E4D5A825FB98E7009E921B /* PerformanceBDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceBDDTests.swift; sourceTree = "<group>"; };
 		87E4D65325FD5FE0009E921B /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		BE47409524A1343A0079DEEF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,8 +260,7 @@
 		BE47409724A1343A0079DEEF /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				87BAD6A62631ACE600253213 /* login_test.plist */,
-				87445F9E2632EF970005B596 /* login_test copy.plist */,
+				87445FA32633A4580005B596 /* login_test.json */,
 				87732CF524A17710003E6940 /* login */,
 				BE47409824A1343A0079DEEF /* AppDelegate.swift */,
 				BE47409C24A1343A0079DEEF /* HomeViewController.swift */,
@@ -411,11 +408,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87BAD6B12631B27600253213 /* login_test.plist in Resources */,
 				BE4740A724A1343C0079DEEF /* LaunchScreen.storyboard in Resources */,
 				BE4740A424A1343C0079DEEF /* Assets.xcassets in Resources */,
-				87445F9F2632EF970005B596 /* login_test copy.plist in Resources */,
 				BE4740A224A1343A0079DEEF /* Main.storyboard in Resources */,
+				87445FA42633A4580005B596 /* login_test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

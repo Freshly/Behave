@@ -18,7 +18,7 @@ class BehaveRecord {
 //           let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
 //        return paths.first?.appendingFormat("/test.plist")
         let bundlePath = Bundle.main.bundlePath
-        return bundlePath.appendingFormat("/login_test.plist")
+        return bundlePath.appendingFormat("/login_test.json")
     }
 
 
@@ -31,9 +31,13 @@ class BehaveRecord {
     func read() -> NSArray? {
         if let infoPlistPath = BehaveRecord.applicationDocumentsDirectory {
             if FileManager().fileExists(atPath: infoPlistPath) {
-                if let arr = NSArray(contentsOfFile: infoPlistPath) {
-                    return arr
-                }
+//                if let arr = NSArray(contentsOfFile: infoPlistPath) {
+//                    return arr
+//                }
+                let array = try! JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: infoPlistPath)), options: []) as? NSArray
+                
+                return array
+                
             }
         }
         return nil

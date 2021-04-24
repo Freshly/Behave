@@ -52,7 +52,7 @@ public class Behaviour {
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        resetUI()
+        //resetUI()
         if !swiftui {
             runTests(success: success, fail: fail)
         } else {
@@ -61,17 +61,6 @@ public class Behaviour {
     }
     
     // MARK: Automated Tests
-    
-    public func play(complete: (() -> Void)? = nil) {
-        autoPlay = true
-        readEvents()
-        playAutomatedTests(complete: complete)
-    }
-    
-    private func addEvent(for identifier: String, actions: NSArray? = nil, completion: @escaping () -> Void) {
-        let event = BDEvent(identifier: identifier, complete: completion, actions: actions)
-        events.append(event)
-    }
     
     private func readEvents() {
         if storedEvents.count > 0 {
@@ -89,13 +78,21 @@ public class Behaviour {
                 if let event = testEvent["identifier"] as? String {
                     eventIdentifier = event
                 }
-                if let actions = testEvent["actions"] as? NSArray {
-                    addEvent(for: eventIdentifier, actions: actions,completion: {})
+                if let actions = testEvent["action"] as? String {
+                    if let customData = testEvent["customData"] as? NSDictionary {
+                    addEvent(for: eventIdentifier, action: actions,customData: customData,completion: {})
+                    }
                 } else {
                     addEvent(for: eventIdentifier,completion: {})
                 }
             }
         }
+        
+    }
+    
+    private func addEvent(for identifier: String, action: String? = nil, customData: NSDictionary? = nil ,completion: @escaping () -> Void) {
+        let event = BDEvent(identifier: identifier, complete: completion, action: action, customData: customData)
+        events.append(event)
     }
     
     private func completeStoredTest()  {
@@ -104,28 +101,84 @@ public class Behaviour {
         }
     }
     
-    private func playAutomatedTests(complete: (() -> Void)? = nil) {
+    public func play(complete: (([String]) -> Void)? = nil) {
+        autoPlay = true
+        readEvents()
         addEvents()
-        run(success: { [weak self] in
-            self?.completeStoredTest()
-                
-            if self?.storedEvents.count == 0 {
-                complete?()
-            } else {
-                self?.resetUI()
-                self?.playAutomatedTests(complete: complete)
-            }
+        playAutomatedTests(complete: complete)
+    }
     
-        }, fail: { [weak self] error in
-            self?.completeStoredTest()
-                
-            if self?.storedEvents.count == 0 {
-                complete?()
-            } else {
-                self?.resetUI()
+    private func playAutomatedTests(complete: (([String]) -> Void)? = nil) {
+        
+        guard let event = events.first else {
+            complete?(eventFailures)
+            return
+        }
+        
+        if event.action == "stub-network-request" {
+            runActions(complete: {
+                self.events.removeFirst()
+                playAutomatedTests(complete: complete)
+            })
+        } else {
+            wait(for: event.identifier, complete: {[weak self] in
+                self?.runActions(complete: {
+                    self?.events.removeFirst()
+                    self?.playAutomatedTests(complete: complete)
+                })
+            }, fail: { [weak self] error in
+                self?.eventFailures.append(error)
+                self?.events.removeFirst()
                 self?.playAutomatedTests(complete: complete)
+            })
+        }
+    }
+    
+    private func runActions(complete: (() -> Void)) {
+        if let action = self.events.first {
+            runAction(for: action.identifier, action: action)
+            complete()
+        }
+    }
+    
+    private func runAction(for identifier: String, action: BDEvent ){
+        if let actionType = action.action {
+            switch actionType {
+            case "select-table-row":
+                guard let customData = action.customData else { return }
+                guard let row = customData["row"] as? Int else { return }
+                guard let section = customData["section"] as? Int else { return }
+                selectTableRow(identfier: identifier, indexPath: IndexPath(row: row as Int, section: section))
+            break
+            case "type-into-textfield":
+                guard let customData = action.customData else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoTextField(identifier: identifier, text: text)
+            break
+            case "type-into-secure-textfield":
+                guard let customData = action.customData  else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoSecureTextField(identifier: identifier, text: text)
+            break
+            case "tap-button":
+                tapButton(identifier: identifier)
+            break
+            case "stub-network-request":
+                guard let customData = action.customData  else { return }
+                guard let url = customData["url"] as? String else { return }
+                guard let json = customData["json"] as? String else { return }
+                guard let httpResponse = customData["response"] as? Int else { return }
+                stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
+            break
+            case "wait-for-alert":
+                waitForAlert {
+                    
+                }
+            break
+            default:
+                return
             }
-        })
+        }
     }
 
     // MARK: - Private methods
@@ -143,19 +196,23 @@ public class Behaviour {
     }
 
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        print(event.identifier)
+        print(event)
         if event.identifier == "alert" {
             waitForAlert { [weak self] in
                 if !self!.autoPlay {
                     self?.events.removeFirst()
                     self?.runTests(success: success, fail: fail)
                 } else {
-                    self?.runActions(complete: {
-                        self?.events.removeFirst()
-                        self?.runTests(success: success, fail: fail)
-                    })
+//                    self?.runActions(complete: {
+//                        self?.events.removeFirst()
+//                        self?.runTests(success: success, fail: fail)
+//                    })
                 }
             }
+        } else if event.identifier == "stub-network-request"{
+            runAction(for: event.identifier, action: event)
+            self.events.removeFirst()
+            self.runTests(success: success, fail: fail)
         } else {
             wait(for: event.identifier, complete: { [weak self] in
                 event.complete()
@@ -172,59 +229,6 @@ public class Behaviour {
                 self?.eventFailures.append(error)
                 fail?(error)
             })
-        }
-    }
-    
-    private func runActions(complete: (() -> Void)) {
-        if let actions = self.events.first?.actions {
-            for action in actions {
-                if let dict = action as? NSDictionary {
-                    if let aid = dict["identifier"] as? String {
-                      runAction(for: aid, action: dict)
-                    }
-                }
-            }
-        }
-        complete()
-    }
-    
-    private func runAction(for identifier: String, action: NSDictionary ){
-        if let actionType = action["type"] as? String {
-            switch actionType {
-            case "select-table-row":
-                guard let customData = action["customData"] as? NSDictionary else { return }
-                guard let row = customData["row"] as? Int else { return }
-                guard let section = customData["section"] as? Int else { return }
-                selectTableRow(identfier: identifier, indexPath: IndexPath(row: row as Int, section: section))
-            break
-            case "type-into-textfield":
-                guard let customData = action["customData"] as? NSDictionary else { return }
-                guard let text = customData["text"] as? String else { return }
-                typeIntoTextField(identifier: identifier, text: text)
-            break
-            case "type-into-secure-textfield":
-                guard let customData = action["customData"] as? NSDictionary else { return }
-                guard let text = customData["text"] as? String else { return }
-                typeIntoSecureTextField(identifier: identifier, text: text)
-            break
-            case "tap-button":
-                tapButton(identifier: identifier)
-            break
-            case "stub-network-request":
-                guard let customData = action["customData"] as? NSDictionary else { return }
-                guard let url = customData["url"] as? String else { return }
-                guard let json = customData["json"] as? String else { return }
-                guard let httpResponse = customData["response"] as? Int else { return }
-                stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
-            break
-            case "wait-for-alert":
-                waitForAlert {
-                    
-                }
-            break
-            default:
-                return
-            }
         }
     }
 

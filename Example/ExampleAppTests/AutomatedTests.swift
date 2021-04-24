@@ -23,9 +23,12 @@ class AutomatedTests: XCTestCase {
     func testAutomated()  {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        api.play( complete: {
+        api.play(complete: {errors in
+            if !errors.isEmpty {
+                XCTFail("\(errors)")
+            }
             expectations.fulfill()
         })
-        waitForExpectations(timeout: 30.0)
+        waitForExpectations(timeout: 5.0)
     }
 }

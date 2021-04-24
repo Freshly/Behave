@@ -18,37 +18,37 @@
 		</dict>
 		<dict>
 			<key>identifier</key>
-			<string>login-url</string>
+			<string>url</string>
 			<key>action</key>
 			<string>stub-network-request</string>
 			<key>customData</key>
 			<dict>
-				<key>json</key>
-				<string>{&quot;success&quot;:&quot;true&quot;}</string>
-				<key>response</key>
-				<integer>200</integer>
 				<key>url</key>
 				<string>https://test.com/login_test.php</string>
+				<key>json</key>
+				<string>{&quot;success&quot;: &quot;true&quot;}</string>
+				<key>response</key>
+				<integer>200</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>identifier</key>
-			<string>data-url</string>
+			<string>url-data</string>
 			<key>action</key>
 			<string>stub-network-request</string>
 			<key>customData</key>
 			<dict>
-				<key>json</key>
-				<string>{&quot;success&quot;:&quot;true&quot;}</string>
-				<key>response</key>
-				<integer>200</integer>
 				<key>url</key>
 				<string>https://test.com/data.php</string>
+				<key>response</key>
+				<integer>200</integer>
+				<key>json</key>
+				<string>{&quot;success&quot;: &quot;true&quot;}</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>identifier</key>
-			<string>email</string>
+			<string>email-field</string>
 			<key>action</key>
 			<string>type-into-textfield</string>
 			<key>customData</key>
@@ -59,7 +59,7 @@
 		</dict>
 		<dict>
 			<key>identifier</key>
-			<string>password</string>
+			<string>password-field</string>
 			<key>action</key>
 			<string>type-into-secure-textfield</string>
 			<key>customData</key>
@@ -73,6 +73,12 @@
 			<string>submit</string>
 			<key>action</key>
 			<string>tap-button</string>
+			<key>customData</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>identifier</key>
+			<string>home-view</string>
 		</dict>
 	</array>
 </array>

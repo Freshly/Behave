@@ -12,34 +12,13 @@ class BehaveRecorder {
     static let shared = BehaveRecorder()
     var event: String?
     var list = [[String: Any]]()
-
-//    func start(text: String? = nil) {
-//
-//        let window = UIApplication.shared.keyWindow
-//        let recorder = UILabel(frame: CGRect(
-//                        x: 0.0,
-//                        y: (window!.frame.size.height / 2.0),
-//                        width: window!.frame.size.width,
-//                        height: (window!.frame.size.height / 2.0)))
-//        recorder.backgroundColor = .gray
-//        window?.addSubview(recorder)
-//
-//
-//
-//        ///var ids = viewController.view.accessibilityIdentifier!
-//
-//
-//        recorder.text = text ?? ""
-//    }
     
     func findIdentifier(touch: UITouch, view: UIView) -> String? {
         
         if let id = view.accessibilityIdentifier  {
             return id
         }
-        
         return nil
-        
     }
     
     func findParentIdentifier(view: UIView) -> String? {
@@ -92,7 +71,8 @@ class BehaveRecorder {
        
         let action = [
             "identifier": identifier,
-            "type": "button-tap",
+            "action": "button-tap",
+            "customData": ""
             
         ] as [String : Any]
         BehaveRecorder.shared.list.append(action)
@@ -115,7 +95,7 @@ class BehaveRecorder {
         
         let action = [
             "identifier": parent,
-            "type": "select-table-row",
+            "action": "select-table-row",
             "customData": [
                 "row": row,
                 "section": section
@@ -141,7 +121,7 @@ class BehaveRecorder {
         
         let action = [
             "identifier": parent,
-            "type": "select-collection-item",
+            "action": "select-collection-item",
             "customData": [
                 "row": row,
                 "section": section
