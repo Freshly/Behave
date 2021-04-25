@@ -12,7 +12,7 @@ public class Behaviour {
     public var testTimeInterval: TimeInterval = 10.0
     public var swiftui = false
     private var events: [BDEvent]
-    private var storedEvents: [Array<NSDictionary>]
+    private var storedEvents: [NSDictionary]
     private var eventFailures: [String]
     var requests: [Stub]
 
@@ -52,7 +52,7 @@ public class Behaviour {
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        //resetUI()
+        resetUI()
         if !swiftui {
             runTests(success: success, fail: fail)
         } else {
@@ -63,17 +63,13 @@ public class Behaviour {
     // MARK: Automated Tests
     
     private func readEvents() {
-        if storedEvents.count > 0 {
+        if storedEvents.count < 1 {
             return
         }
         if let tests = BehaveRecord.shared.read(){
             for test in tests {
                 if let parsedTest = test as? NSDictionary {
-                    if let parsedEvents = parsedTest["events"] as? [Array<NSDictionary>] {
-                        for event in parsedEvents {
-                            storedEvents.append(event)
-                        }
-                    }
+                    storedEvents.append(parsedTest)
                 }
             }
         }
@@ -81,7 +77,7 @@ public class Behaviour {
     
     private func addEvents() {
         if let testEvents = storedEvents.first  {
-            for testEvent in testEvents {
+            for testEvent in testEvents["events"] as! Array<NSDictionary> {
                 var eventIdentifier = ""
                 if let event = testEvent["identifier"] as? String {
                     eventIdentifier = event
@@ -95,7 +91,6 @@ public class Behaviour {
                 }
             }
         }
-        
     }
     
     private func addEvent(for identifier: String, action: String? = nil, customData: NSDictionary? = nil ,completion: @escaping () -> Void) {
@@ -117,8 +112,9 @@ public class Behaviour {
     }
     
     private func playAutomatedTests(complete: (([String]) -> Void)? = nil) {
-        
+        //print(events)
         guard let event = events.first else {
+            resetUI()
             complete?(eventFailures)
             return
         }
