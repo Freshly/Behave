@@ -1,5 +1,6 @@
-[
-    [{
+[{
+    "name": "Login Test",
+    "events": [{
             "identifier": "list-view",
             "action": "select-table-row",
             "customData": {
@@ -48,4 +49,4 @@
             "identifier": "home-view"
         }
     ]
-]
+}]

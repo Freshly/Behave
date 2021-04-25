@@ -66,8 +66,16 @@ public class Behaviour {
         if storedEvents.count > 0 {
             return
         }
-        if let testEvents = BehaveRecord.shared.read(){
-            storedEvents = testEvents as! [Array<NSDictionary>]
+        if let tests = BehaveRecord.shared.read(){
+            for test in tests {
+                if let parsedTest = test as? NSDictionary {
+                    if let parsedEvents = parsedTest["events"] as? [Array<NSDictionary>] {
+                        for event in parsedEvents {
+                            storedEvents.append(event)
+                        }
+                    }
+                }
+            }
         }
     }
     
