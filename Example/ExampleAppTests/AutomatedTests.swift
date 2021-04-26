@@ -27,8 +27,8 @@ class AutomatedTests: XCTestCase {
             if !errors.isEmpty {
                 XCTFail("\(errors)")
             }
-            expectations.fulfill()
+            //expectations.fulfill()
         })
-        waitForExpectations(timeout: 5.0)
+        waitForExpectations(timeout: 15.0)
     }
 }

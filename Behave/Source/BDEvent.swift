@@ -13,4 +13,5 @@ public struct BDEvent    {
     public let complete: () -> Void
     public var action: String?
     public var customData: NSDictionary?
+    public var finish: Bool?
 }

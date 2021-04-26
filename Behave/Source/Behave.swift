@@ -63,7 +63,7 @@ public class Behaviour {
     // MARK: Automated Tests
     
     private func readEvents() {
-        if storedEvents.count < 1 {
+        if storedEvents.count > 0 {
             return
         }
         if let tests = BehaveRecord.shared.read(){
@@ -76,25 +76,32 @@ public class Behaviour {
     }
     
     private func addEvents() {
-        if let testEvents = storedEvents.first  {
-            for testEvent in testEvents["events"] as! Array<NSDictionary> {
+        for event in storedEvents {
+            guard let testEvents = event["events"] as? Array<NSDictionary> else { return }
+            var count = 1
+            for action in testEvents  {
                 var eventIdentifier = ""
-                if let event = testEvent["identifier"] as? String {
-                    eventIdentifier = event
+                if let eventId = action["identifier"] as? String {
+                    eventIdentifier = eventId
                 }
-                if let actions = testEvent["action"] as? String {
-                    if let customData = testEvent["customData"] as? NSDictionary {
-                    addEvent(for: eventIdentifier, action: actions,customData: customData,completion: {})
+                var isLast = false
+                if count == testEvents.count {
+                    isLast = true
+                }
+                if let actions = action["action"] as? String {
+                    if let customData = action["customData"] as? NSDictionary {
+                    addEvent(for: eventIdentifier, action: actions,customData: customData, isLast: isLast,completion: {})
                     }
                 } else {
-                    addEvent(for: eventIdentifier,completion: {})
+                    addEvent(for: eventIdentifier, isLast: isLast, completion: {})
                 }
+                count = count + 1
             }
         }
     }
     
-    private func addEvent(for identifier: String, action: String? = nil, customData: NSDictionary? = nil ,completion: @escaping () -> Void) {
-        let event = BDEvent(identifier: identifier, complete: completion, action: action, customData: customData)
+    private func addEvent(for identifier: String, action: String? = nil, customData: NSDictionary? = nil, isLast: Bool = false,completion: @escaping () -> Void) {
+        let event = BDEvent(identifier: identifier, complete: completion, action: action, customData: customData, finish: isLast)
         events.append(event)
     }
     
@@ -112,11 +119,14 @@ public class Behaviour {
     }
     
     private func playAutomatedTests(complete: (([String]) -> Void)? = nil) {
-        //print(events)
         guard let event = events.first else {
-            resetUI()
             complete?(eventFailures)
             return
+        }
+        if event.finish ?? false {
+            resetUI()
+            self.events.removeFirst()
+            playAutomatedTests(complete: complete)
         }
         
         if event.action == "stub-network-request" {
@@ -175,8 +185,8 @@ public class Behaviour {
                 stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
             break
             case "wait-for-alert":
-                waitForAlert {
-                    
+                waitForAlert { [weak self] in
+                    //self?.events.removeFirst()
                 }
             break
             default:
