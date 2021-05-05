@@ -22,13 +22,13 @@ class Behave_PerformanceTests: XCTestCase {
         
         // SET SOME BASE VALUES
         sut.frameStart = 1.0
-        sut.frameStart = 1.0
+        sut.frameEnd = 1.0
         sut.passesPerformanceTest = false
         
         // TEST
         sut.measurePerformance()
         XCTAssert(sut.frameStart == 0.0)
-        XCTAssert(sut.frameStart == 0.0)
+        XCTAssert(sut.frameEnd == 0.0)
         XCTAssert(sut.passesPerformanceTest)
     }
     
@@ -37,7 +37,7 @@ class Behave_PerformanceTests: XCTestCase {
         
         // SET SOME BASE VALUES
         sut.frameStart = 0.0167
-        sut.frameStart = 0.0334
+        sut.frameEnd = 0.0334
         sut.passesPerformanceTest = true
         
         sut.calculatePerformance()
@@ -49,7 +49,7 @@ class Behave_PerformanceTests: XCTestCase {
         
         // SET SOME BASE VALUES
         sut.frameStart = 0.0167
-        sut.frameStart = 0.0444
+        sut.frameEnd = 0.0444
         sut.passesPerformanceTest = true
         
         sut.calculatePerformance()
