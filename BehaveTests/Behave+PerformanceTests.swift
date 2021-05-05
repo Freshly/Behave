@@ -9,8 +9,8 @@ import XCTest
 @testable import Behave
 
 
-class Behave_PerformanceTests: XCTestCase {
-
+class Behave_PerformanceTests: XCTestCase {    
+    
     override func setUpWithError() throws {
     }
 
@@ -21,14 +21,14 @@ class Behave_PerformanceTests: XCTestCase {
         let sut = Behaviour()
         
         // SET SOME BASE VALUES
-        sut.start = 1.0
-        sut.end = 1.0
+        sut.frameStart = 1.0
+        sut.frameStart = 1.0
         sut.passesPerformanceTest = false
         
         // TEST
         sut.measurePerformance()
-        XCTAssert(sut.start == 0.0)
-        XCTAssert(sut.end == 0.0)
+        XCTAssert(sut.frameStart == 0.0)
+        XCTAssert(sut.frameStart == 0.0)
         XCTAssert(sut.passesPerformanceTest)
     }
     
@@ -36,8 +36,8 @@ class Behave_PerformanceTests: XCTestCase {
         let sut = Behaviour()
         
         // SET SOME BASE VALUES
-        sut.start = 0.0167
-        sut.end = 0.0334
+        sut.frameStart = 0.0167
+        sut.frameStart = 0.0334
         sut.passesPerformanceTest = true
         
         sut.calculatePerformance()
@@ -48,8 +48,8 @@ class Behave_PerformanceTests: XCTestCase {
         let sut = Behaviour()
         
         // SET SOME BASE VALUES
-        sut.start = 0.0167
-        sut.end = 0.0444
+        sut.frameStart = 0.0167
+        sut.frameStart = 0.0444
         sut.passesPerformanceTest = true
         
         sut.calculatePerformance()
