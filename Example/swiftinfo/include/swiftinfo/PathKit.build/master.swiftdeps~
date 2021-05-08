@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)"
+options: "4c543963ff89798e82fefd82ef494edd"
+build_time: [1612343193, 48226000]
+inputs:
+  "/Users/rochab/Desktop/Other/SwiftInfo/.build/checkouts/PathKit/Sources/PathKit.swift": [9223372036, 854775807]

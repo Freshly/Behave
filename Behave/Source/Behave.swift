@@ -89,6 +89,7 @@ public class Behaviour {
                     print(error.localizedDescription)
             }
         }
+        NSTemporaryDirectory()
     }
 
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil, warn: ((_ error: String) -> Void)? = nil) {

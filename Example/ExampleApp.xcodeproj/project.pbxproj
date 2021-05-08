@@ -712,6 +712,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExampleApp/swiftinfo/include/swiftinfo",
+					"$(PROJECT_DIR)/swiftinfo/include/swiftinfo",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -737,6 +738,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ExampleApp/swiftinfo/include/swiftinfo",
+					"$(PROJECT_DIR)/swiftinfo/include/swiftinfo",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.freshly.behave.ios.ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
