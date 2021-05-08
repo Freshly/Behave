@@ -30,9 +30,12 @@ public extension Behaviour {
     }
     
     internal func calculatePerformance(){
-        performanceMetrics.append(frameEnd - frameStart)
         if (frameEnd - frameStart) > 0.0167 {
             passesPerformanceTest = false
+            if let identifier = events.first?.identifier {
+                let metricAndEvent = [identifier:(frameEnd - frameStart)]
+                performanceMetrics.append(metricAndEvent)
+            }
         }
     }
     

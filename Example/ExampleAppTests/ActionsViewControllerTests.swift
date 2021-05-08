@@ -192,6 +192,8 @@ class ActionsViewControllerTests: XCTestCase {
         }
         api.run(fail: { error in
             XCTFail(error)
+        }, warn: { warning in
+            print(warning)
         })
         waitForExpectations(timeout: api.testTimeInterval)
    }

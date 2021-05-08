@@ -7,6 +7,8 @@ target 'ExampleApp' do
   pod 'Alamofire'
   pod 'SwiftKeychainWrapper'
   pod 'OHHTTPStubs/Swift', '~> 9.1.0'
+  pod 'SwiftInfo'
+  
 
   target 'ExampleAppTests' do
     pod 'Behave', :path => '..'
