@@ -1,0 +1,4 @@
+module Spectre {
+    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/Spectre.build/Spectre-Swift.h"
+    requires objc
+}

@@ -18,6 +18,7 @@ PODS:
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
+  - SwiftInfo (2.5.1)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (~> 9.1.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
+  - SwiftInfo
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -34,6 +36,7 @@ SPEC REPOS:
     - OHHTTPStubs
     - RxCocoa
     - RxSwift
+    - SwiftInfo
     - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
@@ -46,8 +49,9 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SwiftInfo: 1b627c06b160c1acee851c0f6e90a797127c4b1d
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 2e122a721b50b0c0f4d38b9d53529bee96960485
+PODFILE CHECKSUM: 81d8945e9ce1748d55f022b47024b3498b6d038d
 
 COCOAPODS: 1.10.1
