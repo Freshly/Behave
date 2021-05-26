@@ -15,6 +15,9 @@ class LoginTests: XCTestCase {
     func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayHome() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        api.listen(for: "list-view") {
+            api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 3, section: 0))
+        }
         api.listen(for: "login-view") {
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
@@ -34,6 +37,9 @@ class LoginTests: XCTestCase {
     func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestFailureThenDisplayAlert() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        api.listen(for: "list-view") {
+            api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 3, section: 0))
+        }
         api.listen(for: "login-view") {
             api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
             api.stubNetworkRequest(stub: Stub(httpResponse: 400, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.data.rawValue))
@@ -49,5 +55,4 @@ class LoginTests: XCTestCase {
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
-    
 }

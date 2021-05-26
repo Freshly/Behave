@@ -9,8 +9,8 @@ import UIKit
 
 public class Behaviour {
     /// Waiting time for each event
-    public var testTimeInterval: TimeInterval = 20.0
-    
+    public var testTimeInterval: TimeInterval = 10.0
+    public var swiftui = false
     private var events: [BDEvent]
     var requests: [Stub]
 
@@ -18,6 +18,10 @@ public class Behaviour {
         events = []
         requests = []
     }
+    // FOR PERFORMANCE
+    var frameStart = 0.0
+    var frameEnd = 0.0
+    public var passesPerformanceTest = false
 
     // MARK: - Methods
     
@@ -38,10 +42,18 @@ public class Behaviour {
     ///   - fail: A completion block to execute after an element is not detected for expected time
     public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
         resetUI()
-        runTests(success: success, fail: fail)
+        if !swiftui {
+            runTests(success: success, fail: fail)
+        } else {
+            runSwiftUITests(success: success, fail: fail)
+        }
     }
 
     // MARK: - Private methods
+    
+    private func runSwiftUITests(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+        
+    }
 
     private func runTests(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
         if let event = events.first {
@@ -62,10 +74,25 @@ public class Behaviour {
     }
 
     private func resetUI() {
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: {
+            if let rootViewController = UIApplication.shared.delegate?.window??.rootViewController {
+                if let nav = rootViewController as? UINavigationController {
+                    nav.popToRootViewController(animated: false)
+                }
+            }
+        })
         if let rootViewController = UIApplication.shared.delegate?.window??.rootViewController {
             if let nav = rootViewController as? UINavigationController {
                 nav.popToRootViewController(animated: false)
+            }
+            if let tab = rootViewController as? UITabBarController {
+                tab.selectedIndex = 0
+                if let nav = tab.selectedViewController as? UINavigationController {
+                    nav.viewControllers.first?.dismiss(animated: false, completion: {
+                        nav.popToRootViewController(animated: false)
+                    })
+                    nav.popToRootViewController(animated: false)
+                }
             }
         }
     }

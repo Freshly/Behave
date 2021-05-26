@@ -10,7 +10,7 @@
 ### CocoaPods
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Behave into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
-pod 'Behave', '~> 1.0'
+pod 'Behave'
 ```
 **The anatomy of a behave test**
 **Declare** an instance of **Behaviour** in your **XCTestCase** file
@@ -30,8 +30,14 @@ func testMyBehavior() {
 **listen:**
 The listen method adds an event to your test queue and then listens for it to be triggered.
 ``` swift
+override func viewDidLoad() {
+        super.viewDidLoad()
+        view.accessibilityIdentifier = "my-view"
+    }
+```
+``` swift
 api.listen(for: "my-view") {
-    // This completion handler gets called once the object has been detected
+    // In this example the completion handler will be called when the view controller above is loaded
 }
 ```
 1. Behave, like XCUITest, relies on **accessibility identifiers**. You will need to add them in order to access elements in your code. They can be added in code directly or via Interface Builder.
@@ -46,6 +52,17 @@ To make your test run use the run method. Behave tests will not run without expl
     expectations.fullfill()
   })
 ```
+***Note:***
+Behave attempts to reset the UI between tests in order to ensure smooth testing. There are probably cases where this might not work. So you may need to do this manually in the completion handler of the run() method.
+``` swift
+  api.run(success: {
+    // RESET CUSTOM UI?
+  }, fail: {error in
+    XCTFail(error)
+    expectations.fullfill()
+  })
+```
+
 **Sample Test**
 The test below is included in our sample app. It tests a simple login flow:
 ``` swift
@@ -53,7 +70,7 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.listen(for: "login-view") {
-            api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: URLS.login.rawValue))
+            api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: "https://somedomain.io"))
             api.typeIntoTextField(identifier: "email", text: "email")
             api.typeIntoTextField(identifier: "password", text: "password")
             api.tapButton(identifier: "submit")
@@ -70,11 +87,14 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
 ```
 # API:
 ``` swift
-query(identifier: String) -> UIView?
+listen(for identifier: String, completion: @escaping () -> Void)
 ```
+
 ``` swift
-stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
+run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil)
 ```
+
+### Actions
 ``` swift
 typeIntoTextField(identifier: String, text: String)
 ```
@@ -102,13 +122,40 @@ scrollTableTo(indexPath: IndexPath, identfier: String)
 ``` swift
 selectCollectionItem(identfier: String, indexPath: IndexPath)
 ```
+### Network
 ``` swift
-selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath:IndexPath)
+stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
+
+### Performance (beta)
+``` swift
+measurePerformance()
+```
+### Views
+``` swift
+query(identifier: String) -> UIView?
+```
+``` swift
+findTable() -> UITableView?
+```
+
+``` swift
+findButton(identifier: String) -> UIButton?
+```
+``` swift
+wait(for identifier: String, parent: UIView, complete: @escaping () -> Void)
+```
+``` swift
+wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void)
+```
+
+``` swift
+wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void)
+```
+
 ``` swift
 waitForAlert(complete: @escaping () -> Void)
 ```
-
  ###### Behave was developed at [Freshly](https://tech.freshly.com/) and is maintained by [Derek Bronston](https://github.com/bytedissident), [Denis  Efimov](https://github.com/denpef) and the Freshly iOS team.
 
 

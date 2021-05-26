@@ -186,4 +186,14 @@ public extension Behaviour {
             }
         }
     }
+    
+    func wait(for cell: IndexPath, parent: UITableView, complete: @escaping (UITableViewCell?) -> Void) {
+        var runCount: Int = 0
+        while runCount < self.attemptsMaximumNumber {
+            if let tableCell = parent.cellForRow(at: cell) {
+                runCount = self.attemptsMaximumNumber
+                complete(tableCell)
+            }
+        }
+    }
 }

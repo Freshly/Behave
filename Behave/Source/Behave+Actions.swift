@@ -56,6 +56,11 @@ public extension Behaviour {
         table.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         table.delegate?.tableView?(table, didSelectRowAt: indexPath)
     }
+    
+    func returnTableCell(identfier: String, indexPath: IndexPath) -> UITableViewCell? {
+        guard let table = query(identifier: identfier) as? UITableView else { return nil }
+        return table.cellForRow(at: indexPath)
+    }
 
     func scrollTableTo(indexPath: IndexPath, identfier: String) {
         guard let table = query(identifier: identfier) as? UITableView else { return }
@@ -65,7 +70,7 @@ public extension Behaviour {
     func selectCollectionItem(identfier: String, indexPath: IndexPath) {
         guard let collection = query(identifier: identfier) as? UICollectionView else { return }
         collection.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        collection.delegate?.collectionView?(collection, didDeselectItemAt: indexPath)
+        collection.delegate?.collectionView?(collection, didSelectItemAt: indexPath)
     }
 
     func selectEmebeddedCollectionItem(parentView: UIView, identfier: String, indexPath: IndexPath) {

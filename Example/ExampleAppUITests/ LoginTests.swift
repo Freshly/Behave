@@ -20,6 +20,7 @@ class LoginTests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["ui-tests", "login-success", "{\"success\":true}"]
         app.launch()
+        app.tables.firstMatch.cells.element(boundBy: 3).tap()
         app.textFields["email"].tap()
         app.textFields["email"].typeText("email@test.com")
         app.textFields["password-field"].tap()
