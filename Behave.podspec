@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'Behave'
-  s.version      = '1.0.20'
+  s.version      = '1.0.21'
   s.platform     = :ios
   s.ios.deployment_target = '12.0'
   s.swift_version = '5.0'
