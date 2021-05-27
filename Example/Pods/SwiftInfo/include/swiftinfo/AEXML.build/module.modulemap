@@ -1,4 +1,0 @@
-module AEXML {
-    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/AEXML.build/AEXML-Swift.h"
-    requires objc
-}

@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-options: "7b5d31f42abe03a764c5061d71fe4a3c"
-build_time: [1612608632, 143186000]
-inputs:
-  "/Users/rochab/Desktop/Other/SwiftInfo/Sources/SwiftInfo/main.swift": [9223372036, 854775807]

@@ -1,4 +1,0 @@
-module SwiftInfoCore {
-    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/SwiftInfoCore.build/SwiftInfoCore-Swift.h"
-    requires objc
-}

@@ -1,4 +1,0 @@
-module ArgumentParser {
-    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/ArgumentParser.build/ArgumentParser-Swift.h"
-    requires objc
-}

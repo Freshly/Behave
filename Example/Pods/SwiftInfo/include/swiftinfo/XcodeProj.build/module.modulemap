@@ -1,4 +1,0 @@
-module XcodeProj {
-    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/XcodeProj.build/XcodeProj-Swift.h"
-    requires objc
-}
