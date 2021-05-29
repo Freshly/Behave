@@ -1,4 +1,4 @@
-# BEHAVE ![Build Status](https://travis-ci.com/Freshly/Behave.svg?branch=master)
+# BEHAVE [![Build Status](https://travis-ci.org/Vadimkomis/Behave.svg?branch=master)](https://travis-ci.org/Vadimkomis/Behave)
 
 ![N|Solid](http://bytedissident.com/behave.png)
 
