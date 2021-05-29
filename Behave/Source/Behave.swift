@@ -23,7 +23,7 @@ public class Behaviour {
     var frameStart = 0.0
     var frameEnd = 0.0
     public var passesPerformanceTest = false
-    public var testPerformance = false
+    public var testPerformance = true
     internal var performanceMetrics = [[String: Double]]()
 
     // MARK: - Methods

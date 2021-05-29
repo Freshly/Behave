@@ -18,7 +18,6 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        api.testPerformance = true
         navgateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             let indexPath = IndexPath(row: 5, section: 0)
@@ -37,7 +36,6 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isInEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        api.testPerformance = true
         navgateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
@@ -64,6 +62,7 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isInEfficientWithPropertyOff() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
+        api.testPerformance = false
         navgateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {

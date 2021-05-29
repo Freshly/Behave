@@ -102,13 +102,45 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
     }
 ```
 
-***Performance (Beta):***
-This is an experimental feature. The intention is to warn the developer about possible screen rendering issues. In order to user this feature set the **testPerformance** property to true. **Behave** will emit warnings when it detects frames being rendered under the 60fps threshold.
+***Stubbing Network Calls:***
+Behave is setup to do **Integration Tests**. There will most likely be cases where you will want to stub(fake) network requests. This can be done by passing a **Stub** into the **stubNetworkRequest** method in your test.
+
+***Stub Type:***
+
+``` swift
+public struct Stub {
+    public let httpResponse: Int32
+    public let jsonReturn: String
+    public let urlString: String
+
+    public init(httpResponse: Int32, jsonReturn: String, urlString:String) {
+        self.httpResponse = httpResponse
+        self.jsonReturn = jsonReturn
+        self.urlString = urlString
+    }
+}
+
+```
+
+***Example Network Stub:***
 
 ``` swift
   
   let api = Behaviour()
-  api.testPerformance = true
+
+  api.listen(for: "login-view") {
+    api.stubNetworkRequest(stub: Stub(httpResponse: 200, jsonReturn: "{\"success\":\"true\"}", urlString: "https://somedomain.io"))
+    api.tapButton(identifier: "CTA")
+  }
+
+```
+
+***Performance (Beta):***
+This is an experimental feature. The intention is to warn the developer about possible screen rendering issues. This feature is set by the **testPerformance** property. By default it is set to **true**. **Behave** will emit warnings when it detects frames being rendered under the 60fps threshold.
+
+``` swift
+  
+  let api = Behaviour()
 
   api.run( warn: { warnings in 
     // A list of events tied to slow frame renders.
@@ -120,6 +152,8 @@ This is an experimental feature. The intention is to warn the developer about po
   })
 
 ```
+
+If you wish to turn off performance testiung simply set the ***testPerformance*** property to false.
 
 
 # API:
