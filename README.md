@@ -7,10 +7,10 @@
 *Note: Included in the ExampleApp is a side by side comparison of a test written in XCTestUI vs. Behave*
 
 **Behave Test:**
-![N|Solid](https://user-images.githubusercontent.com/3665250/120072525-575d6a80-c062-11eb-8ad4-5c5c1e437de5.png)
+![N|Solid](https://user-images.githubusercontent.com/3665250/120073024-97255180-c064-11eb-89e3-549b1da53b96.png)
 
 **XCUI Test:**
-![N|Solid](https://user-images.githubusercontent.com/3665250/120072547-72c87580-c062-11eb-8daf-e7531cab5384.png)
+![N|Solid](https://user-images.githubusercontent.com/3665250/120073050-c340d280-c064-11eb-9e66-6a6dc28823ba.png)
 
 # Installation:
 ### CocoaPods
