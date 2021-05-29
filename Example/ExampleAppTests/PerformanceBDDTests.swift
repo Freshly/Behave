@@ -15,7 +15,7 @@ class PerformanceBDDTests: XCTestCase {
     private let efficiencyButton = "efficiency-button"
     
     // THIS TESTS AN EFFICIENT TABLE SO IT SHOULD PASS
-    func testPerformance_isEfficient() {
+    func testPerformance_isEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.testPerformance = true
@@ -34,7 +34,7 @@ class PerformanceBDDTests: XCTestCase {
     }
     
     // THIS TESTS AN INEFFICIENT TABLE SO IT SHOULD FAIL, IN THIS CASE TO SATISFY TEST IT RETURNS FALSE
-    func testPerformance_isInEfficientWithProperty() {
+    func testPerformance_isInEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.testPerformance = true
@@ -56,6 +56,32 @@ class PerformanceBDDTests: XCTestCase {
             XCTFail(error)
         },warn: { warnings in
             print(warnings)
+        })
+        waitForExpectations(timeout: api.testTimeInterval)
+    }
+    
+    // THIS TESTS AN INEFFICIENT TABLE SO IT SHOULD FAIL, IN THIS CASE TO SATISFY TEST IT RETURNS FALSE
+    func testPerformance_isInEfficientWithPropertyOff() {
+        let expectations = expectation(description: "\(#function)")
+        let api = Behaviour()
+        navgateToThePerformanceScreen(api)
+        api.listen(for: performanceView) {
+            guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
+                XCTFail("Can't find item")
+                expectations.fulfill()
+                return
+            }
+            api.tapRightNavigationItem(with: efficiencyButton)
+            let indexPath = IndexPath(row: 15, section: 0)
+            api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
+        }
+        api.listen(for: "row-15", completion: {
+            expectations.fulfill()
+        })
+        api.run(fail: { error in
+            XCTFail(error)
+        },warn: { warnings in
+            XCTFail()
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
