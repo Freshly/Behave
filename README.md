@@ -10,7 +10,7 @@
 ![N|Solid](https://user-images.githubusercontent.com/3665250/120072525-575d6a80-c062-11eb-8ad4-5c5c1e437de5.png)
 
 **XCUI Test:**
-![N|Solid](https://user-images.githubusercontent.com/3665250/120072509-44e33100-c062-11eb-9f6f-4538332141f3.png)
+![N|Solid](https://user-images.githubusercontent.com/3665250/120072547-72c87580-c062-11eb-8daf-e7531cab5384.png)
 
 # Installation:
 ### CocoaPods
