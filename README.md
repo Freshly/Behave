@@ -1,4 +1,5 @@
-# BEHAVE
+# BEHAVE [![Build Status](https://travis-ci.com/Freshly/Behave.svg?branch=master)]
+
 ![N|Solid](http://bytedissident.com/behave.png)
 
 ### What is Behave
