@@ -1,4 +1,0 @@
-module PathKit {
-    header "/Users/rochab/Desktop/Other/SwiftInfo/.build/x86_64-apple-macosx/release/PathKit.build/PathKit-Swift.h"
-    requires objc
-}
