@@ -29,8 +29,8 @@ Wrap your test in an Expectation. *Use the **testTimeInterval** value for your t
 ``` swift
 func testMyBehavior() {
   let expectations = expectation(description: "Fulfill")
-  // TEST CODE WILL LIVE HERE
   let api = Behaviour()
+  // TEST CODE WILL LIVE HERE
   waitForExpectations(timeout: api.testTimeInterval){ error in }
 }
 ```
