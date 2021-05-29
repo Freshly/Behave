@@ -23,7 +23,8 @@ pod 'Behave'
 ``` swift
 let api = Behaviour()
 ```
-**Expectations**
+**Expectations:**
+
 Wrap your test in an Expectation. *Use the **testTimeInterval** value for your timeout value*
 ``` swift
 func testMyBehavior() {
@@ -79,7 +80,7 @@ Behave attempts to reset the UI between tests in order to ensure smooth testing.
 ```
 
 
-**Sample Test**
+**Sample Test:**
 The test below is included in our sample app. It tests a simple login flow:
 ``` swift
 func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayTheHomeScreen() {
