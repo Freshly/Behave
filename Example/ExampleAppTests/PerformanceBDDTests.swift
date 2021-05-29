@@ -29,8 +29,6 @@ class PerformanceBDDTests: XCTestCase {
         })
         api.run(fail: { error in
             XCTFail(error)
-        }, warn: { msg in
-           print(msg)
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }
@@ -56,8 +54,6 @@ class PerformanceBDDTests: XCTestCase {
         })
         api.run(fail: { error in
             XCTFail(error)
-        }, warn: { msg in
-            print(msg)
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }

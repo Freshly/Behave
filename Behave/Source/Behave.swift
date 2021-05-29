@@ -69,6 +69,7 @@ public class Behaviour {
             if testPerformance {
                 if !passesPerformanceTest {
                     warn?("Performing under 60fps: \n\n \(performanceMetrics)")
+                    danger()
                 } else {
                     success?()
                 }
@@ -76,6 +77,19 @@ public class Behaviour {
                 success?()
             }
         }
+    }
+    
+    private func danger() {
+        if let file = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            do {
+                
+                try "\(performanceMetrics)".write(to: file.appendingPathComponent("performance.json"), atomically: true, encoding: .utf8)
+                print(file)
+            } catch {
+                    print(error.localizedDescription)
+            }
+        }
+        NSTemporaryDirectory()
     }
 
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil, warn: ((_ error: String) -> Void)? = nil) {
