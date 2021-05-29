@@ -34,7 +34,7 @@ class PerformanceBDDTests: XCTestCase {
     }
     
     // THIS TESTS AN INEFFICIENT TABLE SO IT SHOULD FAIL, IN THIS CASE TO SATISFY TEST IT RETURNS FALSE
-    func testPerformance_isInEfficient() {
+    func testPerformance_isInEfficientWithProperty() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.testPerformance = true
@@ -54,6 +54,8 @@ class PerformanceBDDTests: XCTestCase {
         })
         api.run(fail: { error in
             XCTFail(error)
+        },warn: { warnings in
+            print(warnings)
         })
         waitForExpectations(timeout: api.testTimeInterval)
     }

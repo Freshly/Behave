@@ -45,11 +45,18 @@ api.listen(for: "my-view") {
 3. When the event is triggered the completion handler will be called. Each event added to the test gets tested in the order it was added, **FIFO**. The events are triggered synchronously.
 
 **Run:**
-To make your test run use the run method. Behave tests will not run without explicitly calling run. Run has a *fail* completion handler, this will get triggered if any of your events are not triggered. Behave will pass back the identifier in question so you can identify the issue.
+To make your test run use the run method. Behave tests will not run without explicitly calling run. Run has: **success**, **fail** and **warn** completion handlers. 
+- **success** This will get triggered upon completion of a successful run.
+- **fail** This will get triggered if any of your events are not triggered. Behave will pass back the identifier in question so you can identify the issue.
+- **warn** If you are running performance tests ( *testPerformance* property set to *true* ) and any frames get rendered at less than 60fps **Behave** will return a list of events tied to the slow frame rendering to make it easier for a developer to investigate UI issues.
 ``` swift
-  api.run(fail: { error in
+  api.run(success: {
+    // RESET CUSTOM UI?
+  }, fail: {error in
     XCTFail(error)
     expectations.fullfill()
+  }, warn: { warnings in 
+    print(warnings)
   })
 ```
 ***Note:***
@@ -60,8 +67,11 @@ Behave attempts to reset the UI between tests in order to ensure smooth testing.
   }, fail: {error in
     XCTFail(error)
     expectations.fullfill()
+  }, warn: { warnings in 
+    print(warnings)
   })
 ```
+
 
 **Sample Test**
 The test below is included in our sample app. It tests a simple login flow:
@@ -85,6 +95,27 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
         waitForExpectations(timeout: api.testTimeInterval)
     }
 ```
+
+***Performance (Beta):***
+This is an experimental feature. The intention is to warn the developer about possible screen rendering issues. In order to user this feature set the **testPerformance** property to true. **Behave** will emit warnings when it detects frames being rendered under the 60fps threshold.
+
+``` swift
+  
+  let api = Behaviour()
+  api.testPerformance = true
+
+  api.run( warn: { warnings in 
+    // A list of events tied to slow frame renders.
+    /* 
+      Example output: 
+      Performing under 60fps: 
+      [["performance-view": 0.04127258330117911], ["row-15": 0.07719787495443597]]
+    */
+  })
+
+```
+
+
 # API:
 ``` swift
 listen(for identifier: String, completion: @escaping () -> Void)
@@ -127,10 +158,6 @@ selectCollectionItem(identfier: String, indexPath: IndexPath)
 stubNetworkRequest(stub: Stub, httpResponse: Int32, jsonReturn: String, urlString: String)
 ```
 
-### Performance (beta)
-``` swift
-measurePerformance()
-```
 ### Views
 ``` swift
 query(identifier: String) -> UIView?
