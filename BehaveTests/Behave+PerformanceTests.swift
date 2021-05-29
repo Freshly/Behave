@@ -10,8 +10,8 @@ import UIKit
 @testable import Behave
 
 
-class Behave_PerformanceTests: XCTestCase {
-
+class Behave_PerformanceTests: XCTestCase {    
+    
     override func setUpWithError() throws {
     }
 
