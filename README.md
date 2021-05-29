@@ -6,6 +6,12 @@
 
 *Note: Included in the ExampleApp is a side by side comparison of a test written in XCTestUI vs. Behave*
 
+**Behave Test:**
+![N|Solid](https://user-images.githubusercontent.com/3665250/120072525-575d6a80-c062-11eb-8ad4-5c5c1e437de5.png)
+
+**XCUI Test:**
+![N|Solid](https://user-images.githubusercontent.com/3665250/120072509-44e33100-c062-11eb-9f6f-4538332141f3.png)
+
 # Installation:
 ### CocoaPods
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Behave into your Xcode project using CocoaPods, specify it in your Podfile:
