@@ -7,6 +7,9 @@
 
 [How to use Behave](#how-to-use-behave)
   - [Anatomy of a test](#the-anatomy-of-a-behave-test)
+  - [Sample test](#sample-test)
+  - [Stubbing network calls](#stubbing-network-calls)
+  - [Performance (Beta)](#performance-(beta)
 
 [API](#api)
 
@@ -92,7 +95,7 @@ Behave attempts to reset the UI between tests in order to ensure smooth testing.
 ```
 
 
-**Sample Test:**
+### Sample Test
 The test below is included in our sample app. It tests a simple login flow:
 ``` swift
 func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayTheHomeScreen() {
@@ -115,7 +118,7 @@ func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenD
     }
 ```
 
-***Stubbing Network Calls:***
+### Stubbing Network Calls
 Behave is setup to do **Integration Tests**. There will most likely be cases where you will want to stub(fake) network requests. This can be done by passing a **Stub** into the **stubNetworkRequest** method in your test.
 
 ***Stub Type:***
@@ -148,7 +151,7 @@ public struct Stub {
 
 ```
 
-***Performance (Beta):***
+### Performance (Beta)
 This is an experimental feature. The intention is to warn the developer about possible screen rendering issues. This feature is set by the **testPerformance** property. By default it is set to **true**. **Behave** will emit warnings when it detects frames being rendered under the 60fps threshold.
 
 ``` swift
