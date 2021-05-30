@@ -103,7 +103,7 @@ Behave attempts to reset the UI between tests in order to ensure smooth testing.
 ### Sample Test
 The test below is included in our sample app. It tests a simple login flow:
 ``` swift
-func testGivenTheUsersEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayTheHomeScreen() {
+func testGivenTheUserEntersCredsWhenTheUserTapsSubmitAndTheRequestSucceedsThenDisplayTheHomeScreen() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.listen(for: "login-view") {
