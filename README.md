@@ -9,7 +9,7 @@
   - [Anatomy of a test](#the-anatomy-of-a-behave-test)
   - [Sample test](#sample-test)
   - [Stubbing network calls](#stubbing-network-calls)
-  - [Performance (Beta)](#performance-(beta)
+  - [Performance (Beta)](#performance-(beta))
 
 [API](#api)
 
