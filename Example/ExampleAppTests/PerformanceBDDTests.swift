@@ -58,7 +58,7 @@ class PerformanceBDDTests: XCTestCase {
         waitForExpectations(timeout: api.testTimeInterval)
     }
     
-    // THIS TESTS AN INEFFICIENT TABLE BUT PERFORMANCE TESTING IS OFF SO IT SHOULD ONLY FAIL IF THE PROPERTY IS BROKEN
+    // THIS TESTS AN INEFFICIENT TABLE BUT PERFORMANCE TESTING IS OFF SO IT SHOULD NOT THROW A WARNING
     func testPerformance_isInEfficientWithPropertyOff() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
