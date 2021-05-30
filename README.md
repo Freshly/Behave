@@ -2,7 +2,9 @@
 ![N|Solid](http://bytedissident.com/behave.png)
 
 [What is Behave](#what-is-behave)
+
 [Installation](#installation)
+
 [How to use Behave](#how-to-use-behave)
 
 # What is Behave
