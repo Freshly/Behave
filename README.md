@@ -5,6 +5,7 @@
 ![Cocoapods](https://img.shields.io/cocoapods/v/Behave)
 ![GitHub](https://img.shields.io/github/license/freshly/behave)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/Behave)
+![GitHub issues](https://img.shields.io/github/issues/freshly/behave?color=green)
 
 [What is Behave](#what-is-behave)
 
