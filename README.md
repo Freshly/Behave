@@ -2,8 +2,9 @@
 ![N|Solid](http://bytedissident.com/behave.png)
 
 [![Build Status](https://www.travis-ci.com/Freshly/Behave.svg?branch=main)](https://www.travis-ci.com/Freshly/Behave)
-
 ![Cocoapods](https://img.shields.io/cocoapods/v/Behave)
+![GitHub](https://img.shields.io/github/license/freshly/behave)
+![Cocoapods platforms](https://img.shields.io/cocoapods/p/Behave)
 
 [What is Behave](#what-is-behave)
 
