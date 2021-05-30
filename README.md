@@ -64,7 +64,7 @@ func testMyBehavior() {
   waitForExpectations(timeout: api.testTimeInterval){ error in }
 }
 ```
-#### listen
+#### Listen
 The listen method adds an event to your test queue and then listens for it to be triggered.
 ``` swift
 api.listen(for: "my-view") {
