@@ -165,7 +165,7 @@ This is an experimental feature. The intention is to warn the developer about po
 
 ```
 
-If you wish to turn off performance testiung simply set the ***testPerformance*** property to false.
+If you wish to turn off performance testing simply set the ***testPerformance*** property to false.
 
 
 # API:
