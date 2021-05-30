@@ -3,6 +3,8 @@
 
 [![Build Status](https://www.travis-ci.com/Freshly/Behave.svg?branch=main)](https://www.travis-ci.com/Freshly/Behave)
 
+![Cocoapods](https://img.shields.io/cocoapods/v/Behave)
+
 [What is Behave](#what-is-behave)
 
 [Installation](#installation)
