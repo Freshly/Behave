@@ -12,6 +12,9 @@
   - [Performance Beta](#performance-beta)
 
 [API](#api)
+  - [Actions](#actions)
+  - [Network](#network)
+  - [Views](#views)
 
 # What is Behave
 **Behave** is a lightweight, flexible Swift library designed to help iOS developers write simple BDD (UI Tests) that execute quickly.
