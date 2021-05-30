@@ -6,6 +6,7 @@
 [Installation](#installation)
 
 [How to use Behave](#how-to-use-behave)
+  - [Anatomy of a test](###the-anatomy-of-a-behave-test)
 
 [API](#api)
 
@@ -29,7 +30,7 @@ pod 'Behave'
 
 # How to use Behave
 
-**The anatomy of a behave test**
+### The anatomy of a behave test
 **Declare** an instance of **Behaviour** in your **XCTestCase** file
 ``` swift
 let api = Behaviour()
