@@ -9,7 +9,7 @@
   - [Anatomy of a test](#the-anatomy-of-a-behave-test)
   - [Sample test](#sample-test)
   - [Stubbing network calls](#stubbing-network-calls)
-  - [Performance (Beta)](#performance-(beta))
+  - [Performance Beta](#performance-beta)
 
 [API](#api)
 
@@ -151,7 +151,7 @@ public struct Stub {
 
 ```
 
-### Performance (Beta)
+### Performance Beta
 This is an experimental feature. The intention is to warn the developer about possible screen rendering issues. This feature is set by the **testPerformance** property. By default it is set to **true**. **Behave** will emit warnings when it detects frames being rendered under the 60fps threshold.
 
 ``` swift
