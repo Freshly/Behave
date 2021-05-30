@@ -6,7 +6,7 @@
 [Installation](#installation)
 
 [How to use Behave](#how-to-use-behave)
-  - [Anatomy of a test](###the-anatomy-of-a-behave-test)
+  - [Anatomy of a test](#the-anatomy-of-a-behave-test)
 
 [API](#api)
 
