@@ -52,16 +52,18 @@ func testMyBehavior() {
 **listen:**
 The listen method adds an event to your test queue and then listens for it to be triggered.
 ``` swift
+api.listen(for: "my-view") {
+    // In this example the completion handler will be called when the view controller below is loaded
+}
+```
+
+``` swift
 override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "my-view"
     }
 ```
-``` swift
-api.listen(for: "my-view") {
-    // In this example the completion handler will be called when the view controller above is loaded
-}
-```
+
 1. Behave, like XCUITest, relies on **accessibility identifiers**. You will need to add them in order to access elements in your code. They can be added in code directly or via Interface Builder.
 2. Behave listens for events to complete. When an event completes you can either trigger an action or verify some state change.
 3. When the event is triggered the completion handler will be called. Each event added to the test gets tested in the order it was added, **FIFO**. The events are triggered synchronously.
