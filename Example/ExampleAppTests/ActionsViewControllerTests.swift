@@ -144,7 +144,7 @@ class ActionsViewControllerTests: XCTestCase {
         navgateToTheApiScreen(api)
         api.listen(for: "actions-view"){
             api.selectTableRow(identfier: "actions-view", indexPath: IndexPath(row: 3, section: 0))
-            api.scrollTableTo(indexPath: IndexPath(row: 10, section: 0), identfier: "actions-view")
+            api.scrollTableTo(indexPath: IndexPath(row: 10, section: 0), identifier: "actions-view")
             let cell = api.returnTableCell(identfier: "actions-view", indexPath: IndexPath(row: 10, section: 0))
             XCTAssertNotNil(cell)
             expectations.fulfill()

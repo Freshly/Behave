@@ -18,10 +18,10 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        navgateToThePerformanceScreen(api)
+        navigateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             let indexPath = IndexPath(row: 5, section: 0)
-            api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
+            api.scrollTableTo(indexPath: indexPath, identifier: self.performanceView)
         }
         api.listen(for: "row-4", completion: {
             expectations.fulfill()
@@ -36,7 +36,7 @@ class PerformanceBDDTests: XCTestCase {
     func testPerformance_isInEfficientWithPropertyOn() {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
-        navgateToThePerformanceScreen(api)
+        navigateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
                 XCTFail("Can't find item")
@@ -45,7 +45,7 @@ class PerformanceBDDTests: XCTestCase {
             }
             api.tapRightNavigationItem(with: efficiencyButton)
             let indexPath = IndexPath(row: 15, section: 0)
-            api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
+            api.scrollTableTo(indexPath: indexPath, identifier: self.performanceView)
         }
         api.listen(for: "row-15", completion: {
             expectations.fulfill()
@@ -63,7 +63,7 @@ class PerformanceBDDTests: XCTestCase {
         let expectations = expectation(description: "\(#function)")
         let api = Behaviour()
         api.testPerformance = false
-        navgateToThePerformanceScreen(api)
+        navigateToThePerformanceScreen(api)
         api.listen(for: performanceView) {
             guard let efficiencyButton = api.queryBarButtonItem(identifier: self.efficiencyButton) else {
                 XCTFail("Can't find item")
@@ -72,7 +72,7 @@ class PerformanceBDDTests: XCTestCase {
             }
             api.tapRightNavigationItem(with: efficiencyButton)
             let indexPath = IndexPath(row: 15, section: 0)
-            api.scrollTableTo(indexPath: indexPath, identfier: self.performanceView)
+            api.scrollTableTo(indexPath: indexPath, identifier: self.performanceView)
         }
         api.listen(for: "row-15", completion: {
             expectations.fulfill()
@@ -85,7 +85,7 @@ class PerformanceBDDTests: XCTestCase {
         waitForExpectations(timeout: api.testTimeInterval)
     }
     
-    private func navgateToThePerformanceScreen(_ api: Behaviour) {
+    private func navigateToThePerformanceScreen(_ api: Behaviour) {
         api.listen(for: "list-view") {
             api.selectTableRow(identfier: "list-view", indexPath: IndexPath(row: 1, section: 0))
         }

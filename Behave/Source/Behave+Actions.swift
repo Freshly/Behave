@@ -62,8 +62,8 @@ public extension Behaviour {
         return table.cellForRow(at: indexPath)
     }
 
-    func scrollTableTo(indexPath: IndexPath, identfier: String) {
-        guard let table = query(identifier: identfier) as? UITableView else { return }
+    func scrollTableTo(indexPath: IndexPath, identifier: String) {
+        guard let table = query(identifier: identifier) as? UITableView else { return }
         table.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 
