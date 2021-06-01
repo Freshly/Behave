@@ -11,7 +11,7 @@ public extension Behaviour {
     
     /// Measures performance based on time in relation for FPS. Given that one frame is displayed in 16.67ms at 60 fps. This inititates the test process. Resest start, end and passesPerformanceTest for tracking and enables the CADisplayLink API. 
     func measurePerformance(){
-        reset()
+        resetPerformance()
         let displaylink = CADisplayLink(target: self,
                                         selector: #selector(frameRendered))
         displaylink.add(to: .current,
@@ -32,12 +32,17 @@ public extension Behaviour {
     internal func calculatePerformance(){
         if (frameEnd - frameStart) > 0.0167 {
             passesPerformanceTest = false
+            if let identifier = events.first?.identifier {
+                let metricAndEvent = [identifier:(frameEnd - frameStart)]
+                performanceMetrics.append(metricAndEvent)
+            }
         }
     }
     
-    private func reset() {
+    internal func resetPerformance() {
         frameStart = 0.0
         frameEnd = 0.0
         passesPerformanceTest = true
+        performanceMetrics.removeAll()
     }
 }
