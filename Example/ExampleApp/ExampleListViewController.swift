@@ -59,6 +59,7 @@ class ExampleListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let object = list[indexPath.row]
         cell.textLabel?.text = object
+        cell.accessibilityIdentifier = "\(indexPath.row)|\(indexPath.section)"
         return cell
     }
 

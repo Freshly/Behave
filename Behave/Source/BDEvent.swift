@@ -8,7 +8,10 @@
 
 import Foundation
 
-public struct BDEvent {
+public struct BDEvent    {
     public let identifier: String
     public let complete: () -> Void
+    public var action: String?
+    public var customData: NSDictionary?
+    public var finish: Bool?
 }

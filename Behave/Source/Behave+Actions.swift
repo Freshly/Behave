@@ -57,6 +57,17 @@ public extension Behaviour {
         table.delegate?.tableView?(table, didSelectRowAt: indexPath)
     }
     
+    func selectTableRowWithId(identfier: String, indexPath: IndexPath) {
+        guard let table = query(identifier: identfier) as? UITableView else { return }
+        table.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        table.delegate?.tableView?(table, didSelectRowAt: indexPath)
+    }
+    
+    func returnTableCellForIdentifier(identfier: String) -> UITableViewCell? {
+        guard let tableCell = query(identifier: identfier) as? UITableViewCell else { return nil }
+        return tableCell
+    }
+    
     func returnTableCell(identfier: String, indexPath: IndexPath) -> UITableViewCell? {
         guard let table = query(identifier: identfier) as? UITableView else { return nil }
         return table.cellForRow(at: indexPath)

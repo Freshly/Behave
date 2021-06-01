@@ -12,16 +12,24 @@ public class Behaviour {
     public var testTimeInterval: TimeInterval = 10.0
     public var swiftui = false
     private var events: [BDEvent]
+    private var storedEvents: [NSDictionary]
+    private var eventFailures: [String]
     var requests: [Stub]
 
     public init() {
         events = []
         requests = []
+        storedEvents = []
+        eventFailures = []
     }
     // FOR PERFORMANCE
     var frameStart = 0.0
     var frameEnd = 0.0
     public var passesPerformanceTest = false
+    
+    // FOR AUTO PLAY
+    public var autoPlay = false
+    //public var testFile = ""
 
     // MARK: - Methods
     
@@ -36,6 +44,9 @@ public class Behaviour {
         return self
     }
     
+    
+    //private func createActions() -> [[String: String]]
+    
     /// Starting an event listen queue
     /// - Parameters:
     ///   - success: A completion block to execute after an element is detected
@@ -46,6 +57,141 @@ public class Behaviour {
             runTests(success: success, fail: fail)
         } else {
             runSwiftUITests(success: success, fail: fail)
+        }
+    }
+    
+    // MARK: Automated Tests
+    
+    private func readEvents() {
+        if storedEvents.count > 0 {
+            return
+        }
+        if let tests = BehaveRecord.shared.read(){
+            for test in tests {
+                if let parsedTest = test as? NSDictionary {
+                    storedEvents.append(parsedTest)
+                }
+            }
+        }
+    }
+    
+    private func addEvents() {
+        for event in storedEvents {
+            guard let testEvents = event["events"] as? Array<NSDictionary> else { return }
+            var count = 1
+            for action in testEvents  {
+                var eventIdentifier = ""
+                if let eventId = action["identifier"] as? String {
+                    eventIdentifier = eventId
+                }
+                var isLast = false
+                if count == testEvents.count {
+                    isLast = true
+                }
+                if let actions = action["action"] as? String {
+                    if let customData = action["customData"] as? NSDictionary {
+                    addEvent(for: eventIdentifier, action: actions,customData: customData, isLast: isLast,completion: {})
+                    }
+                } else {
+                    addEvent(for: eventIdentifier, isLast: isLast, completion: {})
+                }
+                count = count + 1
+            }
+        }
+    }
+    
+    private func addEvent(for identifier: String, action: String? = nil, customData: NSDictionary? = nil, isLast: Bool = false,completion: @escaping () -> Void) {
+        let event = BDEvent(identifier: identifier, complete: completion, action: action, customData: customData, finish: isLast)
+        events.append(event)
+    }
+    
+    private func completeStoredTest()  {
+        if storedEvents.count > 0 {
+            storedEvents.removeFirst()
+        }
+    }
+    
+    public func play(complete: (([String]) -> Void)? = nil) {
+        autoPlay = true
+        readEvents()
+        addEvents()
+        playAutomatedTests(complete: complete)
+    }
+    
+    private func playAutomatedTests(complete: (([String]) -> Void)? = nil) {
+        guard let event = events.first else {
+            complete?(eventFailures)
+            return
+        }
+        if event.finish ?? false {
+            resetUI()
+            self.events.removeFirst()
+            playAutomatedTests(complete: complete)
+        }
+        
+        if event.action == "stub-network-request" {
+            runActions(complete: {
+                self.events.removeFirst()
+                playAutomatedTests(complete: complete)
+            })
+        } else {
+            wait(for: event.identifier, complete: {[weak self] in
+                self?.runActions(complete: {
+                    self?.events.removeFirst()
+                    self?.playAutomatedTests(complete: complete)
+                })
+            }, fail: { [weak self] error in
+                self?.eventFailures.append(error)
+                self?.events.removeFirst()
+                self?.playAutomatedTests(complete: complete)
+            })
+        }
+    }
+    
+    private func runActions(complete: (() -> Void)) {
+        if let action = self.events.first {
+            runAction(for: action.identifier, action: action)
+            complete()
+        }
+    }
+    
+    private func runAction(for identifier: String, action: BDEvent ){
+        if let actionType = action.action {
+            switch actionType {
+            case "select-table-row":
+                guard let customData = action.customData else { return }
+                guard let row = customData["row"] as? Int else { return }
+                guard let section = customData["section"] as? Int else { return }
+                selectTableRow(identfier: identifier, indexPath: IndexPath(row: row as Int, section: section))
+            break
+            case "type-into-textfield":
+                guard let customData = action.customData else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoTextField(identifier: identifier, text: text)
+            break
+            case "type-into-secure-textfield":
+                guard let customData = action.customData  else { return }
+                guard let text = customData["text"] as? String else { return }
+                typeIntoSecureTextField(identifier: identifier, text: text)
+            break
+            case "tap-button":
+                tapButton(identifier: identifier)
+            break
+            case "stub-network-request":
+                guard let customData = action.customData  else { return }
+                guard let url = customData["url"] as? String else { return }
+                guard let json = customData["json"] as? String else { return }
+                guard let httpResponse = customData["response"] as? Int else { return }
+                stubNetworkRequest(stub: Stub(httpResponse: Int32(httpResponse), jsonReturn: json, urlString: url))
+            break
+            case "wait-for-alert":
+                waitForAlert { [weak self] in
+                    //self?.events.removeFirst()
+                }
+            break
+            default:
+                return
+            }
         }
     }
 
@@ -64,13 +210,40 @@ public class Behaviour {
     }
 
     private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
-        wait(for: event.identifier, complete: { [weak self] in
-            event.complete()
-            self?.events.removeFirst()
-            self?.runTests(success: success, fail: fail)
-        }, fail: { error in
-            fail?(error)
-        })
+        print(event)
+        if event.identifier == "alert" {
+            waitForAlert { [weak self] in
+                if !self!.autoPlay {
+                    self?.events.removeFirst()
+                    self?.runTests(success: success, fail: fail)
+                } else {
+//                    self?.runActions(complete: {
+//                        self?.events.removeFirst()
+//                        self?.runTests(success: success, fail: fail)
+//                    })
+                }
+            }
+        } else if event.identifier == "stub-network-request"{
+            runAction(for: event.identifier, action: event)
+            self.events.removeFirst()
+            self.runTests(success: success, fail: fail)
+        } else {
+            wait(for: event.identifier, complete: { [weak self] in
+                event.complete()
+                if !self!.autoPlay {
+                    self?.events.removeFirst()
+                    self?.runTests(success: success, fail: fail)
+                } else {
+                    self?.runActions(complete: {
+                        self?.events.removeFirst()
+                        self?.runTests(success: success, fail: fail)
+                    })
+                }
+            }, fail: { [weak self] error in
+                self?.eventFailures.append(error)
+                fail?(error)
+            })
+        }
     }
 
     private func resetUI() {

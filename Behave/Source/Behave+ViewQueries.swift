@@ -163,26 +163,32 @@ public extension Behaviour {
 
     func wait(for identifier: String, complete: @escaping () -> Void, fail: @escaping (_ errorString: String) -> Void) {
         var runCount = 0
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
+        if identifier == "alert" {
+            waitForAlert {
+                complete()
             }
-            guard let viewController = self.topMostViewController else { fail(identifier)
-                timer.invalidate()
-                return
-            }
-            if let parent = viewController.view {
-                if parent.accessibilityIdentifier == identifier || self.findView(view: parent, identifier: identifier) != nil {
-                    complete()
+        } else {
+            Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] timer in
+                guard let self = self else {
                     timer.invalidate()
                     return
                 }
-            }
-            runCount += 1
-            if runCount == self.attemptsMaximumNumber {
-                timer.invalidate()
-                fail(identifier)
+                guard let viewController = self.topMostViewController else { fail(identifier)
+                    timer.invalidate()
+                    return
+                }
+                if let parent = viewController.view {
+                    if parent.accessibilityIdentifier == identifier || self.findView(view: parent, identifier: identifier) != nil {
+                        complete()
+                        timer.invalidate()
+                        return
+                    }
+                }
+                runCount += 1
+                if runCount == self.attemptsMaximumNumber {
+                    timer.invalidate()
+                    fail(identifier)
+                }
             }
         }
     }

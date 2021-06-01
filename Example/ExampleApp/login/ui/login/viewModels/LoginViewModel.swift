@@ -25,7 +25,6 @@ struct LoginViewModel {
     }
 
     // MARK: METHODS
-
     func login(email: String, password: String) {
         repo.login(email: email, password: password, complete: {
             self.repo.data(complete: {
