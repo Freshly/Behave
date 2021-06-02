@@ -7,11 +7,12 @@
 import Foundation
 import UIKit
 
+
 public class Behaviour {
     /// Waiting time for each event
     public var testTimeInterval: TimeInterval = 10.0
     public var swiftui = false
-    private var events: [BDEvent]
+    internal var events: [BDEvent]
     var requests: [Stub]
 
     public init() {
@@ -22,6 +23,8 @@ public class Behaviour {
     var frameStart = 0.0
     var frameEnd = 0.0
     public var passesPerformanceTest = false
+    public var testPerformance = true
+    internal var performanceMetrics = [[String: Double]]()
 
     // MARK: - Methods
     
@@ -40,10 +43,14 @@ public class Behaviour {
     /// - Parameters:
     ///   - success: A completion block to execute after an element is detected
     ///   - fail: A completion block to execute after an element is not detected for expected time
-    public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+    public func run(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil, warn: ((_ error: String) -> Void)? = nil) {
         resetUI()
+        if testPerformance{
+            resetPerformance()
+            measurePerformance()
+        }
         if !swiftui {
-            runTests(success: success, fail: fail)
+            runTests(success: success, fail: fail, warn: warn)
         } else {
             runSwiftUITests(success: success, fail: fail)
         }
@@ -55,19 +62,27 @@ public class Behaviour {
         
     }
 
-    private func runTests(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+    private func runTests(success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil, warn: ((_ error: String) -> Void)? = nil) {
         if let event = events.first {
-            runHelper(event: event, success: success, fail: fail)
+            runHelper(event: event, success: success, fail: fail, warn: warn)
         } else {
-            success?()
+            if testPerformance {
+                if !passesPerformanceTest {
+                    warn?("Performing under 60fps: \n\n \(performanceMetrics)")
+                } else {
+                    success?()
+                }
+            } else {
+                success?()
+            }
         }
     }
 
-    private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil) {
+    private func runHelper(event: BDEvent, success: (() -> Void)? = nil, fail: ((_ error: String) -> Void)? = nil, warn: ((_ error: String) -> Void)? = nil) {
         wait(for: event.identifier, complete: { [weak self] in
             event.complete()
             self?.events.removeFirst()
-            self?.runTests(success: success, fail: fail)
+            self?.runTests(success: success, fail: fail, warn: warn)
         }, fail: { error in
             fail?(error)
         })

@@ -6,6 +6,7 @@
 //  Copyright © 2021 Freshly. All rights reserved.
 //
 import XCTest
+import UIKit
 @testable import Behave
 
 
